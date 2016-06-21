@@ -1,0 +1,6 @@
+﻿var TT = TT || {};
+
+TT.urls = TT.urls || {};
+
+TT.urls.user = TT.urls.user || {};
+TT.urls.user.list = @HttpUtility.UrlDecode(Url.Action("List", "User", routeValues: new { search = "{0}", pageNumber = "{1}" }))

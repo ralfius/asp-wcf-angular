@@ -1,0 +1,35 @@
+﻿@using Common.Resources
+
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<main class="row awa-page" ng-controller="UsersCtrl">
+    <div class="col-sm-12">@Titles.All_users</div>
+
+    <div class="col-sm-4">
+        <input class="" placeholder="@Titles.FirstName" ng-model="search.FirstName"/>
+    </div>
+    <div class="col-sm-4">
+        <input class="" placeholder="@Titles.LastName"  ng-model="search.LastName"/>
+    </div>
+    <div class="col-sm-4">
+        <input class="" placeholder="@Titles.Email" ng-model="search.Email"/>
+    </div>
+
+    <table class="awa-users">
+        <tr class="awa-user" ng-repeat="user in users">
+            <td>{{user.FirstName}}</td>
+            <td>{{user.LastName}}</td>
+            <td>{{user.Email}}</td>
+            <td class="awa-actions">
+                <button class="awa-edit">Edit</button>
+                <button class="awa-delete">Delete</button>
+            </td>
+        </tr>
+    </table>
+    <div class="awa-actions">
+        <button class="awa-add-user">@Titles.Add_new</button>
+    </div>
+</main>
