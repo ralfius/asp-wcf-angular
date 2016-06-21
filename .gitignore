@@ -1,29 +1,71 @@
-# Compiled Object files
-*.slo
-*.lo
-*.o
+# User-specific files
+*.suo
+*.user
+*.sln.docstates
+
+# Build results
+
+[Dd]ebug/
+[Rr]elease/
+x64/
+build/
+[Bb]in/
+[Oo]bj/
+
+# NuGet Packages
+*.nupkg
+# The packages folder can be ignored because of Package Restore
+**/packages/*
+# except build/, which is used as an MSBuild target.
+!**/packages/build/
+# Uncomment if necessary however generally it will be regenerated when needed
+#!**/packages/repositories.config
+
+# MSTest test Results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+*_i.c
+*_p.c
+*.ilk
+*.meta
 *.obj
-
-# Precompiled Headers
-*.gch
 *.pch
+*.pdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*.tmp
+*.tmp_proj
+*.log
+*.vspscc
+*.vssscc
+.builds
+*.pidb
+*.log
+*.scc
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
+# Visual Studio profiler
+*.psess
+*.vsp
+*.vspx
 
-# Fortran module files
-*.mod
-*.smod
+# ReSharper is a .NET coding add-in
+_ReSharper*/
+*.[Rr]e[Ss]harper
 
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
+# Click-Once directory
+publish/
 
-# Executables
-*.exe
-*.out
-*.app
+# Publish Web Output
+*.Publish.xml
+
+# svn
+.svn
+
+# Visual Studio temp
+.vs/
