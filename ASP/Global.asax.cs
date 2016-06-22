@@ -15,6 +15,10 @@ namespace ASP
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             DependencyConfig.Register();
+
+            var logService = DependencyResolver.Current.GetService<ILogService>();
+
+            logService.LogMessage("APPLICATION STARTED");
         }
 
         protected void Application_Error(object sender, EventArgs e)
@@ -24,6 +28,13 @@ namespace ASP
             var errorProcessingService = DependencyResolver.Current.GetService<IErrorProcessingService>();
 
             errorProcessingService.ProcessException(exc);
+        }
+
+        protected void Application_End()
+        {
+            var logService = DependencyResolver.Current.GetService<ILogService>();
+
+            logService.LogMessage("APPLICATION ENDED");
         }
     }
 }

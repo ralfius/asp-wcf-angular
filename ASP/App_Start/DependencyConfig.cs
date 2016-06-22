@@ -14,17 +14,27 @@ namespace ASP
         {
             var builder = new ContainerBuilder();
 
-            // You can register controllers all at once using assembly scanning...
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
 
-            // Scan an assembly for components
             builder.RegisterAssemblyTypes(typeof(ASP.BL.Services.UserService).Assembly)
                    .Where(t => t.Name.EndsWith("Service"))
-                   .AsImplementedInterfaces();
+                   .AsImplementedInterfaces()
+                   .InstancePerLifetimeScope();
 
             builder.RegisterAssemblyTypes(typeof(Common.Services.LogService).Assembly)
-                   .Where(t => t.Name.EndsWith("Service"))
-                   .AsImplementedInterfaces();
+                   .Where(t => t.Name.EndsWith("Service") 
+                       && !t.Name.Contains("Log")
+                       && !t.Name.Contains("ErrorProcessing"))
+                   .AsImplementedInterfaces()
+                   .InstancePerLifetimeScope();
+
+            builder.RegisterType<Common.Services.LogService>()
+                .AsImplementedInterfaces()
+                .SingleInstance();
+
+            builder.RegisterType<Common.Services.ErrorProcessingService>()
+                .AsImplementedInterfaces()
+                .SingleInstance();
 
             var container = builder.Build();
 

@@ -7,21 +7,23 @@ namespace Common.Services
 {
     public class LogService : ILogService
     {
-        private static readonly ILog log = LogManager.GetLogger(typeof(LogService));
+        private readonly ILog _log;
 
         public LogService()
         {
-            BasicConfigurator.Configure();
+            XmlConfigurator.Configure();
+
+            _log = LogManager.GetLogger(typeof(LogService));
         }
 
         public void LogException(Exception exc, string message = null)
         {
-            log.Error(message, exc);
+            _log.Error(message, exc);
         }
 
         public void LogMessage(string message)
         {
-            log.Error(message);
+            _log.Error(message);
         }
     }
 }

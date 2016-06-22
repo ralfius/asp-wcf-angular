@@ -69,3 +69,7 @@ publish/
 
 # Visual Studio temp
 .vs/
+
+# log files
+log.txt
+log4net.txt
