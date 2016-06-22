@@ -26,20 +26,21 @@ namespace WCF.ServiceContracts
             _usersRepository = usersRepository;
         }
 
-        public ServiceResult GetUsers(int pageNumber, int pageSize, string search)
+        public ServiceResult<PagedList<UserContract>> GetUsers(int pageNumber, int pageSize, string search)
         {
-            var result = new ServiceResult();
+            var result = new ServiceResult<PagedList<UserContract>>();
 
             try
             {
                 var users = _usersRepository.Users.Skip((pageNumber - 1)*pageSize).Take(pageSize).ToList();
 
-                //result.Data = new PagedList<UserContract>() {
-                //    PageNumber = pageNumber,
-                //    PageSize = pageSize,
-                //    TotalCount = users.Count,
-                //    Items = users.Select(UserTranslator.ToUserContract).ToList()
-                //};
+                result.Data = new PagedList<UserContract>()
+                {
+                    PageNumber = pageNumber,
+                    PageSize = pageSize,
+                    TotalCount = users.Count,
+                    Items = users.Select(UserTranslator.ToUserContract).ToList()
+                };
             }
             catch (Exception exc)
             {

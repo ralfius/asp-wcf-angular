@@ -31,22 +31,20 @@ namespace ASP.BL.Services
                     pageSize = DefaultValueConstants.PageSize;
                 }
 
-                
-                //using (var client = new WCFReference.UserServiceClient())
-                //{
-                //    var wcfResult = await client.GetUsersAsync(pageNumber, pageSize, search);
 
-                //    client.Close();
+                using (var client = new WCFReference.UserServiceClient())
+                {
+                    var wcfResult = await client.GetUsersAsync(pageNumber, pageSize, search);
 
-                //    if (wcfResult.Success)
-                //    {
-                        
-                //    }
-                //    else
-                //    {
-                //        //result.Set(wcfResult);
-                //    }
-                //}
+                    if (wcfResult.Success)
+                    {
+
+                    }
+                    else
+                    {
+                        //result.Set(wcfResult);
+                    }
+                }
             }
             catch (Exception exc)
             {

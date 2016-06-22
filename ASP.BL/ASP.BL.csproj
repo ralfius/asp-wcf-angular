@@ -7,8 +7,8 @@
     <ProjectGuid>{FAEE8CE3-F28C-4C00-9D26-48D8F6EF275C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Web.BL</RootNamespace>
-    <AssemblyName>Web.BL</AssemblyName>
+    <RootNamespace>ASP.BL</RootNamespace>
+    <AssemblyName>ASP.BL</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -45,6 +45,11 @@
     <Compile Include="Constants\DefaultValueConstants.cs" />
     <Compile Include="Interfaces\IUserService.cs" />
     <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Service References\WCFReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -63,6 +68,40 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Service References\WCFReference\ASP.BL.WCFReference.UserContract.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WCFReference\UserService.wsdl" />
+    <None Include="Service References\WCFReference\UserService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WCFReference\UserService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WCFReference\UserService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WCFReference\UserService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\WCFReference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WCFReference\UserService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WCFReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WCFReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WCFReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

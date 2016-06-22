@@ -6,14 +6,10 @@ using System.Web;
 
 namespace Common.Models
 {
-    [DataContract]
     public class ServiceResult 
     {
-        [DataMember]
         public StatusResult Status { get; set; }
-        [DataMember]
         public string Message { get; set; }
-        [DataMember]
         public bool Success => Status == StatusResult.Success;
 
         public void Set(ServiceResult origin)
@@ -23,10 +19,8 @@ namespace Common.Models
         }
     }
 
-    //[DataContract]
-    //public class ServiceResult<T> : ServiceResult
-    //{
-    //    [DataMember]
-    //    public T Data { get; set; }
-    //}
+    public class ServiceResult<T> : ServiceResult
+    {
+        public T Data { get; set; }
+    }
 }

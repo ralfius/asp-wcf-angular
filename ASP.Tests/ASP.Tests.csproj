@@ -6,8 +6,8 @@
     <ProjectGuid>{0ECF1F33-AFB1-4A6F-BD11-01C2CB1D64D8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Web.Tests</RootNamespace>
-    <AssemblyName>Web.Tests</AssemblyName>
+    <RootNamespace>ASP.Tests</RootNamespace>
+    <AssemblyName>ASP.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>

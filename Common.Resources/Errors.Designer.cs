@@ -61,7 +61,7 @@ namespace Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to There is an error with Web business logic.
+        ///   Looks up a localized string similar to There is an error with ASP business logic.
         /// </summary>
         public static string ASPBusinessLogicError {
             get {
@@ -70,7 +70,7 @@ namespace Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to There is an error with Web data access.
+        ///   Looks up a localized string similar to There is an error with ASP data access.
         /// </summary>
         public static string ASPDataAccessError {
             get {

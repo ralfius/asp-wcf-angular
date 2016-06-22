@@ -14,6 +14,6 @@ namespace WCF.Contracts
     public interface IUserService
     {
         [OperationContract]
-        ServiceResult GetUsers(int pageNumber, int pageSize, string search);
+        ServiceResult<PagedList<UserContract>> GetUsers(int pageNumber, int pageSize, string search);
     }
 }

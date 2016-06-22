@@ -6,7 +6,6 @@ using System.Web;
 
 namespace Common.Models
 {
-    [DataContract]
     public enum StatusResult
     {
         Success = 0,

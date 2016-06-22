@@ -127,9 +127,9 @@
     <value>There is an error with WCF data access</value>
   </data>
   <data name="ASPBusinessLogicError" xml:space="preserve">
-    <value>There is an error with Web business logic</value>
+    <value>There is an error with ASP business logic</value>
   </data>
   <data name="ASPDataAccessError" xml:space="preserve">
-    <value>There is an error with Web data access</value>
+    <value>There is an error with ASP data access</value>
   </data>
 </root>
