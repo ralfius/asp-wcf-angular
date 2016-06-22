@@ -20,19 +20,19 @@ namespace Common.Services
             _logService.LogException(exc);
         }
 
-        public void ProcessWebException(Exception exc, ServiceResult result)
+        public void ProcessASPException(Exception exc, ServiceResult result)
         {
             _logService.LogException(exc);
 
             if (exc is DataException)
             {
-                result.Status = StatusResult.WebDataAccessError;
-                result.Message = Errors.WebDataAccessError;
+                result.Status = StatusResult.ASPDataAccessError;
+                result.Message = Errors.ASPDataAccessError;
             }
             else
             {
-                result.Status = StatusResult.WebBusinessLogicError;
-                result.Message = Errors.WebBusinessLogicError;
+                result.Status = StatusResult.ASPBusinessLogicError;
+                result.Message = Errors.ASPBusinessLogicError;
             }
         }
 

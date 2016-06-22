@@ -126,10 +126,10 @@
   <data name="WCFDataAccessError" xml:space="preserve">
     <value>There is an error with WCF data access</value>
   </data>
-  <data name="WebBusinessLogicError" xml:space="preserve">
+  <data name="ASPBusinessLogicError" xml:space="preserve">
     <value>There is an error with Web business logic</value>
   </data>
-  <data name="WebDataAccessError" xml:space="preserve">
+  <data name="ASPDataAccessError" xml:space="preserve">
     <value>There is an error with Web data access</value>
   </data>
 </root>

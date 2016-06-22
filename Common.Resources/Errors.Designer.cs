@@ -61,6 +61,24 @@ namespace Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to There is an error with Web business logic.
+        /// </summary>
+        public static string ASPBusinessLogicError {
+            get {
+                return ResourceManager.GetString("ASPBusinessLogicError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There is an error with Web data access.
+        /// </summary>
+        public static string ASPDataAccessError {
+            get {
+                return ResourceManager.GetString("ASPDataAccessError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invalid model specified.
         /// </summary>
         public static string InvalidModel {
@@ -84,24 +102,6 @@ namespace Common.Resources {
         public static string WCFDataAccessError {
             get {
                 return ResourceManager.GetString("WCFDataAccessError", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to There is an error with Web business logic.
-        /// </summary>
-        public static string WebBusinessLogicError {
-            get {
-                return ResourceManager.GetString("WebBusinessLogicError", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to There is an error with Web data access.
-        /// </summary>
-        public static string WebDataAccessError {
-            get {
-                return ResourceManager.GetString("WebDataAccessError", resourceCulture);
             }
         }
     }

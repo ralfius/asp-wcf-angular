@@ -1015,7 +1015,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
-    <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
@@ -1023,10 +1022,13 @@
       <Project>{31d0d8e6-944b-4ea5-9918-51c008c044bd}</Project>
       <Name>Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Web.BL\Web.BL.csproj">
+    <ProjectReference Include="..\ASP.BL\ASP.BL.csproj">
       <Project>{faee8ce3-f28c-4c00-9d26-48d8f6ef275c}</Project>
-      <Name>Web.BL</Name>
+      <Name>ASP.BL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

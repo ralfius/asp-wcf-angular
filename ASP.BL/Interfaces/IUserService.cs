@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Common.Models;
-using Web.BL.Models;
+using ASP.BL.Models;
 
-namespace Web.BL.Interfaces
+namespace ASP.BL.Interfaces
 {
     public interface IUserService
     {

@@ -16,7 +16,7 @@ namespace Common.Models
         WCFDataAccessError = 102,
 
 
-        WebBusinessLogicError = 201,
-        WebDataAccessError = 202
+        ASPBusinessLogicError = 201,
+        ASPDataAccessError = 202
     }
 }

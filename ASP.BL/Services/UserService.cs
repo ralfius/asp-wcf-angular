@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Common.Interfaces;
 using Common.Models;
-using Web.BL.Constants;
-using Web.BL.Interfaces;
-using Web.BL.Models;
+using ASP.BL.Constants;
+using ASP.BL.Interfaces;
+using ASP.BL.Models;
 
-namespace Web.BL.Services
+namespace ASP.BL.Services
 {
     public class UserService : IUserService
     {
@@ -50,7 +50,7 @@ namespace Web.BL.Services
             }
             catch (Exception exc)
             {
-                _errorProcessingService.ProcessWebException(exc, result);
+                _errorProcessingService.ProcessASPException(exc, result);
             }
 
             return result;

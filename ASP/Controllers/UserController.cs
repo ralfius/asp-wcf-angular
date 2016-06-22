@@ -4,10 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using Web.BL.Interfaces;
-using Web.Helpers;
+using ASP.BL.Interfaces;
+using ASP.Helpers;
 
-namespace Web.Controllers
+namespace ASP.Controllers
 {
     public class UserController : Controller
     {

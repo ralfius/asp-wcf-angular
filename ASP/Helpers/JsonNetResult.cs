@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using Newtonsoft.Json;
 
-namespace Web.Helpers
+namespace ASP.Helpers
 {
     public class JsonNetResult : JsonResult
     {
