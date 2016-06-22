@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Common.Models
 {
-    public enum StatusResult
+    public enum ServiceStatus
     {
         Success = 0,
         InvalidModel = 1,

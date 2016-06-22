@@ -49,7 +49,7 @@
     <Compile Include="Interfaces\ILogService.cs" />
     <Compile Include="Models\PagedList.cs" />
     <Compile Include="Models\ServiceResult.cs" />
-    <Compile Include="Models\StatusResult.cs" />
+    <Compile Include="Models\ServiceStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ErrorProcessingService.cs" />
     <Compile Include="Services\LogService.cs" />

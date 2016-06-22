@@ -33,6 +33,7 @@ namespace ASP
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
                 "~/Scripts/app/app.js",
 
+                "~/Scripts/app/services/errorProcessingService.js",
                 "~/Scripts/app/services/httpConnectionService.js",
 
                 "~/Scripts/app/services/userService.js",

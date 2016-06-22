@@ -21,7 +21,7 @@ namespace ASP.Helpers
 
         public static JsonNetResult GetInvalidModelResult(string validationError, JsonRequestBehavior requestBehavior)
         {
-            return new JsonNetResult() { Data = new { status = StatusResult.InvalidModel, message = validationError }, JsonRequestBehavior = requestBehavior };
+            return new JsonNetResult() { Data = new { Status = ServiceStatus.InvalidModel, Message = validationError }, JsonRequestBehavior = requestBehavior };
         }
 
         //private static object GetCommonResponseObject<T>(ServiceResult<T> serviceResult)
@@ -31,7 +31,7 @@ namespace ASP.Helpers
 
         private static object GetCommonResponseObject(ServiceResult serviceResult)
         {
-            return new { status = serviceResult.Status, message = serviceResult.Message };
+            return new { Status = serviceResult.Status, Message = serviceResult.Message };
         }
     }
 }

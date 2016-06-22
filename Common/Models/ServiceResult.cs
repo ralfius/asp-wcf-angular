@@ -8,9 +8,9 @@ namespace Common.Models
 {
     public class ServiceResult 
     {
-        public StatusResult Status { get; set; }
+        public ServiceStatus Status { get; set; }
         public string Message { get; set; }
-        public bool Success => Status == StatusResult.Success;
+        public bool Success => Status == ServiceStatus.Success;
 
         public void Set(ServiceResult origin)
         {

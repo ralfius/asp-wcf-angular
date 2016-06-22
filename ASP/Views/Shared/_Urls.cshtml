@@ -1,6 +1,6 @@
-﻿var TT = TT || {};
+﻿var AWA = AWA || {};
 
-TT.urls = TT.urls || {};
+AWA.urls = AWA.urls || {};
 
-TT.urls.user = TT.urls.user || {};
-TT.urls.user.list = @HttpUtility.UrlDecode(Url.Action("List", "User", routeValues: new { search = "{0}", pageNumber = "{1}" }))
+AWA.urls.user = AWA.urls.user || {};
+AWA.urls.user.list = "@Html.Raw(HttpUtility.UrlDecode(Url.Action("List", "User", routeValues: new { search = "{0}", pageNumber = "{1}" })))"

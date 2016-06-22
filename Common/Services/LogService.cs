@@ -5,7 +5,7 @@ using log4net.Config;
 
 namespace Common.Services
 {
-    class LogService : ILogService
+    public class LogService : ILogService
     {
         private static readonly ILog log = LogManager.GetLogger(typeof(LogService));
 

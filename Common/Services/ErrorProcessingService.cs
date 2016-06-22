@@ -26,12 +26,12 @@ namespace Common.Services
 
             if (exc is DataException)
             {
-                result.Status = StatusResult.ASPDataAccessError;
+                result.Status = ServiceStatus.ASPDataAccessError;
                 result.Message = Errors.ASPDataAccessError;
             }
             else
             {
-                result.Status = StatusResult.ASPBusinessLogicError;
+                result.Status = ServiceStatus.ASPBusinessLogicError;
                 result.Message = Errors.ASPBusinessLogicError;
             }
         }
@@ -42,12 +42,12 @@ namespace Common.Services
 
             if (exc is DataException)
             {
-                result.Status = StatusResult.WCFDataAccessError;
+                result.Status = ServiceStatus.WCFDataAccessError;
                 result.Message = Errors.WCFDataAccessError;
             }
             else
             {
-                result.Status = StatusResult.WCFBusinessLogicError;
+                result.Status = ServiceStatus.WCFBusinessLogicError;
                 result.Message = Errors.WCFBusinessLogicError;
             }
         }

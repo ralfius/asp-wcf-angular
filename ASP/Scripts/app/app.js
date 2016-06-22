@@ -1,4 +1,4 @@
-﻿angular.module('testTask', []).
+﻿angular.module('aspWcfAngular', []).
     config(function() { // provider-injector
         // This is an example of config block.
         // You can have as many of these as you want.
