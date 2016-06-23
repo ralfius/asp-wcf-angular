@@ -14,7 +14,8 @@ namespace WCF.Translators
             var result = new UserContract() {
                 UserId = entity.Id,
                 FirstName = entity.FirstName,
-                LastName = entity.LastName
+                LastName = entity.LastName,
+                Email = entity.Email
             };
 
             return result;

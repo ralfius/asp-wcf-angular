@@ -10,6 +10,14 @@ namespace WCF
         {
             var builder = new ContainerBuilder();
 
+            builder.RegisterType<WCF.ServiceContracts.UserService>()
+                .As<WCF.Contracts.IUserService>();
+
+            //builder.RegisterAssemblyTypes(typeof(WCF.ServiceContracts.UserService).Assembly)
+            //    .Where(t => t.Name.EndsWith("Service"))
+            //    .AsImplementedInterfaces()
+            //    .InstancePerLifetimeScope();
+
             builder.RegisterAssemblyTypes(typeof(Common.Services.LogService).Assembly)
                 .Where(t => t.Name.EndsWith("Service")
                     && !t.Name.Contains("Log")

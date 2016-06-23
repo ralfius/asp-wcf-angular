@@ -9,9 +9,9 @@ namespace ASP.Helpers
 {
     public static class JsonHelper
     {
-        public static JsonNetResult GetJsonNetResult<T>(ServiceResult serviceResult, JsonRequestBehavior requestBehavior)
+        public static JsonNetResult GetJsonNetResult<T>(ServiceResult<T> serviceResult, JsonRequestBehavior requestBehavior)
         {
-            return new JsonNetResult() { Data = GetCommonResponseObject(serviceResult), JsonRequestBehavior = requestBehavior };
+            return new JsonNetResult() { Data = GetCommonResponseObject<T>(serviceResult), JsonRequestBehavior = requestBehavior };
         }
 
         public static JsonNetResult GetJsonNetResult(ServiceResult serviceResult, JsonRequestBehavior requestBehavior)
@@ -24,10 +24,10 @@ namespace ASP.Helpers
             return new JsonNetResult() { Data = new { Status = ServiceStatus.InvalidModel, Message = validationError }, JsonRequestBehavior = requestBehavior };
         }
 
-        //private static object GetCommonResponseObject<T>(ServiceResult<T> serviceResult)
-        //{
-        //    return new { status = serviceResult.Status, message = serviceResult.Message, data = serviceResult.Data };
-        //}
+        private static object GetCommonResponseObject<T>(ServiceResult<T> serviceResult)
+        {
+            return new { Status = serviceResult.Status, Message = serviceResult.Message, Data = serviceResult.Data };
+        }
 
         private static object GetCommonResponseObject(ServiceResult serviceResult)
         {

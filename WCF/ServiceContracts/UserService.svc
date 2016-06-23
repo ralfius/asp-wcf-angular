@@ -1,1 +1,3 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="WCF.Contracts.IUserService, WCF" Factory="Autofac.Integration.Wcf.AutofacServiceHostFactory, Autofac.Integration.Wcf" %>
+﻿<%@ ServiceHost
+    Service="WCF.Contracts.IUserService, WCF"
+    Factory="Autofac.Integration.Wcf.AutofacServiceHostFactory, Autofac.Integration.Wcf" %>

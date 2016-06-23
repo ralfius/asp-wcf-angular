@@ -8,6 +8,7 @@ using Common.Models;
 using ASP.BL.Constants;
 using ASP.BL.Interfaces;
 using ASP.BL.Models;
+using ASP.BL.Translators;
 
 namespace ASP.BL.Services
 {
@@ -20,9 +21,9 @@ namespace ASP.BL.Services
             _errorProcessingService = errorProcessingService;
         }
 
-        public async Task<ServiceResult> GetUsersAsync(int pageNumber, string search = null, int pageSize = 0)
+        public async Task<ServiceResult<PagedList<UserModel>>> GetUsersAsync(int pageNumber, string search = null, int pageSize = 0)
         {
-            var result = new ServiceResult();
+            var result = new ServiceResult<PagedList<UserModel>>();
 
             try
             {
@@ -38,11 +39,15 @@ namespace ASP.BL.Services
 
                     if (wcfResult.Success)
                     {
+                        var users = wcfResult.Data;
 
+                        result.Data = new PagedList<UserModel>();
+                        result.Data.Set(users);
+                        result.Data.Items = users.Items.Select(UserTranslator.ToUserModel).ToList();
                     }
                     else
                     {
-                        //result.Set(wcfResult);
+                        result.Set(wcfResult);
                     }
                 }
             }

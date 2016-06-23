@@ -24,11 +24,11 @@
   <xs:complexType name="ServiceResult">
     <xs:sequence>
       <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Status" type="tns:StatusResult" />
+      <xs:element minOccurs="0" name="Status" type="tns:ServiceStatus" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ServiceResult" nillable="true" type="tns:ServiceResult" />
-  <xs:simpleType name="StatusResult">
+  <xs:simpleType name="ServiceStatus">
     <xs:restriction base="xs:string">
       <xs:enumeration value="Success" />
       <xs:enumeration value="InvalidModel" />
@@ -62,7 +62,7 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  <xs:element name="StatusResult" nillable="true" type="tns:StatusResult" />
+  <xs:element name="ServiceStatus" nillable="true" type="tns:ServiceStatus" />
   <xs:complexType name="PagedListOfUserContract2JvQdMSS">
     <xs:annotation>
       <xs:appinfo>
@@ -71,12 +71,21 @@
         </GenericType>
       </xs:appinfo>
     </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PagedList">
+        <xs:sequence>
+          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/WCF.DataContracts" minOccurs="0" name="Items" nillable="true" type="q1:ArrayOfUserContract" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PagedListOfUserContract2JvQdMSS" nillable="true" type="tns:PagedListOfUserContract2JvQdMSS" />
+  <xs:complexType name="PagedList">
     <xs:sequence>
-      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/WCF.DataContracts" minOccurs="0" name="Items" nillable="true" type="q1:ArrayOfUserContract" />
       <xs:element minOccurs="0" name="PageNumber" type="xs:int" />
       <xs:element minOccurs="0" name="PageSize" type="xs:int" />
       <xs:element minOccurs="0" name="TotalCount" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="PagedListOfUserContract2JvQdMSS" nillable="true" type="tns:PagedListOfUserContract2JvQdMSS" />
+  <xs:element name="PagedList" nillable="true" type="tns:PagedList" />
 </xs:schema>

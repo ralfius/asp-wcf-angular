@@ -16,13 +16,13 @@ namespace WCF.DAL.Repositories
                     Email = "user1@test.com"
                 },
                 new User() {
-                    Id = 1,
+                    Id = 2,
                     FirstName = "User2",
                     LastName = "User2",
                     Email = "user2@test.com"
                 },
                 new User() {
-                    Id = 1,
+                    Id = 3,
                     FirstName = "User3",
                     LastName = "User3",
                     Email = "user3@test.com"
