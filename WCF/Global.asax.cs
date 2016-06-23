@@ -13,16 +13,11 @@ namespace WCF
 
         protected void Application_Start(object sender, EventArgs e)
         {
-            var builder = new ContainerBuilder();
+            DependencyConfig.Register();
 
-            // Register your service implementations.
-            builder.RegisterType<UserService>().AsImplementedInterfaces();
-            builder.RegisterType<ErrorProcessingService>().AsImplementedInterfaces();
-            builder.RegisterType<UsersRepository>().AsImplementedInterfaces();
-            
-            // Set the dependency resolver.
-            var container = builder.Build();
-            AutofacHostFactory.Container = container;
+            var logService = AutofacHostFactory.Container.Resolve<ILogService>();
+
+            logService.LogMessage("APPLICATION STARTED");
         }
 
         protected void Session_Start(object sender, EventArgs e)
@@ -42,7 +37,11 @@ namespace WCF
 
         protected void Application_Error(object sender, EventArgs e)
         {
+            Exception exc = Server.GetLastError();
 
+            var logService = AutofacHostFactory.Container.Resolve<ILogService>();
+
+            logService.LogMessage("APPLICATION STARTED");
         }
 
         protected void Session_End(object sender, EventArgs e)
@@ -52,7 +51,9 @@ namespace WCF
 
         protected void Application_End(object sender, EventArgs e)
         {
+            var logService = AutofacHostFactory.Container.Resolve<ILogService>();
 
+            logService.LogMessage("APPLICATION ENDED");
         }
     }
 }

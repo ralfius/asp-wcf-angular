@@ -23,7 +23,7 @@ namespace Common.Services
 
         public void LogMessage(string message)
         {
-            _log.Error(message);
+            _log.Info(message);
         }
     }
 }
