@@ -1,11 +1,9 @@
-﻿body {
-  padding-top: 50px;
-  padding-bottom: 20px;
+﻿html {
+  font-size: 10px;
 }
-/* Set padding to keep content from hitting the edges */
-.body-content {
-  padding-left: 15px;
-  padding-right: 15px;
+body {
+  padding-top: 5rem;
+  padding-bottom: 2rem;
 }
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
@@ -17,5 +15,22 @@
 input,
 select,
 textarea {
-  max-width: 280px;
+  max-width: 28rem;
+}
+.awa-users-page .awa-search-form {
+  margin-bottom: 2rem;
+}
+.awa-users-page .awa-users {
+  table-layout: fixed;
+  width: 100%;
+}
+.awa-users-page .awa-users td {
+  vertical-align: middle;
+}
+.awa-users-page .awa-users .awa-actions {
+  text-align: left;
+  width: 15rem;
+}
+.awa-users-page .awa-actions {
+  text-align: right;
 }
