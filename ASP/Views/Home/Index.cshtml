@@ -1,5 +1,4 @@
 ﻿@using Common.Resources
-@model string
 
 @{
     ViewBag.Title = "Home Page";
@@ -9,7 +8,8 @@
     <h3 class="col-sm-12">@Titles.All_users</h3>
 
     @using (Html.BeginForm("", "", FormMethod.Get, htmlAttributes: new Dictionary<string, object> {
-        { "class", "form-inline col-sm-12 awa-search-form" }
+        { "class", "form-inline col-sm-12 awa-search-form" },
+        { "validate-submit", "initSearch()" }
     }))
     {
         <div class="form-group">
@@ -58,3 +58,7 @@
         </button>
     </div>
 </main>
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}

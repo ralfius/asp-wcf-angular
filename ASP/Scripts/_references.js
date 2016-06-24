@@ -16,6 +16,7 @@
 /// <reference path="angular-touch.js" />
 /// <reference path="app/app.js" />
 /// <reference path="app/controllers/usersCtrl.js" />
+/// <reference path="app/directives/validatesubmit.js" />
 /// <reference path="app/services/errorprocessingservice.js" />
 /// <reference path="app/services/httpConnectionService.js" />
 /// <reference path="app/services/userService.js" />
