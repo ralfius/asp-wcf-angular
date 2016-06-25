@@ -17,14 +17,15 @@
             @Html.TextBox("Search", null, htmlAttributes: new Dictionary<string, object> {
                 { "class", "form-control" },
                 { "placeholder", Messages.SearchText },
-                { "ng-model", "search" }
+                { "ng-model", "search" },
+                { "autocomplete", "off" }
             })
         </div>
         <button type="submit" class="btn btn-info">@Titles.Find</button>
     }
 
     <div class="col-sm-12">
-        <table class="table table-striped table-condensed awa-users">
+        <table class="table table-striped table-condensed awa-users" ng-if="usersPage.Items.length">
             <thead>
                 <tr>
                     <td>@Titles.First_name</td>
@@ -49,6 +50,7 @@
                 </td>
             </tr>
         </table>
+        <h4 ng-if="!usersPage.Items.length">@Titles.NoUsers</h4>
     </div>
 
     <div class="col-sm-12 awa-actions">

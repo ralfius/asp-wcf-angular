@@ -14,7 +14,7 @@
                 //} 
 
                 //TODO: create format filter
-                var url = AWA.urls.user.list.replace('{0}', search || 'lol').replace('{1}', pageNumber || 1);
+                var url = AWA.urls.user.list.replace('{0}', search || '').replace('{1}', pageNumber || 1);
 
                 return httpConnectionService.get(url);
             };

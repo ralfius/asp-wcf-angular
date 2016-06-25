@@ -21,7 +21,7 @@ namespace ASP.BL.Services
             _errorProcessingService = errorProcessingService;
         }
 
-        public async Task<ServiceResult<PagedList<UserModel>>> GetUsersAsync(int pageNumber, string search = null, int pageSize = 0)
+        public async Task<ServiceResult<PagedList<UserModel>>> GetUsersAsync(int pageNumber, string search, int pageSize = 0)
         {
             var result = new ServiceResult<PagedList<UserModel>>();
 

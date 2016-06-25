@@ -10,6 +10,6 @@ namespace ASP.BL.Interfaces
 {
     public interface IUserService
     {
-        Task<ServiceResult<PagedList<UserModel>>> GetUsersAsync(int pageNumber, string search = null, int pageSize = 0);
+        Task<ServiceResult<PagedList<UserModel>>> GetUsersAsync(int pageNumber, string search, int pageSize = 0);
     }
 }

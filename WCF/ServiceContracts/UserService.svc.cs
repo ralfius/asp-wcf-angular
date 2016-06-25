@@ -32,7 +32,14 @@ namespace WCF.ServiceContracts
 
             try
             {
-                var users = _usersRepository.Users.Skip((pageNumber - 1)*pageSize).Take(pageSize).ToList();
+                var usersQuery = _usersRepository.Users;
+
+                if (!string.IsNullOrWhiteSpace(search))
+                {
+                    usersQuery = usersQuery.Where(user => user.FirstName.Contains(search) || user.LastName.Contains(search) || user.Email.Contains(search));
+                }
+
+                var users = usersQuery.Skip((pageNumber - 1)*pageSize).Take(pageSize).ToList();
 
                 result.Data = new PagedList<UserContract>()
                 {

@@ -10,9 +10,6 @@
                 restrict: 'A',
                 link: function(scope, $el, attrs, ctrls) {
                     $el.bind('submit', function (event) {
-                        //preventing default form submition
-                        event.preventDefault();
-
                         var form = angular.element(event.target);
                         
                         if (form.validate) {
@@ -35,6 +32,9 @@
 
                             scope.$apply(scope.submitCallback);
                         }
+
+                        //preventing default form submition
+                        event.preventDefault();
 
                         return false;
                     });

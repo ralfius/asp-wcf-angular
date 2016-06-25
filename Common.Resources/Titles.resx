@@ -144,6 +144,9 @@
   <data name="Last_name" xml:space="preserve">
     <value>Last name</value>
   </data>
+  <data name="NoUsers" xml:space="preserve">
+    <value>No users found</value>
+  </data>
   <data name="Search" xml:space="preserve">
     <value>Search</value>
   </data>

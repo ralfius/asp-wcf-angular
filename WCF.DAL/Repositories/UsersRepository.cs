@@ -30,6 +30,6 @@ namespace WCF.DAL.Repositories
             };
         }
 
-        public List<User> Users { get; }
+        public IEnumerable<User> Users { get; }
     }
 }
