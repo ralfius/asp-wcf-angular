@@ -1,7 +1,15 @@
 ﻿@using Common.Models
+@using Common.Resources;
 
 var AWA = AWA || {};
 
-AWA.statuses = AWA.statuses || {};
+AWA.enums = AWA.enums || {};
+AWA.enums.status = AWA.enums.status || {};
+AWA.enums.status.success = '@ServiceStatus.Success';
 
-AWA.statuses.success = '@ServiceStatus.Success';
+AWA.resources = AWA.resources || {};
+AWA.resources.title = AWA.resources.title || {};
+AWA.resources.title.Delete_user = '@Titles.Delete_user';
+
+AWA.resources.message = AWA.resources.message || {};
+AWA.resources.message.SureToDeleteUser = '@Messages.SureToDeleteUser';

@@ -10,6 +10,6 @@
         };
 
         this.canProcessServerResponse = function (response) {
-            return response.status == 200 && response.data.Status === AWA.statuses.success;
+            return response.status == 200 && response.data.Status === AWA.enums.status.success;
         };
     }]);

@@ -120,4 +120,7 @@
   <data name="SearchText" xml:space="preserve">
     <value>Enter search text</value>
   </data>
+  <data name="SureToDeleteUser" xml:space="preserve">
+    <value>Are you sure you want to delete {0}?</value>
+  </data>
 </root>

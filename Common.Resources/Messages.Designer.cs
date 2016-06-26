@@ -68,5 +68,14 @@ namespace Common.Resources {
                 return ResourceManager.GetString("SearchText", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to delete {0}?.
+        /// </summary>
+        public static string SureToDeleteUser {
+            get {
+                return ResourceManager.GetString("SureToDeleteUser", resourceCulture);
+            }
+        }
     }
 }

@@ -1,6 +1,6 @@
 ﻿angular.module('aspWcfAngular')
-    .controller('UsersCtrl', ['$scope', 'userService',
-        function ($scope, userService) {
+    .controller('UsersCtrl', ['$scope', 'dialogService', 'userService',
+        function ($scope, dialogService, userService) {
             $scope.search = '';
             $scope.usersPage = { PageNumber: 1 };
 
@@ -13,23 +13,32 @@
 
             var init = function () {
                 getUsers();
-            }
+            };
 
             $scope.initSearch = function () {
                 userService.getUsers($scope.search, 1)
                     .then(function (data) {
                         $scope.usersPage = data;
                     });
-            }
+            };
 
             $scope.nextPage = function () {
-                if (!$scope.usersPage.IsLastpage){
+                if (!$scope.usersPage.IsLastpage) {
                     userService.getUsers($scope.search, $scope.usersPage.PageNumber + 1)
                         .then(function (data) {
                             $scope.usersPage = data;
                         });
                 }
-            }
+            };
+
+            $scope.delete = function (user) {
+                var message = String.format(AWA.resources.message.SureToDeleteUser, user.FirstName + ' ' + user.LastName);
+
+                dialogService.openYesNoDialog(AWA.resources.title.Delete_user, message)
+                    .then(function () {
+                        alert('Deleted!');
+                    });
+            };
 
             init();
         }

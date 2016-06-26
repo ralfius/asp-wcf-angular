@@ -221,7 +221,10 @@
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\app\controllers\usersCtrl.js" />
+    <Content Include="Scripts\app\controllers\yesNoDialogCtrl.js" />
     <Content Include="Scripts\app\directives\validateSubmit.js" />
+    <Content Include="Scripts\app\helpers.js" />
+    <Content Include="Scripts\app\services\dialogService.js" />
     <Content Include="Scripts\app\services\errorProcessingService.js" />
     <Content Include="Scripts\app\services\httpConnectionService.js" />
     <Content Include="Scripts\app\services\userService.js" />
@@ -1013,12 +1016,12 @@
     <Content Include="Scripts\version.json" />
     <Content Include="Views\Shared\_Urls.cshtml" />
     <Content Include="Views\Shared\_Resources.cshtml" />
+    <Content Include="Views\Shared\_YesNoDialog.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="Scripts\app\filters\" />
-    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

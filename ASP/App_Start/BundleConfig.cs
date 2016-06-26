@@ -33,15 +33,18 @@ namespace ASP
                 "~/Scripts/angular.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
+                "~/Scripts/app/helpers.js",
                 "~/Scripts/app/app.js",
 
                 "~/Scripts/app/directives/validateSubmit.js",
 
                 "~/Scripts/app/services/errorProcessingService.js",
                 "~/Scripts/app/services/httpConnectionService.js",
+                "~/Scripts/app/services/dialogService.js",
 
                 "~/Scripts/app/services/userService.js",
 
+                "~/Scripts/app/controllers/yesNoDialogCtrl.js",
                 "~/Scripts/app/controllers/usersCtrl.js"));
         }
     }

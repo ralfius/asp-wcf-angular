@@ -1,0 +1,12 @@
+﻿@using Common.Resources
+
+<div class="modal-header">
+    <h4 class="modal-title">{{content.title}}</h4>
+</div>
+<div class="modal-body">
+    <h5>{{content.message}}</h5>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-danger" type="button" ng-click="$close()">@Titles.Yes</button>
+    <button class="btn btn-default" type="button" ng-click="$dismiss()">@Titles.No</button>
+</div>
