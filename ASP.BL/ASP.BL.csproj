@@ -69,6 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Properties\DataSources\Common.Models.ServiceResult.datasource" />
     <None Include="Service References\WCFReference\ASP.BL.WCFReference.UserContract.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

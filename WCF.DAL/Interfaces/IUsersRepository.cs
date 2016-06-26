@@ -9,6 +9,6 @@ namespace WCF.DAL.Interfaces
 {
     public interface IUsersRepository
     {
-        IEnumerable<User> Users { get; }
+        IList<User> Users { get; }
     }
 }

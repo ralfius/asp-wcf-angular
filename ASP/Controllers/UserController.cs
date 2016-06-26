@@ -25,5 +25,13 @@ namespace ASP.Controllers
 
             return JsonHelper.GetJsonNetResult(serviceResult, JsonRequestBehavior.AllowGet);
         }
+
+        [HttpPost]
+        public async Task<JsonResult> Delete(int userId)
+        {
+            var serviceResult = await _userService.DeleteUserAsync(userId);
+
+            return JsonHelper.GetJsonNetResult(serviceResult, JsonRequestBehavior.DenyGet);
+        }
     }
 }

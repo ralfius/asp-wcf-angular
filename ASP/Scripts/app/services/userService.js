@@ -19,6 +19,15 @@
                 return httpConnectionService.get(url);
             };
 
-            return { getUsers: getUsers };
+            var deleteUser = function (user) {
+                var url = AWA.urls.user.delete;
+
+                return httpConnectionService.post(url, { userId: user.UserId });
+            };
+
+            return {
+                getUsers: getUsers,
+                deleteUser: deleteUser
+            };
         }
     ]);

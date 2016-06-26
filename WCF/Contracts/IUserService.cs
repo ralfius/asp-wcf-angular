@@ -15,5 +15,8 @@ namespace WCF.Contracts
     {
         [OperationContract]
         ServiceResult<PagedList<UserContract>> GetUsers(int pageNumber, int pageSize, string search);
+
+        [OperationContract]
+        ServiceResult DeleteUser(int userId);
     }
 }

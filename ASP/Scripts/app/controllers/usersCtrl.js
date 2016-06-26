@@ -15,6 +15,13 @@
                 getUsers();
             };
 
+            var refreshPage = function () {
+                userService.getUsers($scope.search, $scope.usersPage.PageNumber)
+                    .then(function (data) {
+                        $scope.usersPage = data;
+                    });
+            };
+            
             $scope.initSearch = function () {
                 userService.getUsers($scope.search, 1)
                     .then(function (data) {
@@ -36,7 +43,9 @@
 
                 dialogService.openYesNoDialog(AWA.resources.title.Delete_user, message)
                     .then(function () {
-                        alert('Deleted!');
+                        userService.deleteUser(user).then(function () {
+                            refreshPage();
+                        });
                     });
             };
 

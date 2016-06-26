@@ -9,6 +9,7 @@ using ASP.BL.Constants;
 using ASP.BL.Interfaces;
 using ASP.BL.Models;
 using ASP.BL.Translators;
+using Common.Resources;
 
 namespace ASP.BL.Services
 {
@@ -19,6 +20,35 @@ namespace ASP.BL.Services
         public UserService(IErrorProcessingService errorProcessingService)
         {
             _errorProcessingService = errorProcessingService;
+        }
+
+
+        public async Task<ServiceResult> DeleteUserAsync(int userId)
+        {
+            var result = new ServiceResult();
+
+            try
+            {
+                using (var client = new WCFReference.UserServiceClient())
+                {
+                    var wcfResult = await client.DeleteUserAsync(userId);
+
+                    if (!wcfResult.Success)
+                    {
+                        result.Set(wcfResult);
+                    }
+                    else
+                    {
+                        result.Message = Messages.UserDeletedSuccessfully;
+                    }
+                }
+            }
+            catch(Exception exc)
+            {
+                _errorProcessingService.ProcessASPException(exc, result);
+            }
+
+            return result;
         }
 
         public async Task<ServiceResult<PagedList<UserModel>>> GetUsersAsync(int pageNumber, string search, int pageSize = 0)

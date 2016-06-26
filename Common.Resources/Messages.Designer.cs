@@ -77,5 +77,14 @@ namespace Common.Resources {
                 return ResourceManager.GetString("SureToDeleteUser", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The user is successfully deleted.
+        /// </summary>
+        public static string UserDeletedSuccessfully {
+            get {
+                return ResourceManager.GetString("UserDeletedSuccessfully", resourceCulture);
+            }
+        }
     }
 }

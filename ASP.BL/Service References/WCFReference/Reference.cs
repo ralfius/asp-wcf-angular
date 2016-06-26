@@ -115,6 +115,13 @@ namespace ASP.BL.WCFReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetUsers", ReplyAction="http://tempuri.org/IUserService/GetUsersResponse")]
         System.Threading.Tasks.Task<Common.Models.ServiceResult<Common.Models.PagedList<ASP.BL.WCFReference.UserContract>>> GetUsersAsync(int pageNumber, int pageSize, string search);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/DeleteUser", ReplyAction="http://tempuri.org/IUserService/DeleteUserResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Common.Models.ServiceResult<Common.Models.PagedList<ASP.BL.WCFReference.UserContract>>))]
+        Common.Models.ServiceResult DeleteUser(int userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/DeleteUser", ReplyAction="http://tempuri.org/IUserService/DeleteUserResponse")]
+        System.Threading.Tasks.Task<Common.Models.ServiceResult> DeleteUserAsync(int userId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -150,6 +157,14 @@ namespace ASP.BL.WCFReference {
         
         public System.Threading.Tasks.Task<Common.Models.ServiceResult<Common.Models.PagedList<ASP.BL.WCFReference.UserContract>>> GetUsersAsync(int pageNumber, int pageSize, string search) {
             return base.Channel.GetUsersAsync(pageNumber, pageSize, search);
+        }
+        
+        public Common.Models.ServiceResult DeleteUser(int userId) {
+            return base.Channel.DeleteUser(userId);
+        }
+        
+        public System.Threading.Tasks.Task<Common.Models.ServiceResult> DeleteUserAsync(int userId) {
+            return base.Channel.DeleteUserAsync(userId);
         }
     }
 }

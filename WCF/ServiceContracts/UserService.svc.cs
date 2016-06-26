@@ -32,7 +32,7 @@ namespace WCF.ServiceContracts
 
             try
             {
-                var usersQuery = _usersRepository.Users;
+                var usersQuery = _usersRepository.Users.AsEnumerable();
 
                 if (!string.IsNullOrWhiteSpace(search))
                 {
@@ -48,6 +48,32 @@ namespace WCF.ServiceContracts
                     TotalCount = users.Count,
                     Items = users.Select(UserTranslator.ToUserContract).ToList()
                 };
+            }
+            catch (Exception exc)
+            {
+                _errorProcessingService.ProcessWcfException(exc, result);
+            }
+
+            return result;
+        }
+
+
+        public ServiceResult DeleteUser(int userId)
+        {
+            var result = new ServiceResult();
+
+            try
+            {
+                var foundUser = _usersRepository.Users.Where(user => user.Id == userId).FirstOrDefault();
+
+                if (foundUser == null)
+                {
+                    result.Status = ServiceStatus.UserNotFound;
+                }
+                else
+                {
+                    _usersRepository.Users.Remove(foundUser);
+                }
             }
             catch (Exception exc)
             {

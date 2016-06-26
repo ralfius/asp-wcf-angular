@@ -123,4 +123,7 @@
   <data name="SureToDeleteUser" xml:space="preserve">
     <value>Are you sure you want to delete {0}?</value>
   </data>
+  <data name="UserDeletedSuccessfully" xml:space="preserve">
+    <value>The user is successfully deleted</value>
+  </data>
 </root>

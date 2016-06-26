@@ -32,6 +32,7 @@
     <xs:restriction base="xs:string">
       <xs:enumeration value="Success" />
       <xs:enumeration value="InvalidModel" />
+      <xs:enumeration value="UserNotFound" />
       <xs:enumeration value="WCFBusinessLogicError">
         <xs:annotation>
           <xs:appinfo>

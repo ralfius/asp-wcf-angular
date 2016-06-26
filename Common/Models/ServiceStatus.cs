@@ -10,6 +10,7 @@ namespace Common.Models
     {
         Success = 0,
         InvalidModel = 1,
+        UserNotFound = 2,
 
         WCFBusinessLogicError = 101,
         WCFDataAccessError = 102,
