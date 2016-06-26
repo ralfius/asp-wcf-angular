@@ -41,10 +41,12 @@ namespace ASP
                 "~/Scripts/app/services/errorProcessingService.js",
                 "~/Scripts/app/services/httpConnectionService.js",
                 "~/Scripts/app/services/dialogService.js",
+                "~/Scripts/app/services/displayMessageService.js",
 
                 "~/Scripts/app/services/userService.js",
 
                 "~/Scripts/app/controllers/yesNoDialogCtrl.js",
+                "~/Scripts/app/controllers/messageAreaCtrl.js",
                 "~/Scripts/app/controllers/usersCtrl.js"));
         }
     }

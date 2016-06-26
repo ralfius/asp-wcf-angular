@@ -4,7 +4,7 @@
     ViewBag.Title = "Home Page";
 }
 
-<main class="row awa-users-page" ng-controller="UsersCtrl">
+<div class="row awa-users-page" ng-controller="UsersCtrl">
     <h3 class="col-sm-12">@Titles.All_users</h3>
 
     @using (Html.BeginForm("", "", FormMethod.Get, htmlAttributes: new Dictionary<string, object> {
@@ -59,7 +59,7 @@
             @Titles.Add_new
         </button>
     </div>
-</main>
+</div>
 
 <script type="text/ng-template" id="yesNoDialog.html">
     @Html.Partial("_YesNoDialog")

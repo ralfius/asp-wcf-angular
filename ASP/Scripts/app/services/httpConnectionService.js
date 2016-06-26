@@ -7,7 +7,7 @@
 
                 $http.get(url).then(function (response) {
                     if (errorProcessingService.canProcessServerResponse(response)) {
-                        return deferred.resolve(response.data.Data);
+                        return deferred.resolve(response.data);
                     } else {
                         errorProcessingService.processErrorResponse(response);
                     }
@@ -23,7 +23,7 @@
 
                 $http.post(url, data).then(function (response) {
                     if (errorProcessingService.canProcessServerResponse(response)) {
-                        return deferred.resolve(response.data.Data);
+                        return deferred.resolve(response.data);
                     } else {
                         errorProcessingService.processErrorResponse(response);
                     }
@@ -39,7 +39,7 @@
 
                 $http.delete(url, data).then(function (response) {
                     if (errorProcessingService.canProcessServerResponse(response)) {
-                        return deferred.resolve(response.data.Data);
+                        return deferred.resolve(response.data);
                     } else {
                         errorProcessingService.processErrorResponse(response);
                     }

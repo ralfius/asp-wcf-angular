@@ -1,13 +1,13 @@
 ﻿angular.module('aspWcfAngular')
-    .controller('UsersCtrl', ['$scope', 'dialogService', 'userService',
-        function ($scope, dialogService, userService) {
+    .controller('UsersCtrl', ['$scope', 'dialogService', 'displayMessageService', 'userService',
+        function ($scope, dialogService, displayMessageService, userService) {
             $scope.search = '';
             $scope.usersPage = { PageNumber: 1 };
 
             var getUsers = function () {
                 userService.getUsers($scope.search, $scope.usersPage.PageNumber)
-                    .then(function (data) {
-                        $scope.usersPage = data;
+                    .then(function (result) {
+                        $scope.usersPage = result.Data;
                     });
             };
 
@@ -17,23 +17,23 @@
 
             var refreshPage = function () {
                 userService.getUsers($scope.search, $scope.usersPage.PageNumber)
-                    .then(function (data) {
-                        $scope.usersPage = data;
+                    .then(function (result) {
+                        $scope.usersPage = result.Data;
                     });
             };
             
             $scope.initSearch = function () {
                 userService.getUsers($scope.search, 1)
-                    .then(function (data) {
-                        $scope.usersPage = data;
+                    .then(function (result) {
+                        $scope.usersPage = result.Data;
                     });
             };
 
             $scope.nextPage = function () {
                 if (!$scope.usersPage.IsLastpage) {
                     userService.getUsers($scope.search, $scope.usersPage.PageNumber + 1)
-                        .then(function (data) {
-                            $scope.usersPage = data;
+                        .then(function (result) {
+                            $scope.usersPage = result.Data
                         });
                 }
             };
@@ -43,7 +43,10 @@
 
                 dialogService.openYesNoDialog(AWA.resources.title.Delete_user, message)
                     .then(function () {
-                        userService.deleteUser(user).then(function () {
+                        userService.deleteUser(user).then(function (result) {
+                            if (result.Message) {
+                                displayMessageService.showSuccess(result.Message);
+                            }                            
                             refreshPage();
                         });
                     });
