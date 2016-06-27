@@ -1,16 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Common.Resources;
+using System.ComponentModel.DataAnnotations;
 
 namespace ASP.BL.Models
 {
     public class UserModel
     {
-        public int UserId { get; set; }
+
+        public int? UserId { get; set; }
+
+        [Required]
+        [Display(Name = "First_name", ResourceType = typeof(Titles))]
         public string FirstName { get; set; }
+
+        [Required]
+        [Display(Name = "Last_name", ResourceType = typeof(Titles))]
         public string LastName { get; set; }
+
+        [Required]
+        [Display(Name = "Email", ResourceType = typeof(Titles))]
         public string Email { get; set; }
     }
 }

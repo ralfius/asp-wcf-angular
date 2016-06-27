@@ -15,6 +15,7 @@
 /// <reference path="angular-scenario.js" />
 /// <reference path="angular-touch.js" />
 /// <reference path="app/app.js" />
+/// <reference path="app/controllers/edituserdialogctrl.js" />
 /// <reference path="app/controllers/messageareactrl.js" />
 /// <reference path="app/controllers/usersCtrl.js" />
 /// <reference path="app/controllers/yesnodialogctrl.js" />

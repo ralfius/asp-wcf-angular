@@ -1,0 +1,51 @@
+﻿@using Common.Resources;
+@model ASP.BL.Models.UserModel
+
+<div class="modal-header">
+    <h4 class="modal-title" ng-if="!user.UserId">@Titles.Create_new_user</h4>
+    <h4 class="modal-title" ng-if="user.UserId">@Titles.Edit_user</h4>
+</div>
+
+@using (Html.BeginForm("Edit", "User", FormMethod.Post, htmlAttributes: new Dictionary<string, object>() {
+    { "class", "form-horizontal" },
+    { "validate-submit", "updateInfo()" }
+}))
+{
+    <div class="modal-body">
+        <div class="form-group">
+            @Html.LabelFor(m => m.FirstName, htmlAttributes: new Dictionary<string, object> { { "class", "control-label col-sm-3" } })
+            <div class="col-sm-9">
+                @Html.TextBoxFor(m => m.FirstName, htmlAttributes: new Dictionary<string, object>{
+                    { "class", "form-control" },
+                    { "ng-model", "user.FirstName" }
+                })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.LastName, htmlAttributes: new Dictionary<string, object> { { "class", "control-label col-sm-3" } })
+            <div class="col-sm-9">
+                @Html.TextBoxFor(m => m.LastName, htmlAttributes: new Dictionary<string, object>{
+                    { "class", "form-control" },
+                    { "ng-model", "user.LastName" }
+                })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Email, htmlAttributes: new Dictionary<string, object> { { "class", "control-label col-sm-3" } })
+            <div class="col-sm-9">
+                @Html.TextBoxFor(m => m.Email, htmlAttributes: new Dictionary<string, object>{
+                    { "class", "form-control" },
+                    { "ng-model", "user.Email" }
+                })
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer text-center">
+        <button type="submit" class="btn btn-success" ng-if="!user.UserId">@Titles.Create</button>
+        <button type="submit" class="btn btn-success" ng-if="user.UserId">@Titles.Save</button>
+        <button type="button" class="btn btn-danger" ng-click="cancel()">@Titles.Cancel</button>
+    </div>
+}
+

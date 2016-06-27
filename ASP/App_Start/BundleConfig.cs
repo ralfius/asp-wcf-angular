@@ -47,6 +47,7 @@ namespace ASP
 
                 "~/Scripts/app/controllers/yesNoDialogCtrl.js",
                 "~/Scripts/app/controllers/messageAreaCtrl.js",
+                "~/Scripts/app/controllers/editUserDialogCtrl.js",
                 "~/Scripts/app/controllers/usersCtrl.js"));
         }
     }

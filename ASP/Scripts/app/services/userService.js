@@ -1,7 +1,23 @@
 ﻿angular.module('aspWcfAngular')
     .factory('userService', [
-        'httpConnectionService', function (httpConnectionService) {
+        'httpConnectionService', 'dialogService', function (httpConnectionService, dialogService) {
 
+            var createUser = function () {
+                return openEditUserDialog({});
+            };
+
+            var editUser = function (user) {
+                return openEditUserDialog(angular.copy(user));
+            };
+
+            var updateUser = function () {
+
+            };
+
+            var openEditUserDialog = function (user) {
+                return dialogService.openCustomDialogDialog('editUserDialog.html', 'EditUserDialogCtrl', {user : user});
+            };
+            
             var getUsers = function (search, pageNumber) {
                 //try {
                 //    try {
@@ -25,9 +41,14 @@
                 return httpConnectionService.post(url, { userId: user.UserId });
             };
 
+
+
             return {
                 getUsers: getUsers,
-                deleteUser: deleteUser
+                deleteUser: deleteUser,
+                createUser: createUser,
+                editUser: editUser,
+                updateUser: updateUser
             };
         }
     ]);

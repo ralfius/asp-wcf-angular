@@ -52,6 +52,18 @@
                     });
             };
 
+            $scope.createUser = function () {
+                userService.createUser().then(function (user) {
+                    refreshPage();
+                });
+            };
+
+            $scope.edit = function (user) {
+                userService.editUser(user).then(function (user) {
+                    refreshPage();
+                });
+            };
+
             init();
         }
     ]);
