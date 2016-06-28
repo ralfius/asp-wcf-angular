@@ -8,7 +8,9 @@
 
 @using (Html.BeginForm("Edit", "User", FormMethod.Post, htmlAttributes: new Dictionary<string, object>() {
     { "class", "form-horizontal" },
-    { "validate-submit", "updateInfo()" }
+    { "validate-submit", "updateInfo()" },
+    { "id", "editUserForm" },
+    
 }))
 {
     <div class="modal-body">
@@ -19,6 +21,7 @@
                     { "class", "form-control" },
                     { "ng-model", "user.FirstName" }
                 })
+                @Html.ValidationMessageFor(m => m.FirstName)
             </div>
         </div>
 
@@ -27,8 +30,10 @@
             <div class="col-sm-9">
                 @Html.TextBoxFor(m => m.LastName, htmlAttributes: new Dictionary<string, object>{
                     { "class", "form-control" },
-                    { "ng-model", "user.LastName" }
+                    { "ng-model", "user.LastName" },
+               { "unobtrusive-validator-parse", null }
                 })
+                @Html.ValidationMessageFor(m => m.LastName)
             </div>
         </div>
 
@@ -39,6 +44,7 @@
                     { "class", "form-control" },
                     { "ng-model", "user.Email" }
                 })
+                @Html.ValidationMessageFor(m => m.Email)
             </div>
         </div>
     </div>
@@ -49,3 +55,6 @@
     </div>
 }
 
+<script>
+    jQuery.validator.unobtrusive.parse('#editUserForm');
+</script>

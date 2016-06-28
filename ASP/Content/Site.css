@@ -34,3 +34,27 @@ textarea {
 .awa-users-page .awa-actions {
   text-align: right;
 }
+/* INFO AND ERRORS
+---------------------------------------------------------*/
+.field-validation-error {
+  color: indianred;
+  font-weight: 600;
+}
+input.input-validation-error,
+textarea.input-validation-error,
+select.input-validation-error,
+input.ng-invalid.ng-dirty,
+textarea.ng-invalid.ng-dirty,
+button.input-validation-error,
+button.ng-invalid {
+  border: 1px solid indianred !important;
+}
+input[type="checkbox"].input-validation-error {
+  border: 0 none;
+}
+.validation-summary-errors {
+  color: indianred;
+}
+.validation-summary-valid {
+  display: none;
+}

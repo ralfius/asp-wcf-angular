@@ -37,6 +37,7 @@ namespace ASP
                 "~/Scripts/app/app.js",
 
                 "~/Scripts/app/directives/validateSubmit.js",
+                "~/Scripts/app/directives/unobtrusiveValidatorParse.js",
 
                 "~/Scripts/app/services/errorProcessingService.js",
                 "~/Scripts/app/services/httpConnectionService.js",

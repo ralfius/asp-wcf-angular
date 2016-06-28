@@ -19,6 +19,7 @@
 /// <reference path="app/controllers/messageareactrl.js" />
 /// <reference path="app/controllers/usersCtrl.js" />
 /// <reference path="app/controllers/yesnodialogctrl.js" />
+/// <reference path="app/directives/unobtrusivevalidatorparse.js" />
 /// <reference path="app/directives/validatesubmit.js" />
 /// <reference path="app/helpers.js" />
 /// <reference path="app/services/dialogservice.js" />

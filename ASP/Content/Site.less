@@ -44,3 +44,36 @@ textarea {
         text-align: right;
     }
 }
+
+
+/* INFO AND ERRORS
+---------------------------------------------------------*/
+@error-color: indianred;
+
+.field-validation-error {
+    color: @error-color;
+    font-weight: 600;
+}
+
+input.input-validation-error,
+textarea.input-validation-error,
+select.input-validation-error,
+input.ng-invalid.ng-dirty,
+textarea.ng-invalid.ng-dirty,
+button.input-validation-error,
+button.ng-invalid {
+    border: 1px solid @error-color !important;
+}
+
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: @error-color;
+}
+
+.validation-summary-valid {
+    display: none;
+}
