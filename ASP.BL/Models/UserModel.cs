@@ -18,6 +18,7 @@ namespace ASP.BL.Models
 
         [Required]
         [Display(Name = "Email", ResourceType = typeof(Titles))]
+        [EmailAddress]
         public string Email { get; set; }
     }
 }
