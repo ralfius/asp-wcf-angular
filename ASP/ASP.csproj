@@ -1025,8 +1025,6 @@
     <Content Include="Views\Home\_EditUserDialog.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
     <Folder Include="Scripts\app\filters\" />
   </ItemGroup>
   <ItemGroup>
@@ -1046,9 +1044,6 @@
       <Project>{faee8ce3-f28c-4c00-9d26-48d8f6ef275c}</Project>
       <Name>ASP.BL</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

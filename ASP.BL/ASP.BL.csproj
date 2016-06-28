@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants\DefaultValueConstants.cs" />
+    <Compile Include="Constants\RangeConstants.cs" />
     <Compile Include="Interfaces\IUserService.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Service References\WCFReference\Reference.cs">
