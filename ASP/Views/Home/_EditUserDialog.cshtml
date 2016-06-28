@@ -10,7 +10,7 @@
     { "class", "form-horizontal" },
     { "validate-submit", "updateInfo()" },
     { "id", "editUserForm" },
-    
+    { "unobtrusive-validator-parse", null }
 }))
 {
     <div class="modal-body">
@@ -30,8 +30,7 @@
             <div class="col-sm-9">
                 @Html.TextBoxFor(m => m.LastName, htmlAttributes: new Dictionary<string, object>{
                     { "class", "form-control" },
-                    { "ng-model", "user.LastName" },
-               { "unobtrusive-validator-parse", null }
+                    { "ng-model", "user.LastName" }
                 })
                 @Html.ValidationMessageFor(m => m.LastName)
             </div>

@@ -23,6 +23,38 @@ namespace ASP.BL.Services
         }
 
 
+        public async Task<ServiceResult<UserModel>> UpdateUserAsync(UserModel user)
+        {
+            var result = new ServiceResult<UserModel>();
+
+            try
+            {
+                using (var client = new WCFReference.UserServiceClient())
+                {
+                    var userContract = UserTranslator.ToUserContract(user);
+
+                    var wcfResult = user.UserId.HasValue ? await client.UpdateUserAsync(userContract)
+                        : await client.CreateUserAsync(userContract);
+
+                    if (wcfResult.Success)
+                    {
+                        result.Data = UserTranslator.ToUserModel(wcfResult.Data);
+                    }
+                    else
+                    {
+                        result.Set(wcfResult);
+                    }
+                }
+
+            }
+            catch(Exception exc)
+            {
+                _errorProcessingService.ProcessASPException(exc, result);
+            }
+
+            return result;
+        }
+
         public async Task<ServiceResult> DeleteUserAsync(int userId)
         {
             var result = new ServiceResult();

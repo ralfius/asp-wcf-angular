@@ -32,7 +32,7 @@ namespace ASP.BL.WCFReference {
         private string LastNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int UserIdField;
+        private System.Nullable<int> UserIdField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -84,7 +84,7 @@ namespace ASP.BL.WCFReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int UserId {
+        public System.Nullable<int> UserId {
             get {
                 return this.UserIdField;
             }
@@ -117,11 +117,24 @@ namespace ASP.BL.WCFReference {
         System.Threading.Tasks.Task<Common.Models.ServiceResult<Common.Models.PagedList<ASP.BL.WCFReference.UserContract>>> GetUsersAsync(int pageNumber, int pageSize, string search);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/DeleteUser", ReplyAction="http://tempuri.org/IUserService/DeleteUserResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Common.Models.ServiceResult<ASP.BL.WCFReference.UserContract>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Common.Models.ServiceResult<Common.Models.PagedList<ASP.BL.WCFReference.UserContract>>))]
         Common.Models.ServiceResult DeleteUser(int userId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/DeleteUser", ReplyAction="http://tempuri.org/IUserService/DeleteUserResponse")]
         System.Threading.Tasks.Task<Common.Models.ServiceResult> DeleteUserAsync(int userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/CreateUser", ReplyAction="http://tempuri.org/IUserService/CreateUserResponse")]
+        Common.Models.ServiceResult<ASP.BL.WCFReference.UserContract> CreateUser(ASP.BL.WCFReference.UserContract user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/CreateUser", ReplyAction="http://tempuri.org/IUserService/CreateUserResponse")]
+        System.Threading.Tasks.Task<Common.Models.ServiceResult<ASP.BL.WCFReference.UserContract>> CreateUserAsync(ASP.BL.WCFReference.UserContract user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/UpdateUser", ReplyAction="http://tempuri.org/IUserService/UpdateUserResponse")]
+        Common.Models.ServiceResult<ASP.BL.WCFReference.UserContract> UpdateUser(ASP.BL.WCFReference.UserContract user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/UpdateUser", ReplyAction="http://tempuri.org/IUserService/UpdateUserResponse")]
+        System.Threading.Tasks.Task<Common.Models.ServiceResult<ASP.BL.WCFReference.UserContract>> UpdateUserAsync(ASP.BL.WCFReference.UserContract user);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -165,6 +178,22 @@ namespace ASP.BL.WCFReference {
         
         public System.Threading.Tasks.Task<Common.Models.ServiceResult> DeleteUserAsync(int userId) {
             return base.Channel.DeleteUserAsync(userId);
+        }
+        
+        public Common.Models.ServiceResult<ASP.BL.WCFReference.UserContract> CreateUser(ASP.BL.WCFReference.UserContract user) {
+            return base.Channel.CreateUser(user);
+        }
+        
+        public System.Threading.Tasks.Task<Common.Models.ServiceResult<ASP.BL.WCFReference.UserContract>> CreateUserAsync(ASP.BL.WCFReference.UserContract user) {
+            return base.Channel.CreateUserAsync(user);
+        }
+        
+        public Common.Models.ServiceResult<ASP.BL.WCFReference.UserContract> UpdateUser(ASP.BL.WCFReference.UserContract user) {
+            return base.Channel.UpdateUser(user);
+        }
+        
+        public System.Threading.Tasks.Task<Common.Models.ServiceResult<ASP.BL.WCFReference.UserContract>> UpdateUserAsync(ASP.BL.WCFReference.UserContract user) {
+            return base.Channel.UpdateUserAsync(user);
         }
     }
 }

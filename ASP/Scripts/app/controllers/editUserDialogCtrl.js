@@ -5,7 +5,7 @@
 
             $scope.updateInfo = function () {
                 userService.updateUser($scope.user).then(function (result) {
-                    $uibModalInstance.close($scope.user);
+                    $uibModalInstance.close(result.Data);
                 });
             };
 

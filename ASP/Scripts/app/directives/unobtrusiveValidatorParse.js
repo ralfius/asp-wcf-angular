@@ -10,7 +10,7 @@
                 restrict: 'A',
 
                 link: function (scope, $el, attrs, ctrls) {
-                    var form, el = $($el);
+                    var form, el = angular.element($el);
 
                     if (el.is('form')) {
                         form = el;

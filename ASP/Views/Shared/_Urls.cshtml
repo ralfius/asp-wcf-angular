@@ -5,3 +5,4 @@ AWA.urls = AWA.urls || {};
 AWA.urls.user = AWA.urls.user || {};
 AWA.urls.user.list = "@Html.Raw(HttpUtility.UrlDecode(Url.Action("List", "User", routeValues: new { search = "{0}", pageNumber = "{1}" })))"
 AWA.urls.user.delete = "@Url.Action("Delete", "User")"
+AWA.urls.user.update = "@Url.Action("Update", "User")"

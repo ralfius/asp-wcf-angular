@@ -10,8 +10,8 @@
                 return openEditUserDialog(angular.copy(user));
             };
 
-            var updateUser = function () {
-
+            var updateUser = function (user) {
+                return httpConnectionService.post(AWA.urls.user.update, user);
             };
 
             var openEditUserDialog = function (user) {

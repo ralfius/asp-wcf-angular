@@ -82,5 +82,56 @@ namespace WCF.ServiceContracts
 
             return result;
         }
+
+
+        public ServiceResult<UserContract> CreateUser(UserContract user)
+        {
+            var result = new ServiceResult<UserContract>();
+
+            try
+            {
+                var newUser = UserTranslator.ToUser(user);
+                var maxId = _usersRepository.Users.Max(u => u.Id);
+
+                newUser.Id = maxId + 1;
+                _usersRepository.Users.Add(newUser);
+
+                result.Data = UserTranslator.ToUserContract(newUser);
+            }
+            catch(Exception exc)
+            {
+                _errorProcessingService.ProcessWcfException(exc, result);
+            }
+
+            return result;
+        }
+
+
+        public ServiceResult<UserContract> UpdateUser(UserContract user)
+        {
+            var result = new ServiceResult<UserContract>();
+
+            try
+            {
+                var foundUser = _usersRepository.Users.FirstOrDefault(u => u.Id == user.UserId);
+
+                if (foundUser == null)
+                {
+                    result.Status = ServiceStatus.UserNotFound;
+                }
+                else
+                {
+                    UserTranslator.UpdateExistingUser(user, foundUser);
+                }
+
+                result.Data = user;
+            }
+            catch (Exception exc)
+            {
+                _errorProcessingService.ProcessWcfException(exc, result);
+            }
+
+            return result;
+        }
     }
 }

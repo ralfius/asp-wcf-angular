@@ -18,5 +18,11 @@ namespace WCF.Contracts
 
         [OperationContract]
         ServiceResult DeleteUser(int userId);
+
+        [OperationContract]
+        ServiceResult<UserContract> CreateUser(UserContract user);
+
+        [OperationContract]
+        ServiceResult<UserContract> UpdateUser(UserContract user);
     }
 }

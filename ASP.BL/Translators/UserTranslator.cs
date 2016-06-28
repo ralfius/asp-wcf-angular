@@ -16,5 +16,17 @@ namespace ASP.BL.Translators
 
             return result;
         }
+
+        public static UserContract ToUserContract(UserModel model)
+        {
+            var result = new UserContract() {
+                UserId = model.UserId,
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                Email = model.Email
+            };
+
+            return result;
+        }
     }
 }

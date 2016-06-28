@@ -17,10 +17,26 @@ namespace Common.Models
             Status = origin.Status;
             Message = origin.Message;
         }
+
+        public ServiceResult()
+        {
+            Status = ServiceStatus.Success;
+        }
+
+        public ServiceResult(ServiceStatus status, string message)
+        {
+            Status = status;
+            Message = message;
+        }
     }
 
     public class ServiceResult<T> : ServiceResult
     {
         public T Data { get; set; }
+
+        public ServiceResult() : base() { }
+
+        public ServiceResult(ServiceStatus status, string message)
+            :base(status, message) { }
     }
 }

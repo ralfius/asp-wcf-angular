@@ -12,5 +12,6 @@ namespace ASP.BL.Interfaces
     {
         Task<ServiceResult<PagedList<UserModel>>> GetUsersAsync(int pageNumber, string search, int pageSize = 0);
         Task<ServiceResult> DeleteUserAsync(int userId);
+        Task<ServiceResult<UserModel>> UpdateUserAsync(UserModel user);
     }
 }

@@ -59,7 +59,7 @@
             };
 
             $scope.edit = function (user) {
-                userService.editUser(user).then(function (user) {
+                userService.editUser(user).then(function (data) {
                     refreshPage();
                 });
             };

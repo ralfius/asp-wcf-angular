@@ -10,7 +10,7 @@ namespace WCF.DataContracts
     public class UserContract
     {
         [DataMember]
-        public int UserId { get; set; }
+        public int? UserId { get; set; }
         [DataMember]
         public string FirstName { get; set; }
         [DataMember]

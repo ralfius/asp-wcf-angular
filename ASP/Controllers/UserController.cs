@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using ASP.BL.Interfaces;
 using ASP.Helpers;
+using ASP.BL.Models;
 
 namespace ASP.Controllers
 {
@@ -30,6 +31,14 @@ namespace ASP.Controllers
         public async Task<JsonResult> Delete(int userId)
         {
             var serviceResult = await _userService.DeleteUserAsync(userId);
+
+            return JsonHelper.GetJsonNetResult(serviceResult, JsonRequestBehavior.DenyGet);
+        }
+
+        [HttpPost]
+        public async Task<JsonResult> Update(UserModel user)
+        {
+            var serviceResult = await _userService.UpdateUserAsync(user);
 
             return JsonHelper.GetJsonNetResult(serviceResult, JsonRequestBehavior.DenyGet);
         }

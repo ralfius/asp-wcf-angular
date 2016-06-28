@@ -20,5 +20,21 @@ namespace WCF.Translators
 
             return result;
         }
+
+        public static User ToUser(UserContract contract)
+        {
+            var result = new User();
+
+            UpdateExistingUser(contract, result);
+
+            return result;
+        }
+
+        public static void UpdateExistingUser(UserContract contract, User entity)
+        {
+            entity.FirstName = contract.FirstName;
+            entity.LastName = contract.LastName;
+            entity.Email = contract.Email;
+        }
     }
 }
