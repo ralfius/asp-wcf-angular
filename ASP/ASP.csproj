@@ -225,6 +225,8 @@
     <Content Include="Scripts\app\controllers\editUserDialogCtrl.js" />
     <Content Include="Scripts\app\controllers\usersCtrl.js" />
     <Content Include="Scripts\app\controllers\yesNoDialogCtrl.js" />
+    <Content Include="Scripts\app\directives\capitalize.js" />
+    <Content Include="Scripts\app\directives\removeSpaces.js" />
     <Content Include="Scripts\app\directives\unobtrusiveValidatorParse.js" />
     <Content Include="Scripts\app\directives\validateSubmit.js" />
     <Content Include="Scripts\app\helpers.js" />

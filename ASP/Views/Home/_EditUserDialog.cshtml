@@ -22,7 +22,8 @@
                 @Html.TextBoxFor(m => m.FirstName, htmlAttributes: new Dictionary<string, object>{
                     { "class", "form-control" },
                     { "ng-model", "user.FirstName" },
-                    { "autocomplete", "off" }
+                    { "capitalize", "user.FirstName" },
+                    { "autocomplete", "off" },
                 })
                 @Html.ValidationMessageFor(m => m.FirstName)
             </div>
@@ -34,6 +35,7 @@
                 @Html.TextBoxFor(m => m.LastName, htmlAttributes: new Dictionary<string, object>{
                     { "class", "form-control" },
                     { "ng-model", "user.LastName" },
+                    { "capitalize", "user.LastName" },
                     { "autocomplete", "off" }
                 })
                 @Html.ValidationMessageFor(m => m.LastName)
@@ -46,6 +48,7 @@
                 @Html.TextBoxFor(m => m.Email, htmlAttributes: new Dictionary<string, object>{
                     { "class", "form-control" },
                     { "ng-model", "user.Email" },
+                    { "remove-spaces", "user.Email" },
                     { "autocomplete", "off" }
                 })
                 @Html.ValidationMessageFor(m => m.Email)
