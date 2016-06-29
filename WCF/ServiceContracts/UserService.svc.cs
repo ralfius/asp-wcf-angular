@@ -90,6 +90,13 @@ namespace WCF.ServiceContracts
 
             try
             {
+                if (CanChangeEmail(user))
+                {
+                    result.Status = ServiceStatus.EmailAlreadyTaken;
+
+                    return result;
+                }
+
                 var newUser = UserTranslator.ToUser(user);
                 var maxId = _usersRepository.Users.Max(u => u.Id);
 
@@ -113,6 +120,13 @@ namespace WCF.ServiceContracts
 
             try
             {
+                if (CanChangeEmail(user))
+                {
+                    result.Status = ServiceStatus.EmailAlreadyTaken;
+
+                    return result;
+                }
+
                 var foundUser = _usersRepository.Users.FirstOrDefault(u => u.Id == user.UserId);
 
                 if (foundUser == null)
@@ -132,6 +146,13 @@ namespace WCF.ServiceContracts
             }
 
             return result;
+        }
+
+        private bool CanChangeEmail(UserContract user)
+        {
+            var foundUser = _usersRepository.Users.FirstOrDefault(u => u.Email == user.Email);
+
+            return foundUser != null || foundUser.Id == user.UserId;
         }
     }
 }

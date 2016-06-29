@@ -6,6 +6,8 @@
     <h4 class="modal-title" ng-if="user.UserId">@Titles.Edit_user</h4>
 </div>
 
+@Html.Partial("_MessageBoxArea")
+
 @using (Html.BeginForm("Edit", "User", FormMethod.Post, htmlAttributes: new Dictionary<string, object>() {
     { "class", "form-horizontal" },
     { "validate-submit", "updateInfo()" },
@@ -19,7 +21,8 @@
             <div class="col-sm-9">
                 @Html.TextBoxFor(m => m.FirstName, htmlAttributes: new Dictionary<string, object>{
                     { "class", "form-control" },
-                    { "ng-model", "user.FirstName" }
+                    { "ng-model", "user.FirstName" },
+                    { "autocomplete", "off" }
                 })
                 @Html.ValidationMessageFor(m => m.FirstName)
             </div>
@@ -30,7 +33,8 @@
             <div class="col-sm-9">
                 @Html.TextBoxFor(m => m.LastName, htmlAttributes: new Dictionary<string, object>{
                     { "class", "form-control" },
-                    { "ng-model", "user.LastName" }
+                    { "ng-model", "user.LastName" },
+                    { "autocomplete", "off" }
                 })
                 @Html.ValidationMessageFor(m => m.LastName)
             </div>
@@ -41,7 +45,8 @@
             <div class="col-sm-9">
                 @Html.TextBoxFor(m => m.Email, htmlAttributes: new Dictionary<string, object>{
                     { "class", "form-control" },
-                    { "ng-model", "user.Email" }
+                    { "ng-model", "user.Email" },
+                    { "autocomplete", "off" }
                 })
                 @Html.ValidationMessageFor(m => m.Email)
             </div>

@@ -79,11 +79,29 @@ namespace Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Specified email is already taken.
+        /// </summary>
+        public static string EmailAlreadyTaken {
+            get {
+                return ResourceManager.GetString("EmailAlreadyTaken", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invalid model specified.
         /// </summary>
         public static string InvalidModel {
             get {
                 return ResourceManager.GetString("InvalidModel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Specified user is not found.
+        /// </summary>
+        public static string UserNotFound {
+            get {
+                return ResourceManager.GetString("UserNotFound", resourceCulture);
             }
         }
         

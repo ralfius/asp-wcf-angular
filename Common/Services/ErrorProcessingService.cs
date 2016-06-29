@@ -20,6 +20,34 @@ namespace Common.Services
             _logService.LogException(exc);
         }
 
+        public void SetErrorMessage(ServiceResult result)
+        {
+            switch (result.Status)
+            {
+                case ServiceStatus.ASPDataAccessError:
+                    result.Message = Errors.ASPDataAccessError;
+                    break;
+                case ServiceStatus.ASPBusinessLogicError:
+                    result.Message = Errors.ASPBusinessLogicError;
+                    break;
+                case ServiceStatus.WCFDataAccessError:
+                    result.Message = Errors.WCFDataAccessError;
+                    break;
+                case ServiceStatus.WCFBusinessLogicError:
+                    result.Message = Errors.WCFBusinessLogicError;
+                    break;
+                case ServiceStatus.InvalidModel:
+                    result.Message = Errors.InvalidModel;
+                    break;
+                case ServiceStatus.EmailAlreadyTaken:
+                    result.Message = Errors.EmailAlreadyTaken;
+                    break;
+                case ServiceStatus.UserNotFound:
+                    result.Message = Errors.UserNotFound;
+                    break;
+            }
+        }
+
         public void ProcessASPException(Exception exc, ServiceResult result)
         {
             _logService.LogException(exc);
@@ -27,13 +55,13 @@ namespace Common.Services
             if (exc is DataException)
             {
                 result.Status = ServiceStatus.ASPDataAccessError;
-                result.Message = Errors.ASPDataAccessError;
             }
             else
             {
-                result.Status = ServiceStatus.ASPBusinessLogicError;
-                result.Message = Errors.ASPBusinessLogicError;
+                result.Status = ServiceStatus.ASPBusinessLogicError;                
             }
+
+            SetErrorMessage(result);
         }
 
         public void ProcessWcfException(Exception exc, ServiceResult result)
@@ -42,13 +70,11 @@ namespace Common.Services
 
             if (exc is DataException)
             {
-                result.Status = ServiceStatus.WCFDataAccessError;
-                result.Message = Errors.WCFDataAccessError;
+                result.Status = ServiceStatus.WCFDataAccessError;                
             }
             else
             {
-                result.Status = ServiceStatus.WCFBusinessLogicError;
-                result.Message = Errors.WCFBusinessLogicError;
+                result.Status = ServiceStatus.WCFBusinessLogicError;                
             }
         }
     }

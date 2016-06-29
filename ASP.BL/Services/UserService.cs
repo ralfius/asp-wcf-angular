@@ -43,6 +43,7 @@ namespace ASP.BL.Services
                     else
                     {
                         result.Set(wcfResult);
+                        _errorProcessingService.SetErrorMessage(result);
                     }
                 }
 
@@ -68,6 +69,7 @@ namespace ASP.BL.Services
                     if (!wcfResult.Success)
                     {
                         result.Set(wcfResult);
+                        _errorProcessingService.SetErrorMessage(result);
                     }
                     else
                     {
@@ -110,6 +112,7 @@ namespace ASP.BL.Services
                     else
                     {
                         result.Set(wcfResult);
+                        _errorProcessingService.SetErrorMessage(result);
                     }
                 }
             }

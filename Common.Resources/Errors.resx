@@ -132,4 +132,10 @@
   <data name="ASPDataAccessError" xml:space="preserve">
     <value>There is an error with ASP data access</value>
   </data>
+  <data name="EmailAlreadyTaken" xml:space="preserve">
+    <value>Specified email is already taken</value>
+  </data>
+  <data name="UserNotFound" xml:space="preserve">
+    <value>Specified user is not found</value>
+  </data>
 </root>

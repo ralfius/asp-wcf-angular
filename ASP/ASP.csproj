@@ -1023,6 +1023,7 @@
     <Content Include="Views\Shared\_Resources.cshtml" />
     <Content Include="Views\Shared\_YesNoDialog.cshtml" />
     <Content Include="Views\Home\_EditUserDialog.cshtml" />
+    <Content Include="Views\Shared\_MessageBoxArea.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Scripts\app\filters\" />
