@@ -11,13 +11,13 @@ namespace WCF.Contracts
         [OperationContract(ProtectionLevel = ProtectionLevel.EncryptAndSign)]
         ServiceResult<PagedList<UserContract>> GetUsers(int pageNumber, int pageSize, string search);
 
-        [OperationContract]
+        [OperationContract(ProtectionLevel = ProtectionLevel.EncryptAndSign)]
         ServiceResult DeleteUser(int userId);
 
-        [OperationContract]
+        [OperationContract(ProtectionLevel = ProtectionLevel.EncryptAndSign)]
         ServiceResult<UserContract> CreateUser(UserContract user);
 
-        [OperationContract]
+        [OperationContract(ProtectionLevel = ProtectionLevel.EncryptAndSign)]
         ServiceResult<UserContract> UpdateUser(UserContract user);
     }
 }
