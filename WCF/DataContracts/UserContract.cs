@@ -11,11 +11,11 @@ namespace WCF.DataContracts
     {
         [DataMember]
         public int? UserId { get; set; }
-        [DataMember]
+        [DataMember(IsRequired = true, EmitDefaultValue =false)]
         public string FirstName { get; set; }
-        [DataMember]
+        [DataMember(IsRequired = true, EmitDefaultValue = false)]
         public string LastName { get; set; }
-        [DataMember]
+        [DataMember(IsRequired = true, EmitDefaultValue = false)]
         public string Email { get; set; }
     }
 }

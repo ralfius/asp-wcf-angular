@@ -22,13 +22,10 @@ namespace ASP.BL.WCFReference {
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string EmailField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string FirstNameField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string LastNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -44,7 +41,7 @@ namespace ASP.BL.WCFReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
         public string Email {
             get {
                 return this.EmailField;
@@ -57,7 +54,7 @@ namespace ASP.BL.WCFReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
         public string FirstName {
             get {
                 return this.FirstNameField;
@@ -70,7 +67,7 @@ namespace ASP.BL.WCFReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
         public string LastName {
             get {
                 return this.LastNameField;

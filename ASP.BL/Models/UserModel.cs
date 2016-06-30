@@ -9,17 +9,17 @@ namespace ASP.BL.Models
 
         public int? UserId { get; set; }
 
-        [Required]
+        //[Required]
         [Display(Name = "First_name", ResourceType = typeof(Titles))]
         [StringLength(RangeConstants.MaxNameLength, MinimumLength = RangeConstants.MinNameLength)]
         public string FirstName { get; set; }
 
-        [Required]
+        //[Required]
         [Display(Name = "Last_name", ResourceType = typeof(Titles))]
         [StringLength(maximumLength: RangeConstants.MaxNameLength, MinimumLength = RangeConstants.MinNameLength)]
         public string LastName { get; set; }
 
-        [Required]
+        //[Required]
         [Display(Name = "Email", ResourceType = typeof(Titles))]
         [EmailAddress]
         [StringLength(RangeConstants.MaxEmailLength, MinimumLength = RangeConstants.MinEmailLength)]

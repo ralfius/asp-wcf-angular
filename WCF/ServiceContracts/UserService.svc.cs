@@ -152,7 +152,7 @@ namespace WCF.ServiceContracts
         {
             var foundUser = _usersRepository.Users.FirstOrDefault(u => u.Email == user.Email);
 
-            return foundUser != null || foundUser.Id == user.UserId;
+            return foundUser == null || foundUser.Id == user.UserId;
         }
     }
 }
