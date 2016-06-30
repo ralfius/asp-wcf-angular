@@ -1,19 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ServiceModel;
 using Common.Models;
 using WCF.DataContracts;
+using System.Net.Security;
 
 namespace WCF.Contracts
 {
     [ServiceContract]
     public interface IUserService
     {
-        [OperationContract]
+        [OperationContract(ProtectionLevel = ProtectionLevel.EncryptAndSign)]
         ServiceResult<PagedList<UserContract>> GetUsers(int pageNumber, int pageSize, string search);
 
         [OperationContract]
