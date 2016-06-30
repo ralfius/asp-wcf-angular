@@ -138,4 +138,7 @@
   <data name="UserNotFound" xml:space="preserve">
     <value>Specified user is not found</value>
   </data>
+  <data name="ASPCommunicationError" xml:space="preserve">
+    <value>There is an error with service communication</value>
+  </data>
 </root>

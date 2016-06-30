@@ -18,6 +18,8 @@ namespace Common.Models
 
 
         ASPBusinessLogicError = 201,
-        ASPDataAccessError = 202
+        ASPDataAccessError = 202,
+        ASPCommunicationError = 203
+
     }
 }

@@ -3,6 +3,7 @@ using System.Data;
 using Common.Interfaces;
 using Common.Models;
 using Common.Resources;
+using System.ServiceModel;
 
 namespace Common.Services
 {
@@ -24,6 +25,9 @@ namespace Common.Services
         {
             switch (result.Status)
             {
+                case ServiceStatus.ASPCommunicationError:
+                    result.Message = Errors.ASPCommunicationError;
+                    break;
                 case ServiceStatus.ASPDataAccessError:
                     result.Message = Errors.ASPDataAccessError;
                     break;
@@ -56,9 +60,13 @@ namespace Common.Services
             {
                 result.Status = ServiceStatus.ASPDataAccessError;
             }
+            else if (exc is CommunicationException || exc is TimeoutException)
+            {
+                result.Status = ServiceStatus.ASPCommunicationError;                
+            }
             else
             {
-                result.Status = ServiceStatus.ASPBusinessLogicError;                
+                result.Status = ServiceStatus.ASPBusinessLogicError;
             }
 
             SetErrorMessage(result);

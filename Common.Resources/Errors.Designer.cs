@@ -70,6 +70,15 @@ namespace Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to There is an error with service communication.
+        /// </summary>
+        public static string ASPCommunicationError {
+            get {
+                return ResourceManager.GetString("ASPCommunicationError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to There is an error with ASP data access.
         /// </summary>
         public static string ASPDataAccessError {
