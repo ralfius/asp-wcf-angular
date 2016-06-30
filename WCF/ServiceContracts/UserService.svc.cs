@@ -90,7 +90,7 @@ namespace WCF.ServiceContracts
 
             try
             {
-                if (CanChangeEmail(user))
+                if (!CanChangeEmail(user))
                 {
                     result.Status = ServiceStatus.EmailAlreadyTaken;
 
@@ -120,7 +120,7 @@ namespace WCF.ServiceContracts
 
             try
             {
-                if (CanChangeEmail(user))
+                if (!CanChangeEmail(user))
                 {
                     result.Status = ServiceStatus.EmailAlreadyTaken;
 
