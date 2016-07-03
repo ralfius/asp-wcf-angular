@@ -29,7 +29,7 @@ namespace ASP.BL.Services
 
             try
             {
-                using (var client = new WCFReference.UserServiceClient())
+                using (var client = new UserServiceReference.UserServiceClient())
                 {
                     var userContract = UserTranslator.ToUserContract(user);
 
@@ -62,7 +62,7 @@ namespace ASP.BL.Services
 
             try
             {
-                using (var client = new WCFReference.UserServiceClient())
+                using (var client = new UserServiceReference.UserServiceClient())
                 {
                     var wcfResult = await client.DeleteUserAsync(userId);
 
@@ -97,7 +97,7 @@ namespace ASP.BL.Services
                 }
 
 
-                using (var client = new WCFReference.UserServiceClient())
+                using (var client = new UserServiceReference.UserServiceClient())
                 {
                     var wcfResult = await client.GetUsersAsync(pageNumber, pageSize, search);
 

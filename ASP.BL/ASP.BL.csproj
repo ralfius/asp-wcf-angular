@@ -47,7 +47,7 @@
     <Compile Include="Constants\RangeConstants.cs" />
     <Compile Include="Interfaces\IUserService.cs" />
     <Compile Include="Models\UserModel.cs" />
-    <Compile Include="Service References\WCFReference\Reference.cs">
+    <Compile Include="Service References\UserServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -72,37 +72,37 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="Properties\DataSources\Common.Models.ServiceResult.datasource" />
-    <None Include="Service References\WCFReference\ASP.BL.WCFReference.UserContract.datasource">
+    <None Include="Service References\UserServiceReference\ASP.BL.UserServiceReference.UserContract.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\WCFReference\UserService.wsdl" />
-    <None Include="Service References\WCFReference\UserService.xsd">
+    <None Include="Service References\UserServiceReference\UserService.wsdl" />
+    <None Include="Service References\UserServiceReference\UserService.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\WCFReference\UserService1.xsd">
+    <None Include="Service References\UserServiceReference\UserService1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\WCFReference\UserService2.xsd">
+    <None Include="Service References\UserServiceReference\UserService2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\WCFReference\UserService3.xsd">
+    <None Include="Service References\UserServiceReference\UserService3.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\WCFReference\" />
+    <WCFMetadataStorage Include="Service References\UserServiceReference\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\WCFReference\UserService.disco" />
+    <None Include="Service References\UserServiceReference\UserService.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\WCFReference\configuration91.svcinfo" />
+    <None Include="Service References\UserServiceReference\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\WCFReference\configuration.svcinfo" />
+    <None Include="Service References\UserServiceReference\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\WCFReference\Reference.svcmap">
+    <None Include="Service References\UserServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

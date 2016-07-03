@@ -1,5 +1,5 @@
 ﻿using ASP.BL.Models;
-using ASP.BL.WCFReference;
+using ASP.BL.UserServiceReference;
 
 namespace ASP.BL.Translators
 {
