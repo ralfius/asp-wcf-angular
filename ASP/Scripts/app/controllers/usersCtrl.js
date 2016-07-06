@@ -1,5 +1,5 @@
 ﻿angular.module('aspWcfAngular')
-    .controller('UsersCtrl', ['$scope', 'dialogService', 'displayMessageService', 'userService',
+    .controller('UsersCtrl', ['$scope', 'dialogService', 'displayMessageService', 'userService', 
         function ($scope, dialogService, displayMessageService, userService) {
             $scope.search = '';
             $scope.usersPage = { PageNumber: 1 };
@@ -21,7 +21,7 @@
                         $scope.usersPage = result.Data;
                     });
             };
-            
+
             $scope.initSearch = function () {
                 userService.getUsers($scope.search, 1)
                     .then(function (result) {

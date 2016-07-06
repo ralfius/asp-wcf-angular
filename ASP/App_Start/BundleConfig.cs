@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using System.Collections.Generic;
+using System.Web;
 using System.Web.Optimization;
 
 namespace ASP
@@ -28,6 +29,9 @@ namespace ASP
                 "~/Content/bootstrap.css",
                 "~/Content/bootstrap-theme.css",
                 "~/Content/site.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/sandbox").Include(
+                "~/Scripts/app/inheritance.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                 "~/Scripts/angular.js"));
