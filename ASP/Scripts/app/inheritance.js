@@ -1,5 +1,5 @@
 ﻿//---Inheritance types---
-//1. Pseudoclassical pettern
+//1. Pseudoclassical pattern
 function BasePC() {
     this.baseVar = 'basePC';
     this.baseMethod = function(){
@@ -18,7 +18,7 @@ DerivedPC.prototype = new BasePC();
 
 const derivedPCObject = new DerivedPC();
 
-//2. Prototypical pettern
+//2. Prototypical pattern
 var basePr = {
     baseVar: 'basePr',
     baseMethod: function () {
@@ -41,7 +41,7 @@ var object = function (baseObject) {
     return new F();
 };
 
-//3. Parasitic pettern
+//3. Parasitic pattern
 function basePar() {
     var baseVar = 'basePar';
     var baseMethod = function () {
