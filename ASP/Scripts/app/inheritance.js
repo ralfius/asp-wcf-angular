@@ -41,7 +41,7 @@ var object = function (baseObject) {
     return new F();
 };
 
-//3. Parasitic pattern
+//3. Parasitic pattern \ Functional inheritance pattern
 function basePar() {
     var baseVar = 'basePar';
     var baseMethod = function () {
