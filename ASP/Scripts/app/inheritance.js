@@ -63,3 +63,27 @@ function derivedPar() {
 };
 
 const derivedParObject = derivedPar();
+
+//4. ES6
+class BaseES6 {
+    constructor() {
+        this.baseVar = 'baseES6';
+    }
+
+    baseMethod() {
+        console.log('Inside ES6 baseMethod. baseVar = ' + this.baseVar);
+    }
+}
+
+class DerivedES6 extends BaseES6{
+    contructor(){
+        super();
+        this.derivedVar = 'derivedES6';
+    }
+
+    derivedMethod() {
+        super.baseMethod();
+
+        console.log('Inside ES6 derivedMethod. derivedVar = ' + this.derivedVar);
+    }
+}
