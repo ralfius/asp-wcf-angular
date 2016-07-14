@@ -1,9 +1,9 @@
 ﻿/// <reference path="/Scripts/_references.js" />
 
-'use strict';
-
 // String.format extension method for processing {0}, {1} formating parameters
 (function () {
+    'use strict';
+
     if (!String.format) {
         String.format = function (format) {
             var args = Array.prototype.slice.call(arguments, 1);
@@ -17,6 +17,8 @@
 })();
 
 (function () {
+    'use strict';
+
     if (!String.join) {
         String.join = function (separator) {
             var result = arguments[1];
@@ -33,6 +35,8 @@
 })();
 
 (function () {
+    'use strict';
+
     if (!String.decodeHtml) {
         String.decodeHtml = function (encodedHtml) {
             return encodedHtml.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
@@ -40,7 +44,9 @@
     }
 })();
 
-(function() {
+(function () {
+    'use strict';
+
     if (!Array.prototype.find) {
         Array.prototype.find = function(predicate) {
             if (this == null) {
@@ -66,6 +72,8 @@
 })();
 
 (function () {
+    'use strict';
+
     if (!Array.prototype.findLast) {
         Array.prototype.findLast = function (predicate) {
             if (this == null) {
@@ -90,7 +98,9 @@
     }
 })();
 
-(function() {
+(function () {
+    'use strict';
+
     Array.prototype.remove = function(from, to) {
         var rest = this.slice((to || from) + 1 || this.length);
         this.length = from < 0 ? this.length + from : from;
@@ -99,6 +109,8 @@
 })();
 
 (function () {
+    'use strict';
+
     if (!FormData.parse) {
         FormData.parse = function (objectToParse, ignorePropertyNames, namePrefix, formDataObject) {
             if (!ignorePropertyNames) {
@@ -135,30 +147,3 @@
         };
     }
 })();
-
-
-function decimalPlaces(num) {
-    var match = ('' + num).match(/(?:\.(\d+))?(?:[eE]([+-]?\d+))?$/);
-    if (!match) { return 0; }
-    return Math.max(
-         0,
-         // Number of digits right of decimal point.
-         (match[1] ? match[1].length : 0)
-         // Adjust for scientific notation.
-         - (match[2] ? +match[2] : 0));
-};
-
-
-function digits(n) {
-    return 1 + Math.floor(Math.log(n) / Math.log(10));
-}
-
-
-function trimCommaAndWhitespace(str) {
-    return str.replace(/,\s*$/, "");
-}
-
-
-function fromCamelcaseToDashed(str) {
-    return str.replace(/(?:^|\.?)([A-Z])/g, function (x, y) { return "-" + y.toLowerCase(); }).replace(/^-/, "");
-}
