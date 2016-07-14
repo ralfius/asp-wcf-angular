@@ -23,6 +23,7 @@
 /// <reference path="app/directives/removespaces.js" />
 /// <reference path="app/directives/unobtrusivevalidatorparse.js" />
 /// <reference path="app/directives/validatesubmit.js" />
+/// <reference path="app/es6sandbox.js" />
 /// <reference path="app/helpers.js" />
 /// <reference path="app/inheritance.js" />
 /// <reference path="app/services/dialogservice.js" />

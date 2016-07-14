@@ -31,7 +31,8 @@ namespace ASP
                 "~/Content/site.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/sandbox").Include(
-                "~/Scripts/app/inheritance.js"));
+                "~/Scripts/app/inheritance.js",
+                "~/Scripts/app/es6Sandbox.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                 "~/Scripts/angular.js"));
