@@ -229,8 +229,8 @@
     <Content Include="Scripts\app\directives\removeSpaces.js" />
     <Content Include="Scripts\app\directives\unobtrusiveValidatorParse.js" />
     <Content Include="Scripts\app\directives\validateSubmit.js" />
-    <Content Include="Scripts\app\es6Sandbox.js" />
     <Content Include="Scripts\app\helpers.js" />
+    <Content Include="Scripts\app\es6Sandbox.js" />
     <Content Include="Scripts\app\inheritance.js" />
     <Content Include="Scripts\app\services\dialogService.js" />
     <Content Include="Scripts\app\services\displayMessageService.js" />
