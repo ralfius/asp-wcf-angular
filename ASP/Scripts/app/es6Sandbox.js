@@ -29,3 +29,42 @@ let { d, e } = ob; //a, b, c, d, e are now local variables coppied from array an
 
 
 let { d: d2, e: e2 } = { d, e }; //d2 and e2 are now local variables coppied {d, e}
+
+// default parameters
+function modulo(value, deliminer = 2){
+    return value % deliminer;
+}
+
+// rest parameters
+function sum(value, ...values){
+    let sum = value;
+
+    if (values.length) {
+        sum += values.reduce((i, j) => i + j);
+    }
+
+    return sum;
+}
+
+// spread
+let arr1 = [3, 4, 5];
+let arr2 = [1, 2, ...arr1];
+
+// for-of loop
+let forOfResult = [];
+for (let i of [1, 2, 3]) {
+    forOfResult.push(i);
+}
+
+// generators
+function* generator(obj) {
+    for (let key in obj) {
+        yield [key, obj[key]]
+    }
+}
+
+let generatorResult = [];
+
+for (let [key, value] of generator({a:5, b:10})) {
+    generatorResult.push([key, value]);
+}
