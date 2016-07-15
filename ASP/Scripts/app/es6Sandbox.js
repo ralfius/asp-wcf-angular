@@ -31,9 +31,9 @@ let { d, e } = ob; //a, b, c, d, e are now local variables coppied from array an
 let { d: d2, e: e2 } = { d, e }; //d2 and e2 are now local variables coppied {d, e}
 
 // default parameters
-function modulo(value, deliminer = 2){
-    return value % deliminer;
-}
+//function modulo(value, deliminer = 2){
+//    return value % deliminer;
+//}
 
 // rest parameters
 function sum(value, ...values){
@@ -49,6 +49,7 @@ function sum(value, ...values){
 // spread
 let arr1 = [3, 4, 5];
 let arr2 = [1, 2, ...arr1];
+let max = Math.max(...arr2); // invokes Math.max(1,2,3,4,5);
 
 // for-of loop
 let forOfResult = [];
@@ -66,5 +67,13 @@ function* generator(obj) {
 let generatorResult = [];
 
 for (let [key, value] of generator({a:5, b:10})) {
+    generatorResult.push([key, value]);
+}
+
+Object.defineProperty(Object.prototype, Symbol.iterator, {
+    value: generator
+});
+
+for (let [key, value] of {c:25, d:50}) {
     generatorResult.push([key, value]);
 }
