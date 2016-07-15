@@ -1,4 +1,6 @@
-﻿//---Inheritance types---
+﻿'use strict';
+
+//---Inheritance types---
 //1. Pseudoclassical pattern
 function BasePC() {
     this.baseVar = 'basePC';
@@ -76,7 +78,7 @@ class BaseES6 {
 }
 
 class DerivedES6 extends BaseES6{
-    contructor(){
+    constructor(){
         super();
         this.derivedVar = 'derivedES6';
     }
@@ -87,3 +89,5 @@ class DerivedES6 extends BaseES6{
         console.log('Inside ES6 derivedMethod. derivedVar = ' + this.derivedVar);
     }
 }
+
+const derivedES6object = new DerivedES6();
