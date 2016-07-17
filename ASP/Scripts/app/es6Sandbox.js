@@ -102,3 +102,23 @@ Object.defineProperty(Object.prototype, Symbol.iterator, {
 for (var [key, value] of {c:25, d:50}) {
     generatorResult.push([key, value]);
 }
+
+    // object declaration
+let name = 'my name';
+let newObject = {
+    name, //short declaration
+    [name + 1]: name + 1, //calculated property
+    objectMethod() { },
+    get fullName() { //getter for fullName property
+        return 'full name';
+    }
+};
+let newDerivedObject = {
+    __proto__: newObject, //added to standart
+    derivedObjectMethod(){
+        let base = super.fullName(); //link to __proto__
+    }
+};
+
+Object.assign(newObject, {a: 10}); // copies self enumerable propertries to newObject
+Object.is(NaN, NaN); // true
