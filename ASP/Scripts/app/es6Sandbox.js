@@ -89,27 +89,21 @@ for (var i of [1, 2, 3]) {
 }
 
 // generators
-function* generator(obj) {
+function* keys(obj) {
     for (var key in obj) {
-        yield [key, obj[key]]
+        yield key;
     }
 }
 
 let generatorResult = [];
 
-for (var [key, value] of generator({a:5, b:10})) {
-    generatorResult.push([key, value]);
+for (var key of keys({a: 5, b: 10})) {
+    generatorResult.push(key);
 }
 
-Object.defineProperty(Object.prototype, Symbol.iterator, {
-    value: generator
-});
+let keysString = [...keys({a: 5, b: 10})].join(', ');
 
-for (var [key, value] of {c:25, d:50}) {
-    generatorResult.push([key, value]);
-}
-
-    // object declaration
+// object declaration
 let name = 'my name';
 let newObject = {
     name, // short declaration
