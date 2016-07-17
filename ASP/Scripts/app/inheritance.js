@@ -1,7 +1,7 @@
 ﻿'use strict';
 
 //---Inheritance types---
-//1. Pseudoclassical pattern
+// 1. Pseudoclassical pattern
 function BasePC() {
     this.baseVar = 'basePC';
     this.baseMethod = function(){
@@ -20,7 +20,7 @@ DerivedPC.prototype = new BasePC();
 
 const derivedPCObject = new DerivedPC();
 
-//2. Prototypical pattern
+// 2. Prototypical pattern
 var basePr = {
     baseVar: 'basePr',
     baseMethod: function () {
@@ -36,14 +36,14 @@ derivedPr.derivedMethod = function () {
 
 const derivedPrObject = derivedPr;
 
-//help function to create derived objects
+// help function to create derived objects
 var object = function (baseObject) {
     function F() { }
     F.prototype = baseObject;
     return new F();
 };
 
-//3. Parasitic pattern \ Functional inheritance pattern
+// 3. Parasitic pattern \ Functional inheritance pattern
 function basePar() {
     var baseVar = 'basePar';
     var baseMethod = function () {
@@ -66,7 +66,7 @@ function derivedPar() {
 
 const derivedParObject = derivedPar();
 
-//4. ES6
+// 4. ES6
 class BaseES6 {
     constructor() {
         this.baseVar = 'baseES6';
@@ -77,10 +77,16 @@ class BaseES6 {
     }
 }
 
+// DerivedES6 is not accessible before declaration
 class DerivedES6 extends BaseES6{
     constructor(){
         super();
+        //  this is available only after super() is called
         this.derivedVar = 'derivedES6';
+    }
+    
+    static staticMethod() {
+        return 'this is a static method';
     }
 
     derivedMethod() {
@@ -90,4 +96,9 @@ class DerivedES6 extends BaseES6{
     }
 }
 
+// anonymous declaration
+let MyClass = class { };
+let myClassObject = new MyClass();
+
 const derivedES6object = new DerivedES6();
+let staticMethodResult = DerivedES6.staticMethod();

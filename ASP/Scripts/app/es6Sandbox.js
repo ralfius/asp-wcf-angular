@@ -14,10 +14,10 @@ let values = getValues `some string with ${firstName} and ${lastName}`;
 
 // lambda
 let doubleFunction = item => item * 2; 
-let getThis = () => this; //'this' is captured
+let getThis = () => this; // 'this' is captured
 let thisEQ = this === getThis();
 let getArguments = (function() {
-    return (x, y) => arguments; //no arguments (taken from outside)
+    return (x, y) => arguments; // no arguments (taken from outside)
 }());
 
 // arrays
@@ -29,10 +29,10 @@ arr = [1, 2, 3];
 let ob = { d: 1, e: 2 };
 
 let [ a, b, c ] = arr;
-let { d, e } = ob; //a, b, c, d, e are now local variables coppied from array and object
+let { d, e } = ob; // a, b, c, d, e are now local variables coppied from array and object
 
 
-let { d: d2, e: e2 } = { d, e }; //d2 and e2 are now local variables coppied {d, e}
+let { d: d2, e: e2 } = { d, e }; // d2 and e2 are now local variables coppied {d, e}
 
 function rectArea({width: w = 0, height: h = 0} = {}){
     return h * w;
@@ -51,7 +51,7 @@ let func2Name = myFunc2.name;
 
 // default parameters
 //function modulo(value, deliminer = 2){
-//    return value % deliminer;
+//   return value % deliminer;
 //}
 
 // rest parameters
@@ -65,11 +65,17 @@ function sum(value, ...values){
     return sum;
 }
 
-// function visibility
-//{
-//    function BlockFunc(){}
-//}
-//BlockFunc(); //error
+// visibility
+{
+   function BlockFunc() { }
+}
+//BlockFunc(); // error
+
+{
+    class MyClass { };
+}
+//new MyClass() // error
+
 
 // spread
 let arr1 = [3, 4, 5];
@@ -106,18 +112,21 @@ for (var [key, value] of {c:25, d:50}) {
     // object declaration
 let name = 'my name';
 let newObject = {
-    name, //short declaration
-    [name + 1]: name + 1, //calculated property
+    name, // short declaration
+    [name + 1]: name + 1, // calculated property
     objectMethod() { },
-    get fullName() { //getter for fullName property
-        return 'full name';
-    }
+    get fullName() { // getter for fullName property
+        return this.fullName;
+},
+    set fullName(value){
+        this.fullName = value;
+}
 };
 let newDerivedObject = {
-    __proto__: newObject, //added to standart
+    __proto__: newObject, // added to standart
     derivedObjectMethod(){
-        let base = super.fullName(); //link to __proto__
-    }
+        let base = super.fullName(); // link to __proto__
+}
 };
 
 Object.assign(newObject, {a: 10}); // copies self enumerable propertries to newObject
