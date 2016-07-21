@@ -10,7 +10,7 @@
 
 @using (Html.BeginForm("Edit", "User", FormMethod.Post, htmlAttributes: new Dictionary<string, object>() {
     { "class", "form-horizontal" },
-    { "validate-submit", "updateInfo()" },
+    { "validate-submit", "vm.updateInfo()" },
     { "id", "editUserForm" },
     { "unobtrusive-validator-parse", null }
 }))
@@ -21,8 +21,8 @@
             <div class="col-sm-9">
                 @Html.TextBoxFor(m => m.FirstName, htmlAttributes: new Dictionary<string, object>{
                     { "class", "form-control" },
-                    { "ng-model", "user.FirstName" },
-                    { "capitalize", "user.FirstName" },
+                    { "ng-model", "vm.user.FirstName" },
+                    { "capitalize", "vm.user.FirstName" },
                     { "autocomplete", "off" },
                 })
                 @Html.ValidationMessageFor(m => m.FirstName)
@@ -34,8 +34,8 @@
             <div class="col-sm-9">
                 @Html.TextBoxFor(m => m.LastName, htmlAttributes: new Dictionary<string, object>{
                     { "class", "form-control" },
-                    { "ng-model", "user.LastName" },
-                    { "capitalize", "user.LastName" },
+                    { "ng-model", "vm.user.LastName" },
+                    { "capitalize", "vm.user.LastName" },
                     { "autocomplete", "off" }
                 })
                 @Html.ValidationMessageFor(m => m.LastName)
@@ -47,8 +47,8 @@
             <div class="col-sm-9">
                 @Html.TextBoxFor(m => m.Email, htmlAttributes: new Dictionary<string, object>{
                     { "class", "form-control" },
-                    { "ng-model", "user.Email" },
-                    { "remove-spaces", "user.Email" },
+                    { "ng-model", "vm.user.Email" },
+                    { "remove-spaces", "vm.user.Email" },
                     { "autocomplete", "off" }
                 })
                 @Html.ValidationMessageFor(m => m.Email)
@@ -56,9 +56,9 @@
         </div>
     </div>
     <div class="modal-footer text-center">
-        <button type="submit" class="btn btn-success" ng-if="!user.UserId">@Titles.Create</button>
-        <button type="submit" class="btn btn-success" ng-if="user.UserId">@Titles.Save</button>
-        <button type="button" class="btn btn-danger" ng-click="cancel()">@Titles.Cancel</button>
+        <button type="submit" class="btn btn-success" ng-if="!vm.user.UserId">@Titles.Create</button>
+        <button type="submit" class="btn btn-success" ng-if="vm.user.UserId">@Titles.Save</button>
+        <button type="button" class="btn btn-danger" ng-click="vm.cancel()">@Titles.Cancel</button>
     </div>
 }
 

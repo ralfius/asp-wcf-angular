@@ -1,47 +1,59 @@
 ﻿angular.module('aspWcfAngular')
     .controller('UsersCtrl', UsersCtrl);
 
-UsersCtrl.$inject = ['$scope', 'dialogService', 'displayMessageService', 'userService'];
+UsersCtrl.$inject = ['dialogService', 'displayMessageService', 'userService'];
 
-function UsersCtrl($scope, dialogService, displayMessageService, userService) {
-    $scope.search = '';
-    $scope.usersPage = { PageNumber: 1 };
+function UsersCtrl(dialogService, displayMessageService, userService) {
+    var vm = this;
 
-    var getUsers = function () {
-        userService.getUsers($scope.search, $scope.usersPage.PageNumber)
-            .then(function (result) {
-                $scope.usersPage = result.Data;
-            });
-    };
+    vm.search = '';
+    vm.usersPage = { PageNumber: 1 };
+    vm.initSearch = initSearch;
+    vm.nextPage = nextPage;
+    vm.nextPage = nextPage;
+    vm.delete = deleteUser;
+    vm.createUser = createUser;
+    vm.edit = edit;
 
-    var init = function () {
+
+    activate();
+
+    function activate() {
         getUsers();
-    };
-
-    var refreshPage = function () {
-        userService.getUsers($scope.search, $scope.usersPage.PageNumber)
+    }
+    
+    function getUsers() {
+        userService.getUsers(vm.search, vm.usersPage.PageNumber)
             .then(function (result) {
-                $scope.usersPage = result.Data;
+                vm.usersPage = result.Data;
             });
     };
 
-    $scope.initSearch = function () {
-        userService.getUsers($scope.search, 1)
+    function refreshPage() {
+        userService.getUsers(vm.search, vm.usersPage.PageNumber)
             .then(function (result) {
-                $scope.usersPage = result.Data;
+                vm.usersPage = result.Data;
             });
     };
 
-    $scope.nextPage = function () {
-        if (!$scope.usersPage.IsLastpage) {
-            userService.getUsers($scope.search, $scope.usersPage.PageNumber + 1)
+
+    function initSearch() {
+        userService.getUsers(vm.search, 1)
+            .then(function (result) {
+                vm.usersPage = result.Data;
+            });
+    };
+
+    function nextPage() {
+        if (!vm.usersPage.IsLastpage) {
+            userService.getUsers(vm.search, vm.usersPage.PageNumber + 1)
                 .then(function (result) {
-                    $scope.usersPage = result.Data
+                    vm.usersPage = result.Data
                 });
         }
     };
 
-    $scope.delete = function (user) {
+    function deleteUser(user) {
         var message = String.format(AWA.resources.message.SureToDeleteUser, user.FirstName + ' ' + user.LastName);
 
         dialogService.openYesNoDialog(AWA.resources.title.Delete_user, message)
@@ -55,17 +67,15 @@ function UsersCtrl($scope, dialogService, displayMessageService, userService) {
             });
     };
 
-    $scope.createUser = function () {
+     function createUser() {
         userService.createUser().then(function (user) {
             refreshPage();
         });
     };
 
-    $scope.edit = function (user) {
+     function edit(user) {
         userService.editUser(user).then(function (data) {
             refreshPage();
         });
     };
-
-    init();
 }

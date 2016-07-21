@@ -1,16 +1,21 @@
 ﻿angular.module('aspWcfAngular')
     .controller('YesNoDialogCtrl', YesNoDialogCtrl);
 
-YesNoDialogCtrl.$inject = ['$scope', '$uibModalInstance', 'content'];
+YesNoDialogCtrl.$inject = ['$uibModalInstance', 'content'];
 
-function YesNoDialogCtrl($scope, $uibModalInstance, content) {
-    $scope.content = content;
+function YesNoDialogCtrl($uibModalInstance, content) {
 
-    $scope.ok = function () {
+    var vm = this;
+
+    vm.content = content;
+    vm.ok = ok;
+    vm.cancel = cancel;
+
+    function ok() {
         $uibModalInstance.close();
     };
 
-    $scope.cancel = function () {
+    function cancel() {
         $uibModalInstance.dismiss();
     };
 }

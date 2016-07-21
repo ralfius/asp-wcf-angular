@@ -16,6 +16,7 @@ function dialogService($uibModal) {
         var modalInstance = $uibModal.open({
             templateUrl: templateUrl,
             controller: controller,
+            controllerAs: 'vm',
             resolve: resolveData
         });
 

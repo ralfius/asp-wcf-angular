@@ -1,18 +1,24 @@
 ﻿angular.module('aspWcfAngular')
     .controller('EditUserDialogCtrl', EditUserDialogCtrl);
 
-EditUserDialogCtrl.$inject = ['$scope', 'userService', '$uibModalInstance', 'user'];
+EditUserDialogCtrl.$inject = ['userService', '$uibModalInstance', 'user'];
 
-function EditUserDialogCtrl($scope, userService, $uibModalInstance, user) {
-    $scope.user = user;
+function EditUserDialogCtrl(userService, $uibModalInstance, user) {
 
-    $scope.updateInfo = function () {
-        userService.updateUser($scope.user).then(function (result) {
+    var vm = this;
+
+    vm.user = user;
+    vm.updateInfo = updateInfo;
+    vm.cancel = cancel;
+
+
+    function updateInfo() {
+        userService.updateUser(vm.user).then(function (result) {
             $uibModalInstance.close(result.Data);
         });
     };
 
-    $scope.cancel = function () {
+    function cancel() {
         $uibModalInstance.dismiss();
     };
 }
