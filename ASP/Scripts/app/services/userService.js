@@ -1,43 +1,44 @@
 ﻿angular.module('aspWcfAngular')
-    .factory('userService', [
-        'httpConnectionService', 'dialogService', function (httpConnectionService, dialogService) {
+    .factory('userService', usersService);
 
-            var createUser = function () {
-                return openEditUserDialog({});
-            };
+usersService.$inject = ['httpConnectionService', 'dialogService'];
 
-            var editUser = function (user) {
-                return openEditUserDialog(angular.copy(user));
-            };
+function usersService(httpConnectionService, dialogService) {
 
-            var updateUser = function (user) {
-                return httpConnectionService.post(AWA.urls.user.update, user);
-            };
+    return {
+        getUsers: getUsers,
+        deleteUser: deleteUser,
+        createUser: createUser,
+        editUser: editUser,
+        updateUser: updateUser
+    };
 
-            var openEditUserDialog = function (user) {
-                return dialogService.openCustomDialogDialog('editUserDialog.html', 'EditUserDialogCtrl', {user : user});
-            };
+    function createUser() {
+        return openEditUserDialog({});
+    };
+
+    function editUser(user) {
+        return openEditUserDialog(angular.copy(user));
+    };
+
+    function updateUser(user) {
+        return httpConnectionService.post(AWA.urls.user.update, user);
+    };
+
+    function openEditUserDialog(user) {
+        return dialogService.openCustomDialogDialog('editUserDialog.html', 'EditUserDialogCtrl', {user : user});
+    };
             
-            var getUsers = function (search, pageNumber) {
-                //TODO: create format filter
-                var url = AWA.urls.user.list.replace('{0}', search || '').replace('{1}', pageNumber || 1);
+    function getUsers(search, pageNumber) {
+        //TODO: create format filter
+        var url = AWA.urls.user.list.replace('{0}', search || '').replace('{1}', pageNumber || 1);
 
-                return httpConnectionService.get(url);
-            };
+        return httpConnectionService.get(url);
+    };
 
-            var deleteUser = function (user) {
-                var url = AWA.urls.user.delete;
+    function deleteUser(user) {
+        var url = AWA.urls.user.delete;
 
-                return httpConnectionService.post(url, { userId: user.UserId });
-            };
-
-
-            return {
-                getUsers: getUsers,
-                deleteUser: deleteUser,
-                createUser: createUser,
-                editUser: editUser,
-                updateUser: updateUser
-            };
-        }
-    ]);
+        return httpConnectionService.post(url, { userId: user.UserId });
+    };
+};

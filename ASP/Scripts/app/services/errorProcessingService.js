@@ -1,15 +1,27 @@
 ﻿angular.module('aspWcfAngular')
-    .service('errorProcessingService', ['$log', 'displayMessageService', function ($log, displayMessageService) {
-        this.processHttpError = function (response) {
-            $log.error(response.statusText);
-        };
+    .service('errorProcessingService', errorProcessingService);
 
-        this.processErrorResponse = function (response) {
-            $log.error('Got server error: status = ' + response.data.Status + ', message = ' + response.data.Message);
-            displayMessageService.showError(response.data.Message);
-        };
+errorProcessingService.$inject = ['$log', 'displayMessageService'];
 
-        this.canProcessServerResponse = function (response) {
-            return response.status == 200 && response.data.Status === AWA.enums.status.success;
-        };
-    }]);
+function errorProcessingService($log, displayMessageService) {
+    var service = {
+        processHttpError: processHttpError,
+        processErrorResponse: processErrorResponse,
+        canProcessServerResponse: canProcessServerResponse
+    };
+
+    return service;
+
+    function processHttpError (response) {
+        $log.error(response.statusText);
+    };
+
+    function processErrorResponse(response) {
+        $log.error('Got server error: status = ' + response.data.Status + ', message = ' + response.data.Message);
+        displayMessageService.showError(response.data.Message);
+    };
+
+    function canProcessServerResponse(response) {
+        return response.status == 200 && response.data.Status === AWA.enums.status.success;
+    };
+};

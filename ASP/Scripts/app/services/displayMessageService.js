@@ -1,16 +1,26 @@
 ﻿angular.module('aspWcfAngular')
-    .service('displayMessageService', ['$rootScope',
-        function ($rootScope) {
-            this.showError = function (message) {
-                $rootScope.alerts.push({ type: 'danger', message: message })
-            };
+    .service('displayMessageService', displayMessageService);
 
-            this.showSuccess = function (message) {
-                $rootScope.alerts.push({ type: 'success', message: message })
-            };
+displayMessageService.$inject = ['$rootScope'];
 
-            this.showWarning = function (message) {
-                $rootScope.alerts.push({ type: 'warning', message: message })
-            };
-        }
-    ]);
+function displayMessageService($rootScope) {
+    var service = {
+        showError: showError,
+        showSuccess: showSuccess,
+        showWarning: showWarning
+    };
+
+    return service;
+
+    function showError (message) {
+        $rootScope.alerts.push({ type: 'danger', message: message })
+    };
+
+    function showSuccess(message) {
+        $rootScope.alerts.push({ type: 'success', message: message })
+    };
+
+    function showWarning(message) {
+        $rootScope.alerts.push({ type: 'warning', message: message })
+    };
+}

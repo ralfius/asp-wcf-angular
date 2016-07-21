@@ -1,52 +1,46 @@
 ﻿angular.module('aspWcfAngular')
-    .service('httpConnectionService', ['$http', '$q', 'errorProcessingService', 
-        function ($http, $q, errorProcessingService) {
+    .service('httpConnectionService', httpConnectionService);
 
-            this.get = function (url) {
-                var deferred = $q.defer();
+httpConnectionService.$inject = ['$http', '$q', 'errorProcessingService'];
 
-                $http.get(url).then(function (response) {
-                    if (errorProcessingService.canProcessServerResponse(response)) {
-                        return deferred.resolve(response.data);
-                    } else {
-                        errorProcessingService.processErrorResponse(response);
-                    }
-                }, function (response) {
-                    errorProcessingService.processHttpError(response)
-                });
+function httpConnectionService($http, $q, errorProcessingService) {
 
-                return deferred.promise;
-            };
+    var service = {
+        get: get,
+        post: post
+    };
 
-            this.post = function (url, data) {
-                var deferred = $q.defer();
+    return service;
 
-                $http.post(url, data).then(function (response) {
-                    if (errorProcessingService.canProcessServerResponse(response)) {
-                        return deferred.resolve(response.data);
-                    } else {
-                        errorProcessingService.processErrorResponse(response);
-                    }
-                }, function (response) {
-                    errorProcessingService.processHttpError(response)
-                });
+    function get(url) {
+        var deferred = $q.defer();
 
-                return deferred.promise;
-            };
+        $http.get(url).then(function (response) {
+            if (errorProcessingService.canProcessServerResponse(response)) {
+                return deferred.resolve(response.data);
+            } else {
+                errorProcessingService.processErrorResponse(response);
+            }
+        }, function (response) {
+            errorProcessingService.processHttpError(response)
+        });
 
-            this.delete = function (url, data) {
-                var deferred = $q.defer();
+        return deferred.promise;
+    };
 
-                $http.delete(url, data).then(function (response) {
-                    if (errorProcessingService.canProcessServerResponse(response)) {
-                        return deferred.resolve(response.data);
-                    } else {
-                        errorProcessingService.processErrorResponse(response);
-                    }
-                }, function (response) {
-                    errorProcessingService.processHttpError(response)
-                });
+    function post(url, data) {
+        var deferred = $q.defer();
 
-                return deferred.promise;
-            };
-        }]);
+        $http.post(url, data).then(function (response) {
+            if (errorProcessingService.canProcessServerResponse(response)) {
+                return deferred.resolve(response.data);
+            } else {
+                errorProcessingService.processErrorResponse(response);
+            }
+        }, function (response) {
+            errorProcessingService.processHttpError(response)
+        });
+
+        return deferred.promise;
+    };
+};

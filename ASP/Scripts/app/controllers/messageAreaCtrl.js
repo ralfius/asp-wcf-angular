@@ -1,10 +1,12 @@
 ﻿angular.module('aspWcfAngular')
-    .controller('MessageAreaCtrl', ['$scope', '$rootScope',
-        function ($scope, $rootScope) {
-            $rootScope.alerts = $rootScope.alerts || [];
+    .controller('MessageAreaCtrl', MessageAreaCtrl);
+
+MessageAreaCtrl.$inject = ['$scope', '$rootScope'];
+
+function MessageAreaCtrl($scope, $rootScope) {
+    $rootScope.alerts = $rootScope.alerts || [];
             
-            $scope.closeAlert = function (index) {
-                $scope.alerts.splice(index, 1);
-            };
-        }
-    ]);
+    $scope.closeAlert = function (index) {
+        $scope.alerts.splice(index, 1);
+    };
+}

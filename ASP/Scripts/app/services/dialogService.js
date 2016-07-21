@@ -1,31 +1,40 @@
 ﻿angular.module('aspWcfAngular')
-    .service('dialogService', ['$uibModal',
-        function ($uibModal) {
+    .service('dialogService', dialogService);
 
-            this.openCustomDialogDialog = function (templateUrl, controller, resolveData) {
-                var modalInstance = $uibModal.open({
-                    templateUrl: templateUrl,
-                    controller: controller,
-                    resolve: resolveData
-                });
+dialogService.$inject = ['$uibModal'];
 
-                return modalInstance.result;
-            };
+function dialogService($uibModal) {
+
+    var service = {
+        openCustomDialogDialog: openCustomDialogDialog,
+        openYesNoDialog: openYesNoDialog
+    };
+
+    return service;
+
+    function openCustomDialogDialog (templateUrl, controller, resolveData) {
+        var modalInstance = $uibModal.open({
+            templateUrl: templateUrl,
+            controller: controller,
+            resolve: resolveData
+        });
+
+        return modalInstance.result;
+    };
 
 
-            this.openYesNoDialog = function (title, message) {
-                var modalInstance = $uibModal.open({
-                    templateUrl: 'yesNoDialog.html',
-                    controller: 'yesNoDialogCtrl',
-                    resolve: {
-                        content: {
-                            title: title,
-                            message: message
-                        }
-                    }
-                });
+    function openYesNoDialog (title, message) {
+        var modalInstance = $uibModal.open({
+            templateUrl: 'yesNoDialog.html',
+            controller: 'YesNoDialogCtrl',
+            resolve: {
+                content: {
+                    title: title,
+                    message: message
+                }
+            }
+        });
 
-                return modalInstance.result;
-            };
-        }
-    ]);
+        return modalInstance.result;
+    };
+};

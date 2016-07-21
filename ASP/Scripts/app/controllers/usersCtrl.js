@@ -1,69 +1,71 @@
 ﻿angular.module('aspWcfAngular')
-    .controller('UsersCtrl', ['$scope', 'dialogService', 'displayMessageService', 'userService', 
-        function ($scope, dialogService, displayMessageService, userService) {
-            $scope.search = '';
-            $scope.usersPage = { PageNumber: 1 };
+    .controller('UsersCtrl', UsersCtrl);
 
-            var getUsers = function () {
-                userService.getUsers($scope.search, $scope.usersPage.PageNumber)
-                    .then(function (result) {
-                        $scope.usersPage = result.Data;
-                    });
-            };
+UsersCtrl.$inject = ['$scope', 'dialogService', 'displayMessageService', 'userService'];
 
-            var init = function () {
-                getUsers();
-            };
+function UsersCtrl($scope, dialogService, displayMessageService, userService) {
+    $scope.search = '';
+    $scope.usersPage = { PageNumber: 1 };
 
-            var refreshPage = function () {
-                userService.getUsers($scope.search, $scope.usersPage.PageNumber)
-                    .then(function (result) {
-                        $scope.usersPage = result.Data;
-                    });
-            };
+    var getUsers = function () {
+        userService.getUsers($scope.search, $scope.usersPage.PageNumber)
+            .then(function (result) {
+                $scope.usersPage = result.Data;
+            });
+    };
 
-            $scope.initSearch = function () {
-                userService.getUsers($scope.search, 1)
-                    .then(function (result) {
-                        $scope.usersPage = result.Data;
-                    });
-            };
+    var init = function () {
+        getUsers();
+    };
 
-            $scope.nextPage = function () {
-                if (!$scope.usersPage.IsLastpage) {
-                    userService.getUsers($scope.search, $scope.usersPage.PageNumber + 1)
-                        .then(function (result) {
-                            $scope.usersPage = result.Data
-                        });
-                }
-            };
+    var refreshPage = function () {
+        userService.getUsers($scope.search, $scope.usersPage.PageNumber)
+            .then(function (result) {
+                $scope.usersPage = result.Data;
+            });
+    };
 
-            $scope.delete = function (user) {
-                var message = String.format(AWA.resources.message.SureToDeleteUser, user.FirstName + ' ' + user.LastName);
+    $scope.initSearch = function () {
+        userService.getUsers($scope.search, 1)
+            .then(function (result) {
+                $scope.usersPage = result.Data;
+            });
+    };
 
-                dialogService.openYesNoDialog(AWA.resources.title.Delete_user, message)
-                    .then(function () {
-                        userService.deleteUser(user).then(function (result) {
-                            if (result.Message) {
-                                displayMessageService.showSuccess(result.Message);
-                            }                            
-                            refreshPage();
-                        });
-                    });
-            };
-
-            $scope.createUser = function () {
-                userService.createUser().then(function (user) {
-                    refreshPage();
+    $scope.nextPage = function () {
+        if (!$scope.usersPage.IsLastpage) {
+            userService.getUsers($scope.search, $scope.usersPage.PageNumber + 1)
+                .then(function (result) {
+                    $scope.usersPage = result.Data
                 });
-            };
-
-            $scope.edit = function (user) {
-                userService.editUser(user).then(function (data) {
-                    refreshPage();
-                });
-            };
-
-            init();
         }
-    ]);
+    };
+
+    $scope.delete = function (user) {
+        var message = String.format(AWA.resources.message.SureToDeleteUser, user.FirstName + ' ' + user.LastName);
+
+        dialogService.openYesNoDialog(AWA.resources.title.Delete_user, message)
+            .then(function () {
+                userService.deleteUser(user).then(function (result) {
+                    if (result.Message) {
+                        displayMessageService.showSuccess(result.Message);
+                    }
+                    refreshPage();
+                });
+            });
+    };
+
+    $scope.createUser = function () {
+        userService.createUser().then(function (user) {
+            refreshPage();
+        });
+    };
+
+    $scope.edit = function (user) {
+        userService.editUser(user).then(function (data) {
+            refreshPage();
+        });
+    };
+
+    init();
+}
