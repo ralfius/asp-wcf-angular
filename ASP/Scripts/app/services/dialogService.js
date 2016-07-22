@@ -28,6 +28,7 @@ function dialogService($uibModal) {
         var modalInstance = $uibModal.open({
             templateUrl: 'yesNoDialog.html',
             controller: 'YesNoDialogCtrl',
+            controllerAs: 'vm',
             resolve: {
                 content: {
                     title: title,
