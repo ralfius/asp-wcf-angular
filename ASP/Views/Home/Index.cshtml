@@ -9,7 +9,7 @@
 
     @using (Html.BeginForm("", "", FormMethod.Get, htmlAttributes: new Dictionary<string, object> {
         { "class", "form-inline col-sm-12 awa-search-form" },
-        { "validate-submit", "initSearch()" }
+        { "validate-submit", "usersVm.initSearch()" }
     }))
     {
         <div class="form-group">
@@ -17,7 +17,7 @@
             @Html.TextBox("Search", null, htmlAttributes: new Dictionary<string, object> {
                 { "class", "form-control" },
                 { "placeholder", Messages.SearchText },
-                { "ng-model", "search" },
+                { "ng-model", "usersVm.search" },
                 { "autocomplete", "off" }
             })
         </div>
@@ -25,32 +25,7 @@
     }
 
     <div class="col-sm-12">
-        <table class="table table-striped table-condensed awa-users" ng-if="usersVm.usersPage.Items.length">
-            <thead>
-                <tr>
-                    <td>@Titles.First_name</td>
-                    <td>@Titles.Last_name</td>
-                    <td>@Titles.Email</td>
-                    <td class="awa-actions">@Titles.Actions</td>
-                </tr>
-            </thead>
-            <tr class="awa-user" ng-repeat="user in usersVm.usersPage.Items">
-                <td>{{user.FirstName}}</td>
-                <td>{{user.LastName}}</td>
-                <td>{{user.Email}}</td>
-                <td class="awa-actions">
-                    <button class="btn btn-sm btn-warning" ng-click="usersVm.edit(user)">
-                        <span class="glyphicon glyphicon-edit"></span>
-                        @Titles.Edit
-                    </button>
-                    <button class="btn btn-sm btn-danger" ng-click="usersVm.delete(user)">
-                        <span class="glyphicon glyphicon-remove"></span>
-                        @Titles.Delete
-                    </button>
-                </td>
-            </tr>
-        </table>
-        <h4 ng-if="!usersVm.usersPage.Items.length">@Titles.NoUsers</h4>
+        <users-list users="usersVm.usersPage.Items" on-update="usersVm.edit(user)" on-delete="usersVm.delete(user)"></users-list>
     </div>
 
     <div class="col-sm-12 awa-actions">
@@ -60,6 +35,10 @@
         </button>
     </div>
 </div>
+
+<script type="text/ng-template" id="usersListComponent.html">
+    @Html.Partial("Components/_UsersList")
+</script>
 
 <script type="text/ng-template" id="yesNoDialog.html">
     @Html.Partial("_YesNoDialog")

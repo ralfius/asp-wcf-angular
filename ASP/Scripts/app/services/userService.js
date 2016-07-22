@@ -1,9 +1,9 @@
 ﻿angular.module('aspWcfAngular')
     .factory('userService', usersService);
 
-usersService.$inject = ['httpConnectionService', 'dialogService'];
+usersService.$inject = ['$q', 'httpConnectionService', 'dialogService'];
 
-function usersService(httpConnectionService, dialogService) {
+function usersService($q, httpConnectionService, dialogService) {
 
     return {
         getUsers: getUsers,
@@ -26,9 +26,9 @@ function usersService(httpConnectionService, dialogService) {
     };
 
     function openEditUserDialog(user) {
-        return dialogService.openCustomDialogDialog('editUserDialog.html', 'EditUserDialogCtrl', {user : user});
+        return dialogService.openCustomDialogDialog('editUserDialog.html', 'EditUserDialogCtrl', { user: user });
     };
-            
+
     function getUsers(search, pageNumber) {
         //TODO: create format filter
         var url = AWA.urls.user.list.replace('{0}', search || '').replace('{1}', pageNumber || 1);
@@ -37,8 +37,19 @@ function usersService(httpConnectionService, dialogService) {
     };
 
     function deleteUser(user) {
-        var url = AWA.urls.user.delete;
+        var deferred = $q.defer();
+        var message = String.format(AWA.resources.message.SureToDeleteUser, user.FirstName + ' ' + user.LastName);
 
-        return httpConnectionService.post(url, { userId: user.UserId });
+        dialogService.openYesNoDialog(AWA.resources.title.Delete_user, message)
+            .then(function () {
+                var url = AWA.urls.user.delete;
+
+                httpConnectionService.post(url, { userId: user.UserId })
+                    .then(function (response) {
+                        deferred.resolve(response);
+                    });
+            });
+
+        return deferred.promise;
     };
 };

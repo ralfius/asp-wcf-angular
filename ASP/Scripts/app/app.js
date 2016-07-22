@@ -1,6 +1,6 @@
-﻿angular.module('aspWcfAngular', ['ui.bootstrap']).
-    config(AppConfig).
-    run(AppRun);
+﻿angular.module('aspWcfAngular', ['ui.bootstrap'])
+    .config(AppConfig)
+    .run(AppRun);
 
 function AppConfig() {
 

@@ -46,6 +46,8 @@ namespace ASP
                 "~/Scripts/app/directives/capitalize.js",
                 "~/Scripts/app/directives/removeSpaces.js",
 
+                "~/Scripts/app/components/usersList.js",
+
                 "~/Scripts/app/services/errorProcessingService.js",
                 "~/Scripts/app/services/httpConnectionService.js",
                 "~/Scripts/app/services/dialogService.js",
