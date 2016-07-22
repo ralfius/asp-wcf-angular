@@ -1,44 +1,50 @@
-﻿(function(angular) {
+﻿(function (angular) {
     'use strict';
 
     angular.module('aspWcfAngular')
-        .directive('validateSubmit', function() {
-            return {
-                scope: {
-                    submitCallback: "&validateSubmit"
-                },
-                restrict: 'A',
-                link: function(scope, $el, attrs, ctrls) {
-                    $el.bind('submit', function (event) {
-                        var form = angular.element(event.target);
-                        
-                        if (form.validate) {
-                            //if validation is enabled - process form
+        .directive('validateSubmit', validateSubmit);
 
-                            var validate = form.validate();
+    function validateSubmit() {
+        var directory = {
+            scope: {
+                submitCallback: "&validateSubmit"
+            },
+            restrict: 'A',
+            link: link
+        };
 
-                            //this is default settings for unobtrusive validation
-                            validate.settings.ignore = ":hidden";
+        return directory;
 
-                            if (form.valid()) {
-                                scope.$apply(scope.submitCallback);
-                                validate.resetForm();
-                            }
+        function link(scope, $el) {
+            $el.bind('submit', function (event) {
+                var form = angular.element(event.target);
 
-                            //this disables default validation
-                            validate.settings.ignore = "*";
-                        } else {
-                            //if validation is disabled - execute callback
+                if (form.validate) {
+                    //if validation is enabled - process form
 
-                            scope.$apply(scope.submitCallback);
-                        }
+                    var validate = form.validate();
 
-                        //preventing default form submition
-                        event.preventDefault();
+                    //this is default settings for unobtrusive validation
+                    validate.settings.ignore = ":hidden";
 
-                        return false;
-                    });
+                    if (form.valid()) {
+                        scope.$apply(scope.submitCallback);
+                        validate.resetForm();
+                    }
+
+                    //this disables default validation
+                    validate.settings.ignore = "*";
+                } else {
+                    //if validation is disabled - execute callback
+
+                    scope.$apply(scope.submitCallback);
                 }
-            };
-        });
+
+                //preventing default form submition
+                event.preventDefault();
+
+                return false;
+            });
+        }
+    }
 }(angular));

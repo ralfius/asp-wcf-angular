@@ -4,23 +4,27 @@
     //this directive is used for performing validation of dynamic forms\controls
     //that are not validated on page load but should be processed once rendered
     angular.module('aspWcfAngular')
-        .directive('unobtrusiveValidatorParse', function () {
+        .directive('unobtrusiveValidatorParse', unobtrusiveValidatorParse);
 
-            return {
-                restrict: 'A',
+    function unobtrusiveValidatorParse() {
+        var directive = {
+            restrict: 'A',
+            link: link
+        };
 
-                link: function (scope, $el, attrs, ctrls) {
-                    var form, el = angular.element($el);
+        return directive;
 
-                    if (el.is('form')) {
-                        form = el;
-                    } else {
-                        form = el.closest('form');
-                    }
+        function link(scope, $el) {
+            var form, el = angular.element($el);
 
-                    form.removeData("validator");
-                    $.validator.unobtrusive.parse(form);
-                }
-            };
-        });
+            if (el.is('form')) {
+                form = el;
+            } else {
+                form = el.closest('form');
+            }
+
+            form.removeData("validator");
+            $.validator.unobtrusive.parse(form);
+        }
+    }
 }(angular));

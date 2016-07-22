@@ -2,19 +2,25 @@
     'use strict';
 
     angular.module('aspWcfAngular')
-        .directive('capitalize', function () {
-            return {
-                scope: {
-                    model: '=capitalize'
-                },
-                restrict: 'A',
-                link: function(scope, $el, attrs, ctrls) {
-                    scope.$watch('model', function(newVal, oldVal) {
-                        if (newVal && newVal.length === 1) {
-                            scope.model = newVal.toUpperCase();
-                        }
-                    });
+        .directive('capitalize', capitalize);
+
+    function capitalize() {
+        var directive = {
+            scope: {
+                model: '=capitalize'
+            },
+            restrict: 'A',
+            link: link
+        };
+
+        return directive;
+
+        function link(scope) {
+            scope.$watch('model', function (newVal, oldVal) {
+                if (newVal && newVal.length === 1) {
+                    scope.model = newVal.toUpperCase();
                 }
-            };
-        });
+            });
+        }
+    }
 }(angular));
