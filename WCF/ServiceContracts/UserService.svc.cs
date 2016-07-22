@@ -98,7 +98,7 @@ namespace WCF.ServiceContracts
                 }
 
                 var newUser = UserTranslator.ToUser(user);
-                var maxId = _usersRepository.Users.Max(u => u.Id);
+                var maxId = _usersRepository.Users.Count > 0 ? _usersRepository.Users.Max(u => u.Id) : 1;
 
                 newUser.Id = maxId + 1;
                 _usersRepository.Users.Add(newUser);
