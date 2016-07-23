@@ -1,0 +1,27 @@
+{
+  "name": "asp.tests",
+  "version": "1.0.0",
+  "description": "Used for serving node packages for asp.test project",
+  "main": "karma",
+  "scripts": {
+    "test": "no tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ralfius/asp-wcf-angular/tree/master/ASP.Tests"
+  },
+  "keywords": [
+    "asp.net",
+    "mvc",
+    "karma"
+  ],
+  "author": "Vladimir Ivanov",
+  "license": "ISC",
+  "devDependencies": {
+    "jasmine": "^2.4.1",
+    "karma": "^1.1.1",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-coverage": "^1.1.1",
+    "karma-jasmine": "^1.0.2"
+  }
+}
