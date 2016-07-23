@@ -20,7 +20,7 @@ module.exports = function(config) {
       //'../ASP/Scripts/lib/angular/angular-mock.js',      
 
       // application to be tested
-      '../ASP/Scripts/app/*.js',
+      '../ASP/Scripts/app/**/*.js',
 
       // tests
       'Scripts/*.js'
@@ -29,12 +29,14 @@ module.exports = function(config) {
 
     // list of files to exclude
     exclude: [
+      '../ASP/Scripts/app/es6Sandbox.js'
     ],
 
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+      '../ASP/Scripts/app/**/*.js': ['coverage'],
     },
 
 
@@ -42,6 +44,19 @@ module.exports = function(config) {
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
     reporters: ['progress', 'coverage'],
+
+    coverageReporter: {
+      // specify a common output directory 
+      dir: 'reports/coverage',
+      reporters: [
+        // reporters not supporting the `file` property 
+        { type: 'html' }
+      ],
+
+      instrumenterOptions: {
+        istanbul: { noCompact: true }
+      }
+    },
 
 
     // web server port. Default 9876 is conflicted with another app
