@@ -1757,6 +1757,7 @@
     <Content Include="Scripts\lib\angular\version.json" />
     <Content Include="Scripts\lib\errors.json" />
     <Content Include="Scripts\lib\jquery\jquery-1.10.2.min.map" />
+    <Content Include="Views\Home\_Users.cshtml" />
     <None Include="Views\Shared\Components\_UsersList.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

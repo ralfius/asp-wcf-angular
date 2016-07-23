@@ -35,7 +35,8 @@ namespace ASP
                 "~/Scripts/app/es6Sandbox.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
-                "~/Scripts/lib/angular/angular.js"));
+                "~/Scripts/lib/angular/angular.js",
+                "~/Scripts/lib/angular/angular-route.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
                 "~/Scripts/app/helpers.js",
