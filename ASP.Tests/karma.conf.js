@@ -23,13 +23,14 @@ module.exports = function(config) {
       '../ASP/Scripts/app/**/*.js',
 
       // tests
-      'Scripts/*.js'
+      'Scripts/**/*.js'
     ],
 
 
     // list of files to exclude
     exclude: [
-      '../ASP/Scripts/app/es6Sandbox.js'
+      '../ASP/Scripts/app/es6Sandbox.js',
+      '../ASP/Scripts/app/inheritance.js'
     ],
 
 
@@ -78,7 +79,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
+    browsers: ['PhantomJS'],
 
 
     // Continuous Integration mode
