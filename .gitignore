@@ -73,3 +73,6 @@ publish/
 # log files
 log.txt
 log4net.txt
+
+# node js
+node_modules
