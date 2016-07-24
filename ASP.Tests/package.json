@@ -4,7 +4,7 @@
   "description": "Used for serving node packages for asp.test project",
   "main": "karma",
   "scripts": {
-    "test": "no tests"
+    "test": "karma start"
   },
   "repository": {
     "type": "git",

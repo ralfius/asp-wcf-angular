@@ -17,12 +17,14 @@ module.exports = function(config) {
     files: [
       // angular sources
       '../ASP/Scripts/lib/angular/angular.js',
-      //'../ASP/Scripts/lib/angular/angular-mock.js',      
+      '../ASP/Scripts/lib/angular/angular-route.js',      
+      '../ASP/Scripts/lib/angular/angular-mocks.js',
+      '../ASP/Scripts/lib/ui-bootstrap-*.js',      
 
-      // application to be tested
+      // application to be tested and tests
       '../ASP/Scripts/app/**/*.js',
 
-      // tests
+      // standalone tests
       'Scripts/**/*.js'
     ],
 
@@ -37,7 +39,7 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      '../ASP/Scripts/app/**/*.js': ['coverage'],
+      '../ASP/Scripts/app/**/!(*.mock|*.spec).js': ['coverage']
     },
 
 
@@ -74,16 +76,16 @@ module.exports = function(config) {
 
 
     // enable / disable watching file and executing tests whenever any file changes
-    autoWatch: false, //true,
+    autoWatch: true,
 
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['PhantomJS'],
+    browsers: ['Chrome'],
 
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: true
+    singleRun: false
   })
 }

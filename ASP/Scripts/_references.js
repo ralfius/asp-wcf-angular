@@ -5,6 +5,7 @@
 /// <reference path="app/controllers/edituserdialogctrl.js" />
 /// <reference path="app/controllers/messageareactrl.js" />
 /// <reference path="app/controllers/usersctrl.js" />
+/// <reference path="app/controllers/usersctrl.spec.js" />
 /// <reference path="app/controllers/yesnodialogctrl.js" />
 /// <reference path="app/directives/capitalize.js" />
 /// <reference path="app/directives/removespaces.js" />
