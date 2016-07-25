@@ -1,7 +1,4 @@
-﻿angular.module('aspWcfAngular')
-    .service('dialogService', dialogService);
-
-dialogService.$inject = ['$uibModal'];
+﻿dialogService.$inject = ['$uibModal'];
 
 function dialogService($uibModal) {
 
@@ -40,3 +37,5 @@ function dialogService($uibModal) {
         return modalInstance.result;
     };
 };
+
+export default dialogService;

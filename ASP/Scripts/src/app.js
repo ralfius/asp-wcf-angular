@@ -1,6 +1,10 @@
-﻿angular.module('aspWcfAngular', ['ui.bootstrap', 'ngRoute'])
+﻿import dialogService from './services/dialogService';
+
+const root = angular.module('aspWcfAngular', ['ui.bootstrap', 'ngRoute'])
     .config(AppConfig)
-    .run(AppRun);
+    .run(AppRun)
+
+root.factory(dialogService.name, dialogService);
 
 AppConfig.$inject = ['$routeProvider'];
 

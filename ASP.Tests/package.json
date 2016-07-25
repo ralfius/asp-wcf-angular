@@ -16,7 +16,7 @@
     "karma"
   ],
   "author": "Vladimir Ivanov",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "jasmine": "^2.4.1",
     "karma": "^1.1.1",

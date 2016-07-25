@@ -31,35 +31,33 @@ namespace ASP
                 "~/Content/site.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/sandbox").Include(
-                "~/Scripts/app/inheritance.js",
-                "~/Scripts/app/es6Sandbox.js"));
+                "~/Scripts/src/inheritance.js",
+                "~/Scripts/src/es6Sandbox.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                 "~/Scripts/lib/angular/angular.js",
                 "~/Scripts/lib/angular/angular-route.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
-                "~/Scripts/app/helpers.js",
-                "~/Scripts/app/app.js",
+                "~/Scripts/src/helpers.js",
 
-                "~/Scripts/app/directives/validateSubmit.js",
-                "~/Scripts/app/directives/unobtrusiveValidatorParse.js",
-                "~/Scripts/app/directives/capitalize.js",
-                "~/Scripts/app/directives/removeSpaces.js",
+                "~/Scripts/src/directives/validateSubmit.js",
+                "~/Scripts/src/directives/unobtrusiveValidatorParse.js",
+                "~/Scripts/src/directives/capitalize.js",
+                "~/Scripts/src/directives/removeSpaces.js",
 
-                "~/Scripts/app/components/usersList.js",
+                "~/Scripts/src/components/usersList.js",
 
-                "~/Scripts/app/services/errorProcessingService.js",
-                "~/Scripts/app/services/httpConnectionService.js",
-                "~/Scripts/app/services/dialogService.js",
-                "~/Scripts/app/services/displayMessageService.js",
+                "~/Scripts/src/services/errorProcessingService.js",
+                "~/Scripts/src/services/httpConnectionService.js",
+                "~/Scripts/src/services/displayMessageService.js",
 
-                "~/Scripts/app/services/userService.js",
+                "~/Scripts/src/services/userService.js",
 
-                "~/Scripts/app/controllers/yesNoDialogCtrl.js",
-                "~/Scripts/app/controllers/messageAreaCtrl.js",
-                "~/Scripts/app/controllers/editUserDialogCtrl.js",
-                "~/Scripts/app/controllers/usersCtrl.js"));
+                "~/Scripts/src/controllers/yesNoDialogCtrl.js",
+                "~/Scripts/src/controllers/messageAreaCtrl.js",
+                "~/Scripts/src/controllers/editUserDialogCtrl.js",
+                "~/Scripts/src/controllers/usersCtrl.js"));
         }
     }
 }
