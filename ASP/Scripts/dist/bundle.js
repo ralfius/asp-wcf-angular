@@ -5,6 +5,22 @@ var _users = require('./users.module/users.module');
 
 var _users2 = _interopRequireDefault(_users);
 
+var _capitalize = require('./common/directives/capitalize.directive');
+
+var _capitalize2 = _interopRequireDefault(_capitalize);
+
+var _removeSpaces = require('./common/directives/removeSpaces.directive');
+
+var _removeSpaces2 = _interopRequireDefault(_removeSpaces);
+
+var _unobtrusiveValidatorParse = require('./common/directives/unobtrusiveValidatorParse.directive');
+
+var _unobtrusiveValidatorParse2 = _interopRequireDefault(_unobtrusiveValidatorParse);
+
+var _validateSubmit = require('./common/directives/validateSubmit.directive');
+
+var _validateSubmit2 = _interopRequireDefault(_validateSubmit);
+
 var _DialogService = require('./common/services/DialogService');
 
 var _DialogService2 = _interopRequireDefault(_DialogService);
@@ -31,9 +47,17 @@ var _yesNoDialog2 = _interopRequireDefault(_yesNoDialog);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var root = angular.module('aspWcfAngular', ['ui.bootstrap', _users2.default]).service('DialogService', _DialogService2.default).service('DisplayMessageService', _DisplayMessageService2.default).service('ErrorProcessingService', _ErrorProcessingService2.default).service('HttpConnectionService', _HttpConnectionService2.default).controller('MessageAreaController', _messageArea2.default).controller('YesNoDialogController', _yesNoDialog2.default);
+var root = angular.module('aspWcfAngular', ['ui.bootstrap', _users2.default]).directive('capitalize', function () {
+    return new _capitalize2.default();
+}).directive('removeSpaces', function () {
+    return new _removeSpaces2.default();
+}).directive('unobtrusiveValidatorParse', function () {
+    return new _unobtrusiveValidatorParse2.default();
+}).directive('validateSubmit', function () {
+    return new _validateSubmit2.default();
+}).service('DialogService', _DialogService2.default).service('DisplayMessageService', _DisplayMessageService2.default).service('ErrorProcessingService', _ErrorProcessingService2.default).service('HttpConnectionService', _HttpConnectionService2.default).controller('MessageAreaController', _messageArea2.default).controller('YesNoDialogController', _yesNoDialog2.default);
 
-},{"./common/controllers/messageArea.controller":2,"./common/controllers/yesNoDialog.controller":3,"./common/services/DialogService":4,"./common/services/DisplayMessageService":5,"./common/services/ErrorProcessingService":6,"./common/services/HttpConnectionService":7,"./users.module/users.module":12}],2:[function(require,module,exports){
+},{"./common/controllers/messageArea.controller":2,"./common/controllers/yesNoDialog.controller":3,"./common/directives/capitalize.directive":4,"./common/directives/removeSpaces.directive":5,"./common/directives/unobtrusiveValidatorParse.directive":6,"./common/directives/validateSubmit.directive":7,"./common/services/DialogService":8,"./common/services/DisplayMessageService":9,"./common/services/ErrorProcessingService":10,"./common/services/HttpConnectionService":11,"./users.module/users.module":16}],2:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -93,6 +117,180 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+var Capitalize = function () {
+    function Capitalize() {
+        _classCallCheck(this, Capitalize);
+
+        this.scope = {
+            model: '=capitalize'
+        };
+        this.restrict = 'A';
+    }
+
+    _createClass(Capitalize, [{
+        key: 'link',
+        value: function link(scope) {
+            scope.$watch('model', function (newVal, oldVal) {
+                if (newVal && newVal.length === 1) {
+                    scope.model = newVal.toUpperCase();
+                }
+            });
+        }
+    }]);
+
+    return Capitalize;
+}();
+
+exports.default = Capitalize;
+
+},{}],5:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var RemoveSpaces = function () {
+    function RemoveSpaces() {
+        _classCallCheck(this, RemoveSpaces);
+
+        this.scope = {
+            model: '=removeSpaces'
+        };
+        this.restrict = 'A';
+    }
+
+    _createClass(RemoveSpaces, [{
+        key: 'link',
+        value: function link(scope) {
+            scope.$watch('model', function (newVal, oldVal) {
+                if (newVal && angular.isString(newVal)) {
+                    scope.model = newVal.replace(/\s+/g, '');
+                }
+            });
+        }
+    }]);
+
+    return RemoveSpaces;
+}();
+
+exports.default = RemoveSpaces;
+
+},{}],6:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var UnobtrusiveValidatorParse = function () {
+    function UnobtrusiveValidatorParse() {
+        _classCallCheck(this, UnobtrusiveValidatorParse);
+
+        this.scope = {};
+        this.restrict = 'A';
+    }
+
+    _createClass(UnobtrusiveValidatorParse, [{
+        key: 'link',
+        value: function link(scope, $el) {
+            var form,
+                el = angular.element($el);
+
+            if (el.is('form')) {
+                form = el;
+            } else {
+                form = el.closest('form');
+            }
+
+            form.removeData("validator");
+            $.validator.unobtrusive.parse(form);
+        }
+    }]);
+
+    return UnobtrusiveValidatorParse;
+}();
+
+exports.default = UnobtrusiveValidatorParse;
+
+},{}],7:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var ValidateSubmit = function () {
+    function ValidateSubmit() {
+        _classCallCheck(this, ValidateSubmit);
+
+        this.scope = {};
+        this.restrict = 'A';
+    }
+
+    _createClass(ValidateSubmit, [{
+        key: 'link',
+        value: function link(scope, $el) {
+            $el.bind('submit', function (event) {
+                var form = angular.element(event.target);
+
+                if (form.validate) {
+                    //if validation is enabled - process form
+
+                    var validate = form.validate();
+
+                    //this is default settings for unobtrusive validation
+                    validate.settings.ignore = ":hidden";
+
+                    if (form.valid()) {
+                        scope.$apply(scope.submitCallback);
+                        validate.resetForm();
+                    }
+
+                    //this disables default validation
+                    validate.settings.ignore = "*";
+                } else {
+                    //if validation is disabled - execute callback
+
+                    scope.$apply(scope.submitCallback);
+                }
+
+                //preventing default form submition
+                event.preventDefault();
+
+                return false;
+            });
+        }
+    }]);
+
+    return ValidateSubmit;
+}();
+
+exports.default = ValidateSubmit;
+
+},{}],8:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
 var DialogService = function () {
     function DialogService($uibModal) {
         _classCallCheck(this, DialogService);
@@ -140,7 +338,7 @@ DialogService.$inject = ['$uibModal'];
 
 exports.default = DialogService;
 
-},{}],5:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -182,7 +380,7 @@ DisplayMessageService.$inject = ['$rootScope'];
 
 exports.default = DisplayMessageService;
 
-},{}],6:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -228,7 +426,7 @@ ErrorProcessingService.$inject = ['$log', 'DisplayMessageService'];
 
 exports.default = ErrorProcessingService;
 
-},{}],7:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -295,7 +493,7 @@ HttpConnectionService.$inject = ['$http', '$q', 'ErrorProcessingService'];
 
 exports.default = HttpConnectionService;
 
-},{}],8:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -315,7 +513,7 @@ var users = {
 
 exports.default = users;
 
-},{"./users.controller":9}],9:[function(require,module,exports){
+},{"./users.controller":13}],13:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -420,7 +618,7 @@ UsersController.$inject = ['DialogService', 'DisplayMessageService', 'UserServic
 
 exports.default = UsersController;
 
-},{}],10:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -461,7 +659,7 @@ EditUserDialogController.$inject = ['UserService', '$uibModalInstance', 'user'];
 
 exports.default = EditUserDialogController;
 
-},{}],11:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -537,7 +735,7 @@ UserService.$inject = ['$q', 'HttpConnectionService', 'DialogService'];
 
 exports.default = UserService;
 
-},{}],12:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -574,7 +772,7 @@ function AppRun() {}
 
 exports.default = AppUsersModule.name;
 
-},{"./components/users/users.component":8,"./controllers/editUserDialog.controller":10,"./services/UserService":11}]},{},[1])
+},{"./components/users/users.component":12,"./controllers/editUserDialog.controller":14,"./services/UserService":15}]},{},[1])
 
 
 //# sourceMappingURL=bundle.js.map

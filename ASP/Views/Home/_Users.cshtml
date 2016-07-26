@@ -6,7 +6,7 @@
 
     @using (Html.BeginForm("", "", FormMethod.Get, htmlAttributes: new Dictionary<string, object> {
         { "class", "form-inline col-sm-12 awa-search-form" },
-        { "validate-submit", "usersVm.initSearch()" }
+        { "validate-submit", "$ctrl.initSearch()" }
     }))
     {
         <div class="form-group">

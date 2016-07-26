@@ -988,10 +988,10 @@
     <Content Include="Scripts\src\users.module\components\users\users.controller.js" />
     <Content Include="Scripts\src\users.module\components\users\users.controller.spec.js" />
     <Content Include="Scripts\src\common\controllers\yesNoDialog.controller.js" />
-    <Content Include="Scripts\src\common\directives\capitalize.js" />
-    <Content Include="Scripts\src\common\directives\removeSpaces.js" />
-    <Content Include="Scripts\src\common\directives\unobtrusiveValidatorParse.js" />
-    <Content Include="Scripts\src\common\directives\validateSubmit.js" />
+    <Content Include="Scripts\src\common\directives\capitalize.directive.js" />
+    <Content Include="Scripts\src\common\directives\removeSpaces.directive.js" />
+    <Content Include="Scripts\src\common\directives\unobtrusiveValidatorParse.directive.js" />
+    <Content Include="Scripts\src\common\directives\validateSubmit.directive.js" />
     <Content Include="Scripts\src\es6Sandbox.js" />
     <Content Include="Scripts\src\helpers.js" />
     <Content Include="Scripts\src\inheritance.js" />

@@ -40,12 +40,7 @@ namespace ASP
                 "~/Scripts/lib/angular-ui-router.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
-                "~/Scripts/src/helpers.js",
-
-                "~/Scripts/src/common/directives/validateSubmit.js",
-                "~/Scripts/src/common/directives/unobtrusiveValidatorParse.js",
-                "~/Scripts/src/common/directives/capitalize.js",
-                "~/Scripts/src/common/directives/removeSpaces.js"));
+                "~/Scripts/src/helpers.js"));
         }
     }
 }
