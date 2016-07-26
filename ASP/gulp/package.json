@@ -1,5 +1,5 @@
 {
-  "name": "asp",
+  "name": "asp_gulp",
   "version": "1.0.0",
   "description": "Used for serving node packages for build ASP project",
   "main": "gulp",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ralfius/asp-wcf-angular/tree/master/ASP/build"
+    "url": "https://github.com/ralfius/asp-wcf-angular/tree/master/ASP/gulp"
   },
   "keywords": [
     "gulp",

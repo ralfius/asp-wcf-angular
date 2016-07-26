@@ -1,14 +1,14 @@
 {
-  "name": "asp.tests",
+  "name": "asp_karma",
   "version": "1.0.0",
-  "description": "Used for serving node packages for asp.test project",
+  "description": "Used for serving node packages for asp karma project",
   "main": "karma",
   "scripts": {
     "test": "karma start"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ralfius/asp-wcf-angular/tree/master/ASP.Tests"
+    "url": "https://github.com/ralfius/asp-wcf-angular/tree/master/ASP/karma"
   },
   "keywords": [
     "asp.net",

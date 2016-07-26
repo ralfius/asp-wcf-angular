@@ -1,8 +1,8 @@
 ﻿class UserService {
-    constructor($q, httpConnectionService, DialogService){
+    constructor($q, httpConnectionService, dialogService){
         this._$q = $q;
         this._httpConnectionService = httpConnectionService;
-        this._dialogService = DialogService;
+        this._dialogService = dialogService;
     }
 
     createUser() {
@@ -22,6 +22,8 @@
     };
 
     getUsers(search, pageNumber) {
+        console.log('userService.getUsers called');
+
         //TODO: create format filter
         let url = AWA.urls.user.list.replace('{0}', search || '').replace('{1}', pageNumber || 1);
 

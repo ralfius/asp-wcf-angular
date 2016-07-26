@@ -192,10 +192,12 @@
     </None>
     <None Include="Content\Site.less" />
     <Content Include="gulp\gulpfile.js" />
+    <Content Include="karma\karma.conf.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="ApplicationInsights.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Scripts\lib\angular-ui-router.js" />
     <Content Include="Scripts\lib\angular\angular-animate.js" />
     <Content Include="Scripts\lib\angular\angular-animate.min.js" />
     <Content Include="Scripts\lib\angular\angular-aria.js" />
@@ -969,6 +971,7 @@
     <Content Include="Scripts\lib\angular\i18n\angular-locale_zu.js" />
     <Content Include="Scripts\lib\bootstrap.js" />
     <Content Include="gulp\package.json" />
+    <Content Include="karma\package.json" />
     <None Include="Scripts\lib\jquery\jquery-1.10.2-vsdoc.js" />
     <Content Include="Scripts\lib\jquery\jquery-1.10.2.js" />
     <Content Include="Scripts\lib\jquery\jquery-1.10.2.min.js" />
@@ -986,7 +989,6 @@
     <Content Include="Scripts\src\users.module\controllers\editUserDialog.controller.js" />
     <Content Include="Scripts\src\common\controllers\messageArea.controller.js" />
     <Content Include="Scripts\src\users.module\components\users\users.controller.js" />
-    <Content Include="Scripts\src\users.module\components\users\users.controller.spec.js" />
     <Content Include="Scripts\src\common\controllers\yesNoDialog.controller.js" />
     <Content Include="Scripts\src\common\directives\capitalize.directive.js" />
     <Content Include="Scripts\src\common\directives\removeSpaces.directive.js" />
@@ -1001,6 +1003,8 @@
     <Content Include="Scripts\src\common\services\httpConnectionService.js" />
     <Content Include="Scripts\src\users.module\services\userService.js" />
     <Content Include="Scripts\src\users.module\users.module.js" />
+    <Content Include="Scripts\tests\app.spec.js" />
+    <Content Include="Scripts\tests\users.module\components\users\users.controller.spec.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Scripts\lib\angular\angular-animate.min.js.map" />
     <Content Include="Scripts\lib\angular\angular-aria.min.js.map" />
@@ -1040,6 +1044,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Scripts\dist\" />
+    <Folder Include="Scripts\tests\common\controllers\" />
+    <Folder Include="Scripts\tests\common\directives\" />
+    <Folder Include="Scripts\tests\common\services\" />
+    <Folder Include="Scripts\tests\users.module\controllers\" />
+    <Folder Include="Scripts\tests\users.module\services\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

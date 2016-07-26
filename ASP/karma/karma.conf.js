@@ -16,30 +16,29 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       // angular sources
-      '../ASP/Scripts/lib/angular/angular.js',
-      '../ASP/Scripts/lib/angular/angular-route.js',      
-      '../ASP/Scripts/lib/angular/angular-mocks.js',
-      '../ASP/Scripts/lib/ui-bootstrap-*.js',      
+      '../Scripts/lib/angular/angular.js',
+      '../Scripts/lib/angular-ui-router.js',
+      '../Scripts/lib/angular/angular-mocks.js',
+      '../Scripts/lib/ui-bootstrap-*.js',      
 
       // application to be tested and tests
-      '../ASP/Scripts/app/**/*.js',
+      '../Scripts/dist/*.js',
 
       // standalone tests
-      'Scripts/**/*.js'
+      '../Scripts/tests/**/*.js'
     ],
 
 
     // list of files to exclude
     exclude: [
-      '../ASP/Scripts/app/es6Sandbox.js',
-      '../ASP/Scripts/app/inheritance.js'
+      '../Scripts/sandbox/*.js'
     ],
 
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      '../ASP/Scripts/app/**/!(*.mock|*.spec).js': ['coverage']
+      '../Scripts/src/**/!(*.mock|*.spec).js': ['coverage']
     },
 
 

@@ -1,10 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASP.Tests", "ASP.Tests\ASP.Tests.csproj", "{0ECF1F33-AFB1-4A6F-BD11-01C2CB1D64D8}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCF", "WCF\WCF.csproj", "{CE9AF5C9-178D-4963-8AF3-9C3D6CAEF8C4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASP.BL", "ASP.BL\ASP.BL.csproj", "{FAEE8CE3-F28C-4C00-9D26-48D8F6EF275C}"
@@ -26,10 +24,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0ECF1F33-AFB1-4A6F-BD11-01C2CB1D64D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0ECF1F33-AFB1-4A6F-BD11-01C2CB1D64D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0ECF1F33-AFB1-4A6F-BD11-01C2CB1D64D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0ECF1F33-AFB1-4A6F-BD11-01C2CB1D64D8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CE9AF5C9-178D-4963-8AF3-9C3D6CAEF8C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CE9AF5C9-178D-4963-8AF3-9C3D6CAEF8C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE9AF5C9-178D-4963-8AF3-9C3D6CAEF8C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
