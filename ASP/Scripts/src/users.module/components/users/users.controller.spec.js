@@ -11,7 +11,7 @@
             spyOn(UserService, 'getUsers').and.returnValue(deferred.promise);
 
             var $scope;
-            usersCtrl = $controller('UsersCtrl', { $scope: $scope, UserService: UserService });
+            usersCtrl = $controller('UsersController', { $scope: $scope, UserService: UserService });
         }));
 
         it('should be called getUsers', inject(function ($q, $controller, UserService) {

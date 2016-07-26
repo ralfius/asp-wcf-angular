@@ -18,7 +18,7 @@
     openYesNoDialog (title, message) {
         var modalInstance = this._$uibModal.open({
             templateUrl: 'yesNoDialog.html',
-            controller: 'YesNoDialogCtrl',
+            controller: 'YesNoDialogController',
             controllerAs: 'vm',
             resolve: {
                 content: {

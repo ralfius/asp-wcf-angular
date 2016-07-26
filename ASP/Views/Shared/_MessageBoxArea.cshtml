@@ -1,3 +1,3 @@
-﻿<section class="container-fluid awa-message-box-area" ng-controller="MessageAreaCtrl as messageVm">
+﻿<section class="container-fluid awa-message-box-area" ng-controller="MessageAreaController as messageVm">
     <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="messageVm.closeAlert($index)">{{alert.message}}</uib-alert>
 </section>

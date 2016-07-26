@@ -21,11 +21,68 @@ var _HttpConnectionService = require('./common/services/HttpConnectionService');
 
 var _HttpConnectionService2 = _interopRequireDefault(_HttpConnectionService);
 
+var _messageArea = require('./common/controllers/messageArea.controller');
+
+var _messageArea2 = _interopRequireDefault(_messageArea);
+
+var _yesNoDialog = require('./common/controllers/yesNoDialog.controller');
+
+var _yesNoDialog2 = _interopRequireDefault(_yesNoDialog);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var root = angular.module('aspWcfAngular', ['ui.bootstrap', _users2.default]).service('DialogService', _DialogService2.default).service('DisplayMessageService', _DisplayMessageService2.default).service('ErrorProcessingService', _ErrorProcessingService2.default).service('HttpConnectionService', _HttpConnectionService2.default);
+var root = angular.module('aspWcfAngular', ['ui.bootstrap', _users2.default]).service('DialogService', _DialogService2.default).service('DisplayMessageService', _DisplayMessageService2.default).service('ErrorProcessingService', _ErrorProcessingService2.default).service('HttpConnectionService', _HttpConnectionService2.default).controller('MessageAreaController', _messageArea2.default).controller('YesNoDialogController', _yesNoDialog2.default);
 
-},{"./common/services/DialogService":2,"./common/services/DisplayMessageService":3,"./common/services/ErrorProcessingService":4,"./common/services/HttpConnectionService":5,"./users.module/users.module":10}],2:[function(require,module,exports){
+},{"./common/controllers/messageArea.controller":2,"./common/controllers/yesNoDialog.controller":3,"./common/services/DialogService":4,"./common/services/DisplayMessageService":5,"./common/services/ErrorProcessingService":6,"./common/services/HttpConnectionService":7,"./users.module/users.module":12}],2:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+MessageAreaController.$inject = ['$rootScope'];
+
+function MessageAreaController($rootScope) {
+    var vm = this;
+
+    vm.closeAlert = closeAlert;
+
+    $rootScope.alerts = $rootScope.alerts || [];
+
+    function closeAlert(index) {
+        $rootScope.alerts.splice(index, 1);
+    };
+}
+
+exports.default = MessageAreaController;
+
+},{}],3:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+YesNoDialogController.$inject = ['$uibModalInstance', 'content'];
+
+function YesNoDialogController($uibModalInstance, content) {
+
+    var vm = this;
+
+    vm.content = content;
+    vm.ok = ok;
+    vm.cancel = cancel;
+
+    function ok() {
+        $uibModalInstance.close();
+    };
+
+    function cancel() {
+        $uibModalInstance.dismiss();
+    };
+}
+
+exports.default = YesNoDialogController;
+
+},{}],4:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -60,7 +117,7 @@ var DialogService = function () {
         value: function openYesNoDialog(title, message) {
             var modalInstance = this._$uibModal.open({
                 templateUrl: 'yesNoDialog.html',
-                controller: 'YesNoDialogCtrl',
+                controller: 'YesNoDialogController',
                 controllerAs: 'vm',
                 resolve: {
                     content: {
@@ -83,7 +140,7 @@ DialogService.$inject = ['$uibModal'];
 
 exports.default = DialogService;
 
-},{}],3:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -125,7 +182,7 @@ DisplayMessageService.$inject = ['$rootScope'];
 
 exports.default = DisplayMessageService;
 
-},{}],4:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -171,7 +228,7 @@ ErrorProcessingService.$inject = ['$log', 'DisplayMessageService'];
 
 exports.default = ErrorProcessingService;
 
-},{}],5:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -238,7 +295,7 @@ HttpConnectionService.$inject = ['$http', '$q', 'ErrorProcessingService'];
 
 exports.default = HttpConnectionService;
 
-},{}],6:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -258,7 +315,7 @@ var users = {
 
 exports.default = users;
 
-},{"./users.controller":7}],7:[function(require,module,exports){
+},{"./users.controller":9}],9:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -363,7 +420,7 @@ UsersController.$inject = ['DialogService', 'DisplayMessageService', 'UserServic
 
 exports.default = UsersController;
 
-},{}],8:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -404,7 +461,7 @@ EditUserDialogController.$inject = ['UserService', '$uibModalInstance', 'user'];
 
 exports.default = EditUserDialogController;
 
-},{}],9:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -480,7 +537,7 @@ UserService.$inject = ['$q', 'HttpConnectionService', 'DialogService'];
 
 exports.default = UserService;
 
-},{}],10:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -517,7 +574,7 @@ function AppRun() {}
 
 exports.default = AppUsersModule.name;
 
-},{"./components/users/users.component":6,"./controllers/editUserDialog.controller":8,"./services/UserService":9}]},{},[1])
+},{"./components/users/users.component":8,"./controllers/editUserDialog.controller":10,"./services/UserService":11}]},{},[1])
 
 
 //# sourceMappingURL=bundle.js.map

@@ -45,10 +45,7 @@ namespace ASP
                 "~/Scripts/src/common/directives/validateSubmit.js",
                 "~/Scripts/src/common/directives/unobtrusiveValidatorParse.js",
                 "~/Scripts/src/common/directives/capitalize.js",
-                "~/Scripts/src/common/directives/removeSpaces.js",
-
-                "~/Scripts/src/common/controllers/yesNoDialogCtrl.js",
-                "~/Scripts/src/common/controllers/messageAreaCtrl.js"));
+                "~/Scripts/src/common/directives/removeSpaces.js"));
         }
     }
 }

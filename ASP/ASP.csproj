@@ -984,10 +984,10 @@
     <Content Include="Scripts\src\app.js" />
     <Content Include="Scripts\src\users.module\components\users\users.component.js" />
     <Content Include="Scripts\src\users.module\controllers\editUserDialog.controller.js" />
-    <Content Include="Scripts\src\common\controllers\messageAreaCtrl.js" />
+    <Content Include="Scripts\src\common\controllers\messageArea.controller.js" />
     <Content Include="Scripts\src\users.module\components\users\users.controller.js" />
-    <Content Include="Scripts\src\common\controllers\usersCtrl.spec.js" />
-    <Content Include="Scripts\src\common\controllers\yesNoDialogCtrl.js" />
+    <Content Include="Scripts\src\users.module\components\users\users.controller.spec.js" />
+    <Content Include="Scripts\src\common\controllers\yesNoDialog.controller.js" />
     <Content Include="Scripts\src\common\directives\capitalize.js" />
     <Content Include="Scripts\src\common\directives\removeSpaces.js" />
     <Content Include="Scripts\src\common\directives\unobtrusiveValidatorParse.js" />

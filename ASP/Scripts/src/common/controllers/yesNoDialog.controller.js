@@ -1,9 +1,6 @@
-﻿angular.module('aspWcfAngular')
-    .controller('YesNoDialogCtrl', YesNoDialogCtrl);
+﻿YesNoDialogController.$inject = ['$uibModalInstance', 'content'];
 
-YesNoDialogCtrl.$inject = ['$uibModalInstance', 'content'];
-
-function YesNoDialogCtrl($uibModalInstance, content) {
+function YesNoDialogController($uibModalInstance, content) {
 
     var vm = this;
 
@@ -19,3 +16,5 @@ function YesNoDialogCtrl($uibModalInstance, content) {
         $uibModalInstance.dismiss();
     };
 }
+
+export default YesNoDialogController;
