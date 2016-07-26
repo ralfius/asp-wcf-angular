@@ -1,9 +1,6 @@
-﻿angular.module('aspWcfAngular')
-    .factory('userService', usersService);
+﻿userService.$inject = ['$q', 'httpConnectionService', 'dialogService'];
 
-usersService.$inject = ['$q', 'httpConnectionService', 'dialogService'];
-
-function usersService($q, httpConnectionService, dialogService) {
+function userService($q, httpConnectionService, dialogService) {
 
     return {
         getUsers: getUsers,
@@ -53,3 +50,5 @@ function usersService($q, httpConnectionService, dialogService) {
         return deferred.promise;
     };
 };
+
+export default userService;

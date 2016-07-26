@@ -1,73 +1,87 @@
-﻿UsersController.$inject = ['dialogService', 'displayMessageService', 'userService'];
+﻿class UsersController {
+    constructor(dialogService, displayMessageService, userService){
+        this.search = '';
+        this.usersPage = { PageNumber: 1 };
 
-function UsersController(dialogService, displayMessageService, userService) {
-    var vm = this;
-
-    vm.search = '';
-    vm.usersPage = { PageNumber: 1 };
-    vm.initSearch = initSearch;
-    vm.nextPage = nextPage;
-    vm.deleteUser = deleteUser;
-    vm.createUser = createUser;
-    vm.edit = edit;
-
-    activate();
-
-    function activate() {
-        getUsers();
+        this._dialogService = dialogService;
+        this._displayMessageService = displayMessageService;
+        this._userService = userService;
     }
 
-    function getUsers() {
-        userService.getUsers(vm.search, vm.usersPage.PageNumber)
+    $onInit() {
+        this.getUsers();
+    }
+
+    getUsers() {
+        let _this = this;
+
+        this._userService.getUsers(this.search, this.usersPage.PageNumber)
             .then(function (result) {
-                vm.usersPage = result.Data;
+                _this.usersPage = result.Data;
             });
     };
 
-    function refreshPage() {
-        userService.getUsers(vm.search, vm.usersPage.PageNumber)
+    refreshPage() {
+        let _this = this;
+
+        this._userService.getUsers(this.search, this.usersPage.PageNumber)
             .then(function (result) {
-                vm.usersPage = result.Data;
+                _this.usersPage = result.Data;
             });
     };
 
 
-    function initSearch() {
-        userService.getUsers(vm.search, 1)
+    initSearch() {
+        let _this = this;
+
+        this._userService.getUsers(this.search, 1)
             .then(function (result) {
-                vm.usersPage = result.Data;
+                _this.usersPage = result.Data;
             });
     };
 
-    function nextPage() {
-        if (!vm.usersPage.IsLastpage) {
-            userService.getUsers(vm.search, vm.usersPage.PageNumber + 1)
+    nextPage() {
+        let _this = this;
+
+        if (!this.usersPage.IsLastpage) {
+            this._userService.getUsers(this.search, this.usersPage.PageNumber + 1)
                 .then(function (result) {
-                    vm.usersPage = result.Data
+                    _this.usersPage = result.Data
                 });
         }
     };
 
-    function deleteUser(user) {
-        userService.deleteUser(user).then(function (result) {
-            if (result.Message) {
-                displayMessageService.showSuccess(result.Message);
-            }
-            refreshPage();
-        });
+    deleteUser(user) {
+        let _this = this;
+
+        this._userService.deleteUser(user)
+            .then(function (result) {
+                if (result.Message) {
+                    _this._displayMessageService.showSuccess(result.Message);
+                }
+                refreshPage();
+            });
     };
 
-    function createUser() {
-        userService.createUser().then(function (user) {
-            refreshPage();
-        });
+    createUser() {
+        let _this = this;
+
+        this._userService.createUser()
+            .then(function (user) {
+                _this.refreshPage();
+            });
     };
 
-    function edit(user) {
-        userService.editUser(user).then(function (data) {
-            refreshPage();
-        });
+    edit(user) {
+        let _this = this;
+
+        this._userService.editUser(user)
+            .then(function (data) {
+                _this.refreshPage();
+            });
     };
 }
+
+UsersController.$inject = ['dialogService', 'displayMessageService', 'userService'];
 
 export default UsersController;

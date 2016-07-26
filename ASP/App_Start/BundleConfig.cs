@@ -36,26 +36,25 @@ namespace ASP
 
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                 "~/Scripts/lib/angular/angular.js",
-                "~/Scripts/lib/angular/angular-route.js"));
+                //"~/Scripts/lib/angular/angular-route.js",
+                "~/Scripts/lib/angular-ui-router.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
                 "~/Scripts/src/helpers.js",
 
-                "~/Scripts/src/directives/validateSubmit.js",
-                "~/Scripts/src/directives/unobtrusiveValidatorParse.js",
-                "~/Scripts/src/directives/capitalize.js",
-                "~/Scripts/src/directives/removeSpaces.js",
+                "~/Scripts/src/common/directives/validateSubmit.js",
+                "~/Scripts/src/common/directives/unobtrusiveValidatorParse.js",
+                "~/Scripts/src/common/directives/capitalize.js",
+                "~/Scripts/src/common/directives/removeSpaces.js",
 
-                "~/Scripts/src/services/errorProcessingService.js",
-                "~/Scripts/src/services/httpConnectionService.js",
-                "~/Scripts/src/services/displayMessageService.js",
-                "~/Scripts/src/services/dialogService.js",
+                "~/Scripts/src/common/services/errorProcessingService.js",
+                "~/Scripts/src/common/services/httpConnectionService.js",
+                "~/Scripts/src/common/services/displayMessageService.js",
+                "~/Scripts/src/common/services/dialogService.js",
 
-                "~/Scripts/src/services/userService.js",
-
-                "~/Scripts/src/controllers/yesNoDialogCtrl.js",
-                "~/Scripts/src/controllers/messageAreaCtrl.js",
-                "~/Scripts/src/controllers/editUserDialogCtrl.js"));
+                "~/Scripts/src/common/controllers/yesNoDialogCtrl.js",
+                "~/Scripts/src/common/controllers/messageAreaCtrl.js",
+                "~/Scripts/src/common/controllers/editUserDialogCtrl.js"));
         }
     }
 }

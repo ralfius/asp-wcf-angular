@@ -983,23 +983,23 @@
     <Content Include="Scripts\lib\ui-bootstrap-tpls-1.3.3.js" />
     <Content Include="Scripts\src\app.js" />
     <Content Include="Scripts\src\users.module\components\users\users.component.js" />
-    <Content Include="Scripts\src\controllers\editUserDialogCtrl.js" />
-    <Content Include="Scripts\src\controllers\messageAreaCtrl.js" />
+    <Content Include="Scripts\src\common\controllers\editUserDialogCtrl.js" />
+    <Content Include="Scripts\src\common\controllers\messageAreaCtrl.js" />
     <Content Include="Scripts\src\users.module\components\users\users.controller.js" />
-    <Content Include="Scripts\src\controllers\usersCtrl.spec.js" />
-    <Content Include="Scripts\src\controllers\yesNoDialogCtrl.js" />
-    <Content Include="Scripts\src\directives\capitalize.js" />
-    <Content Include="Scripts\src\directives\removeSpaces.js" />
-    <Content Include="Scripts\src\directives\unobtrusiveValidatorParse.js" />
-    <Content Include="Scripts\src\directives\validateSubmit.js" />
+    <Content Include="Scripts\src\common\controllers\usersCtrl.spec.js" />
+    <Content Include="Scripts\src\common\controllers\yesNoDialogCtrl.js" />
+    <Content Include="Scripts\src\common\directives\capitalize.js" />
+    <Content Include="Scripts\src\common\directives\removeSpaces.js" />
+    <Content Include="Scripts\src\common\directives\unobtrusiveValidatorParse.js" />
+    <Content Include="Scripts\src\common\directives\validateSubmit.js" />
     <Content Include="Scripts\src\es6Sandbox.js" />
     <Content Include="Scripts\src\helpers.js" />
     <Content Include="Scripts\src\inheritance.js" />
-    <Content Include="Scripts\src\services\dialogService.js" />
-    <Content Include="Scripts\src\services\displayMessageService.js" />
-    <Content Include="Scripts\src\services\errorProcessingService.js" />
-    <Content Include="Scripts\src\services\httpConnectionService.js" />
-    <Content Include="Scripts\src\services\userService.js" />
+    <Content Include="Scripts\src\common\services\dialogService.js" />
+    <Content Include="Scripts\src\common\services\displayMessageService.js" />
+    <Content Include="Scripts\src\common\services\errorProcessingService.js" />
+    <Content Include="Scripts\src\common\services\httpConnectionService.js" />
+    <Content Include="Scripts\src\users.module\services\userService.js" />
     <Content Include="Scripts\src\users.module\users.module.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Scripts\lib\angular\angular-animate.min.js.map" />
@@ -1040,9 +1040,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Scripts\dist\" />
-    <Folder Include="Scripts\src\components\" />
-    <Folder Include="Scripts\src\filters\" />
-    <Folder Include="Scripts\src\users.module\services\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
