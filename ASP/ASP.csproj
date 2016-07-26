@@ -982,10 +982,10 @@
     <Content Include="Scripts\lib\respond.min.js" />
     <Content Include="Scripts\lib\ui-bootstrap-tpls-1.3.3.js" />
     <Content Include="Scripts\src\app.js" />
-    <Content Include="Scripts\src\components\usersList.js" />
+    <Content Include="Scripts\src\users.module\components\users\users.component.js" />
     <Content Include="Scripts\src\controllers\editUserDialogCtrl.js" />
     <Content Include="Scripts\src\controllers\messageAreaCtrl.js" />
-    <Content Include="Scripts\src\controllers\usersCtrl.js" />
+    <Content Include="Scripts\src\users.module\components\users\users.controller.js" />
     <Content Include="Scripts\src\controllers\usersCtrl.spec.js" />
     <Content Include="Scripts\src\controllers\yesNoDialogCtrl.js" />
     <Content Include="Scripts\src\directives\capitalize.js" />
@@ -1000,6 +1000,7 @@
     <Content Include="Scripts\src\services\errorProcessingService.js" />
     <Content Include="Scripts\src\services\httpConnectionService.js" />
     <Content Include="Scripts\src\services\userService.js" />
+    <Content Include="Scripts\src\users.module\users.module.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Scripts\lib\angular\angular-animate.min.js.map" />
     <Content Include="Scripts\lib\angular\angular-aria.min.js.map" />
@@ -1017,7 +1018,6 @@
     <Content Include="Scripts\lib\errors.json" />
     <Content Include="Scripts\lib\jquery\jquery-1.10.2.min.map" />
     <Content Include="Views\Home\_Users.cshtml" />
-    <None Include="Views\Shared\Components\_UsersList.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1040,7 +1040,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Scripts\dist\" />
+    <Folder Include="Scripts\src\components\" />
     <Folder Include="Scripts\src\filters\" />
+    <Folder Include="Scripts\src\users.module\services\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

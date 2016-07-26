@@ -46,18 +46,16 @@ namespace ASP
                 "~/Scripts/src/directives/capitalize.js",
                 "~/Scripts/src/directives/removeSpaces.js",
 
-                "~/Scripts/src/components/usersList.js",
-
                 "~/Scripts/src/services/errorProcessingService.js",
                 "~/Scripts/src/services/httpConnectionService.js",
                 "~/Scripts/src/services/displayMessageService.js",
+                "~/Scripts/src/services/dialogService.js",
 
                 "~/Scripts/src/services/userService.js",
 
                 "~/Scripts/src/controllers/yesNoDialogCtrl.js",
                 "~/Scripts/src/controllers/messageAreaCtrl.js",
-                "~/Scripts/src/controllers/editUserDialogCtrl.js",
-                "~/Scripts/src/controllers/usersCtrl.js"));
+                "~/Scripts/src/controllers/editUserDialogCtrl.js"));
         }
     }
 }

@@ -4,14 +4,12 @@
     ViewBag.Title = "Home Page";
 }
 
-<div ng-view></div>
+@*<div ng-view></div>*@
+
+<users></users>
 
 <script type="text/ng-template" id="users.html">
     @Html.Partial("_Users")
-</script>
-
-<script type="text/ng-template" id="usersListComponent.html">
-    @Html.Partial("Components/_UsersList")
 </script>
 
 <script type="text/ng-template" id="yesNoDialog.html">

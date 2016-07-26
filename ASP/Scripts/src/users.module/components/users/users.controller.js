@@ -1,16 +1,13 @@
-﻿angular.module('aspWcfAngular')
-    .controller('UsersCtrl', UsersCtrl);
+﻿UsersController.$inject = ['dialogService', 'displayMessageService', 'userService'];
 
-UsersCtrl.$inject = ['dialogService', 'displayMessageService', 'userService'];
-
-function UsersCtrl(dialogService, displayMessageService, userService) {
+function UsersController(dialogService, displayMessageService, userService) {
     var vm = this;
 
     vm.search = '';
     vm.usersPage = { PageNumber: 1 };
     vm.initSearch = initSearch;
     vm.nextPage = nextPage;
-    vm.delete = deleteUser;
+    vm.deleteUser = deleteUser;
     vm.createUser = createUser;
     vm.edit = edit;
 
@@ -72,3 +69,5 @@ function UsersCtrl(dialogService, displayMessageService, userService) {
         });
     };
 }
+
+export default UsersController;

@@ -1,26 +1,13 @@
-﻿import dialogService from './services/dialogService';
+﻿import AppUsersModule from './users.module/users.module';
 
-const root = angular.module('aspWcfAngular', ['ui.bootstrap', 'ngRoute'])
+const root = angular.module('aspWcfAngular', ['ui.bootstrap',
+    'ngRoute',
+    AppUsersModule.name])
     .config(AppConfig)
-    .run(AppRun)
+    .run(AppRun);
 
-root.factory(dialogService.name, dialogService);
+function AppConfig() {
 
-AppConfig.$inject = ['$routeProvider'];
-
-function AppConfig($routeProvider) {
-    $routeProvider
-        .when('/', {
-            redirectTo: '/users'
-        })
-        .when('/users', {
-            templateUrl: 'users.html',
-            controller: 'UsersCtrl',
-            controllerAs: 'usersVm'
-        })
-        .otherwise({
-            template: '<h3>No page found</h3>'
-        });
 }
 
 function AppRun() {
