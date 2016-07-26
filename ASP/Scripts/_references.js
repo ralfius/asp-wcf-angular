@@ -1,5 +1,5 @@
 ﻿/// <autosync enabled="true" />
-/// <reference path="../build/gulpfile.js" />
+/// <reference path="../gulp/gulpfile.js" />
 /// <reference path="ai.0.15.0-build58334.js" />
 /// <reference path="lib/angular/angular.js" />
 /// <reference path="lib/angular/angular-animate.js" />

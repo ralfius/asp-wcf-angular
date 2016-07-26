@@ -176,9 +176,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="build\package.json" />
     <None Include="Content\bootstrap-theme.less" />
-    <Content Include="build\gulpfile.js" />
     <Content Include="Content\bootstrap-theme.css">
       <DependentUpon>bootstrap-theme.less</DependentUpon>
     </Content>
@@ -193,6 +191,7 @@
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
     <None Include="Content\Site.less" />
+    <Content Include="gulp\gulpfile.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="ApplicationInsights.config" />
@@ -969,6 +968,7 @@
     <Content Include="Scripts\lib\angular\i18n\angular-locale_zu-za.js" />
     <Content Include="Scripts\lib\angular\i18n\angular-locale_zu.js" />
     <Content Include="Scripts\lib\bootstrap.js" />
+    <Content Include="gulp\package.json" />
     <None Include="Scripts\lib\jquery\jquery-1.10.2-vsdoc.js" />
     <Content Include="Scripts\lib\jquery\jquery-1.10.2.js" />
     <Content Include="Scripts\lib\jquery\jquery-1.10.2.min.js" />
