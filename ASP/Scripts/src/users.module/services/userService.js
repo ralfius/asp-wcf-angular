@@ -1,47 +1,43 @@
-﻿userService.$inject = ['$q', 'httpConnectionService', 'dialogService'];
+﻿class UserService {
+    constructor($q, httpConnectionService, DialogService){
+        this._$q = $q;
+        this._httpConnectionService = httpConnectionService;
+        this._dialogService = DialogService;
+    }
 
-function userService($q, httpConnectionService, dialogService) {
-
-    return {
-        getUsers: getUsers,
-        deleteUser: deleteUser,
-        createUser: createUser,
-        editUser: editUser,
-        updateUser: updateUser
+    createUser() {
+        return this.openEditUserDialog({});
     };
 
-    function createUser() {
-        return openEditUserDialog({});
+    editUser(user) {
+        return this.openEditUserDialog(angular.copy(user));
     };
 
-    function editUser(user) {
-        return openEditUserDialog(angular.copy(user));
+    updateUser(user) {
+        return this._httpConnectionService.post(AWA.urls.user.update, user);
     };
 
-    function updateUser(user) {
-        return httpConnectionService.post(AWA.urls.user.update, user);
+    openEditUserDialog(user) {
+        return this._dialogService.openCustomDialogDialog('editUserDialog.html', 'EditUserDialogController', { user: user });
     };
 
-    function openEditUserDialog(user) {
-        return dialogService.openCustomDialogDialog('editUserDialog.html', 'EditUserDialogCtrl', { user: user });
-    };
-
-    function getUsers(search, pageNumber) {
+    getUsers(search, pageNumber) {
         //TODO: create format filter
-        var url = AWA.urls.user.list.replace('{0}', search || '').replace('{1}', pageNumber || 1);
+        let url = AWA.urls.user.list.replace('{0}', search || '').replace('{1}', pageNumber || 1);
 
-        return httpConnectionService.get(url);
+        return this._httpConnectionService.get(url);
     };
 
-    function deleteUser(user) {
-        var deferred = $q.defer();
-        var message = String.format(AWA.resources.message.SureToDeleteUser, user.FirstName + ' ' + user.LastName);
+    deleteUser(user) {
+        let deferred = this._$q.defer();
+        let message = String.format(AWA.resources.message.SureToDeleteUser, user.FirstName + ' ' + user.LastName);
+        let _this = this;
 
-        dialogService.openYesNoDialog(AWA.resources.title.Delete_user, message)
+        this._dialogService.openYesNoDialog(AWA.resources.title.Delete_user, message)
             .then(function () {
                 var url = AWA.urls.user.delete;
 
-                httpConnectionService.post(url, { userId: user.UserId })
+                _this.HttpConnectionService.post(url, { userId: user.UserId })
                     .then(function (response) {
                         deferred.resolve(response);
                     });
@@ -51,4 +47,6 @@ function userService($q, httpConnectionService, dialogService) {
     };
 };
 
-export default userService;
+UserService.$inject = ['$q', 'HttpConnectionService', 'DialogService'];
+
+export default UserService;

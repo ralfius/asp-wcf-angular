@@ -82,6 +82,6 @@
     };
 }
 
-UsersController.$inject = ['dialogService', 'displayMessageService', 'userService'];
+UsersController.$inject = ['DialogService', 'DisplayMessageService', 'UserService'];
 
 export default UsersController;

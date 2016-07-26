@@ -1,4 +1,4 @@
-﻿class displayMessageService {
+﻿class DisplayMessageService {
     constructor($rootScope){
         this._$rootScope = $rootScope;
     }
@@ -16,6 +16,6 @@
     };
 }
 
-displayMessageService.$inject = ['$rootScope'];
+DisplayMessageService.$inject = ['$rootScope'];
 
-export default displayMessageService;
+export default DisplayMessageService;

@@ -1,4 +1,4 @@
-﻿class errorProcessingService {
+﻿class ErrorProcessingService {
     constructor($log, displayMessageService){
         this._$log = $log;
         this._displayMessageService = displayMessageService;
@@ -18,6 +18,6 @@
     };
 };
 
-errorProcessingService.$inject = ['$log', 'displayMessageService'];
+ErrorProcessingService.$inject = ['$log', 'DisplayMessageService'];
 
-export default errorProcessingService;
+export default ErrorProcessingService;

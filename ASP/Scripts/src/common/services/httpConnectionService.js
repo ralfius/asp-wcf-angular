@@ -1,4 +1,4 @@
-﻿class httpConnectionService {
+﻿class HttpConnectionService {
 
     constructor($http, $q, errorProcessingService){
         this._$http = $http;
@@ -41,6 +41,6 @@
     };
 };
 
-httpConnectionService.$inject = ['$http', '$q', 'errorProcessingService'];
+HttpConnectionService.$inject = ['$http', '$q', 'ErrorProcessingService'];
 
-export default httpConnectionService;
+export default HttpConnectionService;

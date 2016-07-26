@@ -4,26 +4,26 @@
     describe('activate invokes getUsers', function () {
         var usersCtrl;
 
-        beforeEach(inject(function ($q, $controller, userService) {
+        beforeEach(inject(function ($q, $controller, UserService) {
             var deferred = $q.defer();
 
-            // userService spy and stub
-            spyOn(userService, 'getUsers').and.returnValue(deferred.promise);
+            // UserService spy and stub
+            spyOn(UserService, 'getUsers').and.returnValue(deferred.promise);
 
             var $scope;
-            usersCtrl = $controller('UsersCtrl', { $scope: $scope, userService: userService });
+            usersCtrl = $controller('UsersCtrl', { $scope: $scope, UserService: UserService });
         }));
 
-        it('should be called getUsers', inject(function ($q, $controller, userService) {
-            expect(userService.getUsers).toHaveBeenCalled();
+        it('should be called getUsers', inject(function ($q, $controller, UserService) {
+            expect(UserService.getUsers).toHaveBeenCalled();
         }));
 
-        it('should be called getUsers only once', inject(function ($q, $controller, userService) {
-            expect(userService.getUsers).toHaveBeenCalledTimes(1);
+        it('should be called getUsers only once', inject(function ($q, $controller, UserService) {
+            expect(UserService.getUsers).toHaveBeenCalledTimes(1);
         }));
 
-        it('should be called getUsers with params', inject(function ($q, $controller, userService) {
-            expect(userService.getUsers).toHaveBeenCalledWith('', 1);
+        it('should be called getUsers with params', inject(function ($q, $controller, UserService) {
+            expect(UserService.getUsers).toHaveBeenCalledWith('', 1);
         }));
     });
 });

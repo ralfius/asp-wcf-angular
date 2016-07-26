@@ -1,10 +1,14 @@
 ﻿import UsersComponent from './components/users/users.component';
-import UserService from './services/userService';
+import UserService from './services/UserService';
+import EditUserDialogController from './controllers/editUserDialog.controller';
 
 const AppUsersModule = angular
     .module('aspWcfAngular.users', ['ui.router'])
     .config(AppConfig)
-    .run(AppRun);
+    .run(AppRun)
+    .component('users', UsersComponent)
+    .service('UserService', UserService)
+    .controller('EditUserDialogController', EditUserDialogController);
 
 AppConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
 
@@ -20,9 +24,5 @@ function AppConfig($stateProvider, $urlRouterProvider) {
 function AppRun() {
 
 }
-
-AppUsersModule    
-    .component('users', UsersComponent)
-    .factory('userService', UserService);
 
 export default AppUsersModule.name;

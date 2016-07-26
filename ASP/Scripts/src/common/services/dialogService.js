@@ -1,4 +1,4 @@
-﻿class dialogService {
+﻿class DialogService {
     constructor($uibModal){
         this._$uibModal = $uibModal;
     }
@@ -32,6 +32,6 @@
     };
 };
 
-dialogService.$inject = ['$uibModal'];
+DialogService.$inject = ['$uibModal'];
 
-export default dialogService;
+export default DialogService;

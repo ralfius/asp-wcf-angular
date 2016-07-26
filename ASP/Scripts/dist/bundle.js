@@ -5,31 +5,27 @@ var _users = require('./users.module/users.module');
 
 var _users2 = _interopRequireDefault(_users);
 
-var _dialogService = require('./common/services/dialogService');
+var _DialogService = require('./common/services/DialogService');
 
-var _dialogService2 = _interopRequireDefault(_dialogService);
+var _DialogService2 = _interopRequireDefault(_DialogService);
 
-var _displayMessageService = require('./common/services/displayMessageService');
+var _DisplayMessageService = require('./common/services/DisplayMessageService');
 
-var _displayMessageService2 = _interopRequireDefault(_displayMessageService);
+var _DisplayMessageService2 = _interopRequireDefault(_DisplayMessageService);
 
-var _errorProcessingService = require('./common/services/errorProcessingService');
+var _ErrorProcessingService = require('./common/services/ErrorProcessingService');
 
-var _errorProcessingService2 = _interopRequireDefault(_errorProcessingService);
+var _ErrorProcessingService2 = _interopRequireDefault(_ErrorProcessingService);
 
-var _httpConnectionService = require('./common/services/httpConnectionService');
+var _HttpConnectionService = require('./common/services/HttpConnectionService');
 
-var _httpConnectionService2 = _interopRequireDefault(_httpConnectionService);
+var _HttpConnectionService2 = _interopRequireDefault(_HttpConnectionService);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var root = angular.module('aspWcfAngular', ['ui.bootstrap', _users2.default]).config(AppConfig).run(AppRun).service('dialogService', _dialogService2.default).service('displayMessageService', _displayMessageService2.default).service('errorProcessingService', _errorProcessingService2.default).service('httpConnectionService', _httpConnectionService2.default);
+var root = angular.module('aspWcfAngular', ['ui.bootstrap', _users2.default]).service('DialogService', _DialogService2.default).service('DisplayMessageService', _DisplayMessageService2.default).service('ErrorProcessingService', _ErrorProcessingService2.default).service('HttpConnectionService', _HttpConnectionService2.default);
 
-function AppConfig() {}
-
-function AppRun() {}
-
-},{"./common/services/dialogService":2,"./common/services/displayMessageService":3,"./common/services/errorProcessingService":4,"./common/services/httpConnectionService":5,"./users.module/users.module":9}],2:[function(require,module,exports){
+},{"./common/services/DialogService":2,"./common/services/DisplayMessageService":3,"./common/services/ErrorProcessingService":4,"./common/services/HttpConnectionService":5,"./users.module/users.module":10}],2:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40,14 +36,14 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var dialogService = function () {
-    function dialogService($uibModal) {
-        _classCallCheck(this, dialogService);
+var DialogService = function () {
+    function DialogService($uibModal) {
+        _classCallCheck(this, DialogService);
 
         this._$uibModal = $uibModal;
     }
 
-    _createClass(dialogService, [{
+    _createClass(DialogService, [{
         key: 'openCustomDialogDialog',
         value: function openCustomDialogDialog(templateUrl, controller, resolveData) {
             var modalInstance = this._$uibModal.open({
@@ -78,14 +74,14 @@ var dialogService = function () {
         }
     }]);
 
-    return dialogService;
+    return DialogService;
 }();
 
 ;
 
-dialogService.$inject = ['$uibModal'];
+DialogService.$inject = ['$uibModal'];
 
-exports.default = dialogService;
+exports.default = DialogService;
 
 },{}],3:[function(require,module,exports){
 'use strict';
@@ -98,14 +94,14 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var displayMessageService = function () {
-    function displayMessageService($rootScope) {
-        _classCallCheck(this, displayMessageService);
+var DisplayMessageService = function () {
+    function DisplayMessageService($rootScope) {
+        _classCallCheck(this, DisplayMessageService);
 
         this._$rootScope = $rootScope;
     }
 
-    _createClass(displayMessageService, [{
+    _createClass(DisplayMessageService, [{
         key: 'showError',
         value: function showError(message) {
             this._$rootScope.alerts.push({ type: 'danger', message: message });
@@ -122,12 +118,12 @@ var displayMessageService = function () {
         }
     }]);
 
-    return displayMessageService;
+    return DisplayMessageService;
 }();
 
-displayMessageService.$inject = ['$rootScope'];
+DisplayMessageService.$inject = ['$rootScope'];
 
-exports.default = displayMessageService;
+exports.default = DisplayMessageService;
 
 },{}],4:[function(require,module,exports){
 'use strict';
@@ -140,15 +136,15 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var errorProcessingService = function () {
-    function errorProcessingService($log, displayMessageService) {
-        _classCallCheck(this, errorProcessingService);
+var ErrorProcessingService = function () {
+    function ErrorProcessingService($log, displayMessageService) {
+        _classCallCheck(this, ErrorProcessingService);
 
         this._$log = $log;
         this._displayMessageService = displayMessageService;
     }
 
-    _createClass(errorProcessingService, [{
+    _createClass(ErrorProcessingService, [{
         key: 'processHttpError',
         value: function processHttpError(response) {
             this._$log.error(response.statusText);
@@ -166,14 +162,14 @@ var errorProcessingService = function () {
         }
     }]);
 
-    return errorProcessingService;
+    return ErrorProcessingService;
 }();
 
 ;
 
-errorProcessingService.$inject = ['$log', 'displayMessageService'];
+ErrorProcessingService.$inject = ['$log', 'DisplayMessageService'];
 
-exports.default = errorProcessingService;
+exports.default = ErrorProcessingService;
 
 },{}],5:[function(require,module,exports){
 'use strict';
@@ -186,16 +182,16 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var httpConnectionService = function () {
-    function httpConnectionService($http, $q, errorProcessingService) {
-        _classCallCheck(this, httpConnectionService);
+var HttpConnectionService = function () {
+    function HttpConnectionService($http, $q, errorProcessingService) {
+        _classCallCheck(this, HttpConnectionService);
 
         this._$http = $http;
         this._$q = $q;
         this._errorProcessingService = errorProcessingService;
     }
 
-    _createClass(httpConnectionService, [{
+    _createClass(HttpConnectionService, [{
         key: 'get',
         value: function get(url) {
             var deferred = this._$q.defer();
@@ -233,14 +229,14 @@ var httpConnectionService = function () {
         }
     }]);
 
-    return httpConnectionService;
+    return HttpConnectionService;
 }();
 
 ;
 
-httpConnectionService.$inject = ['$http', '$q', 'errorProcessingService'];
+HttpConnectionService.$inject = ['$http', '$q', 'ErrorProcessingService'];
 
-exports.default = httpConnectionService;
+exports.default = HttpConnectionService;
 
 },{}],6:[function(require,module,exports){
 'use strict';
@@ -363,7 +359,7 @@ var UsersController = function () {
     return UsersController;
 }();
 
-UsersController.$inject = ['dialogService', 'displayMessageService', 'userService'];
+UsersController.$inject = ['DialogService', 'DisplayMessageService', 'UserService'];
 
 exports.default = UsersController;
 
@@ -373,60 +369,118 @@ exports.default = UsersController;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-userService.$inject = ['$q', 'httpConnectionService', 'dialogService'];
 
-function userService($q, httpConnectionService, dialogService) {
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-    return {
-        getUsers: getUsers,
-        deleteUser: deleteUser,
-        createUser: createUser,
-        editUser: editUser,
-        updateUser: updateUser
-    };
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-    function createUser() {
-        return openEditUserDialog({});
-    };
+var EditUserDialogController = function () {
+    function EditUserDialogController(userService, $uibModalInstance, user) {
+        _classCallCheck(this, EditUserDialogController);
 
-    function editUser(user) {
-        return openEditUserDialog(angular.copy(user));
-    };
+        this._userService = userService;
+        this.user = user;
+        this._$uibModalInstance = $uibModalInstance;
+    }
 
-    function updateUser(user) {
-        return httpConnectionService.post(AWA.urls.user.update, user);
-    };
-
-    function openEditUserDialog(user) {
-        return dialogService.openCustomDialogDialog('editUserDialog.html', 'EditUserDialogCtrl', { user: user });
-    };
-
-    function getUsers(search, pageNumber) {
-        //TODO: create format filter
-        var url = AWA.urls.user.list.replace('{0}', search || '').replace('{1}', pageNumber || 1);
-
-        return httpConnectionService.get(url);
-    };
-
-    function deleteUser(user) {
-        var deferred = $q.defer();
-        var message = String.format(AWA.resources.message.SureToDeleteUser, user.FirstName + ' ' + user.LastName);
-
-        dialogService.openYesNoDialog(AWA.resources.title.Delete_user, message).then(function () {
-            var url = AWA.urls.user.delete;
-
-            httpConnectionService.post(url, { userId: user.UserId }).then(function (response) {
-                deferred.resolve(response);
+    _createClass(EditUserDialogController, [{
+        key: 'updateInfo',
+        value: function updateInfo() {
+            this._userService.updateUser(this.user).then(function (result) {
+                this._$uibModalInstance.close(result.Data);
             });
-        });
+        }
+    }, {
+        key: 'cancel',
+        value: function cancel() {
+            this._$uibModalInstance.dismiss();
+        }
+    }]);
 
-        return deferred.promise;
-    };
-};
+    return EditUserDialogController;
+}();
 
-exports.default = userService;
+EditUserDialogController.$inject = ['UserService', '$uibModalInstance', 'user'];
+
+exports.default = EditUserDialogController;
 
 },{}],9:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var UserService = function () {
+    function UserService($q, httpConnectionService, DialogService) {
+        _classCallCheck(this, UserService);
+
+        this._$q = $q;
+        this._httpConnectionService = httpConnectionService;
+        this._dialogService = DialogService;
+    }
+
+    _createClass(UserService, [{
+        key: 'createUser',
+        value: function createUser() {
+            return this.openEditUserDialog({});
+        }
+    }, {
+        key: 'editUser',
+        value: function editUser(user) {
+            return this.openEditUserDialog(angular.copy(user));
+        }
+    }, {
+        key: 'updateUser',
+        value: function updateUser(user) {
+            return this._httpConnectionService.post(AWA.urls.user.update, user);
+        }
+    }, {
+        key: 'openEditUserDialog',
+        value: function openEditUserDialog(user) {
+            return this._dialogService.openCustomDialogDialog('editUserDialog.html', 'EditUserDialogController', { user: user });
+        }
+    }, {
+        key: 'getUsers',
+        value: function getUsers(search, pageNumber) {
+            //TODO: create format filter
+            var url = AWA.urls.user.list.replace('{0}', search || '').replace('{1}', pageNumber || 1);
+
+            return this._httpConnectionService.get(url);
+        }
+    }, {
+        key: 'deleteUser',
+        value: function deleteUser(user) {
+            var deferred = this._$q.defer();
+            var message = String.format(AWA.resources.message.SureToDeleteUser, user.FirstName + ' ' + user.LastName);
+            var _this = this;
+
+            this._dialogService.openYesNoDialog(AWA.resources.title.Delete_user, message).then(function () {
+                var url = AWA.urls.user.delete;
+
+                _this.HttpConnectionService.post(url, { userId: user.UserId }).then(function (response) {
+                    deferred.resolve(response);
+                });
+            });
+
+            return deferred.promise;
+        }
+    }]);
+
+    return UserService;
+}();
+
+;
+
+UserService.$inject = ['$q', 'HttpConnectionService', 'DialogService'];
+
+exports.default = UserService;
+
+},{}],10:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -437,13 +491,17 @@ var _users = require('./components/users/users.component');
 
 var _users2 = _interopRequireDefault(_users);
 
-var _userService = require('./services/userService');
+var _UserService = require('./services/UserService');
 
-var _userService2 = _interopRequireDefault(_userService);
+var _UserService2 = _interopRequireDefault(_UserService);
+
+var _editUserDialog = require('./controllers/editUserDialog.controller');
+
+var _editUserDialog2 = _interopRequireDefault(_editUserDialog);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var AppUsersModule = angular.module('aspWcfAngular.users', ['ui.router']).config(AppConfig).run(AppRun);
+var AppUsersModule = angular.module('aspWcfAngular.users', ['ui.router']).config(AppConfig).run(AppRun).component('users', _users2.default).service('UserService', _UserService2.default).controller('EditUserDialogController', _editUserDialog2.default);
 
 AppConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
 
@@ -457,11 +515,9 @@ function AppConfig($stateProvider, $urlRouterProvider) {
 
 function AppRun() {}
 
-AppUsersModule.component('users', _users2.default).factory('userService', _userService2.default);
-
 exports.default = AppUsersModule.name;
 
-},{"./components/users/users.component":6,"./services/userService":8}]},{},[1])
+},{"./components/users/users.component":6,"./controllers/editUserDialog.controller":8,"./services/UserService":9}]},{},[1])
 
 
 //# sourceMappingURL=bundle.js.map

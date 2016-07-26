@@ -48,8 +48,7 @@ namespace ASP
                 "~/Scripts/src/common/directives/removeSpaces.js",
 
                 "~/Scripts/src/common/controllers/yesNoDialogCtrl.js",
-                "~/Scripts/src/common/controllers/messageAreaCtrl.js",
-                "~/Scripts/src/common/controllers/editUserDialogCtrl.js"));
+                "~/Scripts/src/common/controllers/messageAreaCtrl.js"));
         }
     }
 }

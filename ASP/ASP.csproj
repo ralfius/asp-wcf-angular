@@ -983,7 +983,7 @@
     <Content Include="Scripts\lib\ui-bootstrap-tpls-1.3.3.js" />
     <Content Include="Scripts\src\app.js" />
     <Content Include="Scripts\src\users.module\components\users\users.component.js" />
-    <Content Include="Scripts\src\common\controllers\editUserDialogCtrl.js" />
+    <Content Include="Scripts\src\users.module\controllers\editUserDialog.controller.js" />
     <Content Include="Scripts\src\common\controllers\messageAreaCtrl.js" />
     <Content Include="Scripts\src\users.module\components\users\users.controller.js" />
     <Content Include="Scripts\src\common\controllers\usersCtrl.spec.js" />
