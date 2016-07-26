@@ -1,46 +1,46 @@
-﻿angular.module('aspWcfAngular')
-    .service('httpConnectionService', httpConnectionService);
+﻿class httpConnectionService {
 
-httpConnectionService.$inject = ['$http', '$q', 'errorProcessingService'];
+    constructor($http, $q, errorProcessingService){
+        this._$http = $http;
+        this._$q = $q;
+        this._errorProcessingService = errorProcessingService;
+    }
 
-function httpConnectionService($http, $q, errorProcessingService) {
+    get(url) {
+        let deferred = this._$q.defer();
+        let _this = this;
 
-    var service = {
-        get: get,
-        post: post
-    };
-
-    return service;
-
-    function get(url) {
-        var deferred = $q.defer();
-
-        $http.get(url).then(function (response) {
-            if (errorProcessingService.canProcessServerResponse(response)) {
+        this._$http.get(url).then(function (response) {
+            if (_this._errorProcessingService.canProcessServerResponse(response)) {
                 return deferred.resolve(response.data);
             } else {
-                errorProcessingService.processErrorResponse(response);
+                _this._errorProcessingService.processErrorResponse(response);
             }
         }, function (response) {
-            errorProcessingService.processHttpError(response)
+            _this._errorProcessingService.processHttpError(response)
         });
 
         return deferred.promise;
     };
 
-    function post(url, data) {
-        var deferred = $q.defer();
+    post(url, data) {
+        let deferred = this._$q.defer();
+        let _this = this;
 
-        $http.post(url, data).then(function (response) {
-            if (errorProcessingService.canProcessServerResponse(response)) {
+        this._$http.post(url, data).then(function (response) {
+            if (_this._errorProcessingService.canProcessServerResponse(response)) {
                 return deferred.resolve(response.data);
             } else {
-                errorProcessingService.processErrorResponse(response);
+                _this._errorProcessingService.processErrorResponse(response);
             }
         }, function (response) {
-            errorProcessingService.processHttpError(response)
+            _this._errorProcessingService.processHttpError(response)
         });
 
         return deferred.promise;
     };
 };
+
+httpConnectionService.$inject = ['$http', '$q', 'errorProcessingService'];
+
+export default httpConnectionService;

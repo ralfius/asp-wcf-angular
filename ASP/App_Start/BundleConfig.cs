@@ -47,11 +47,6 @@ namespace ASP
                 "~/Scripts/src/common/directives/capitalize.js",
                 "~/Scripts/src/common/directives/removeSpaces.js",
 
-                "~/Scripts/src/common/services/errorProcessingService.js",
-                "~/Scripts/src/common/services/httpConnectionService.js",
-                "~/Scripts/src/common/services/displayMessageService.js",
-                "~/Scripts/src/common/services/dialogService.js",
-
                 "~/Scripts/src/common/controllers/yesNoDialogCtrl.js",
                 "~/Scripts/src/common/controllers/messageAreaCtrl.js",
                 "~/Scripts/src/common/controllers/editUserDialogCtrl.js"));

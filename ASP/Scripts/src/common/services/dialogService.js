@@ -1,20 +1,10 @@
-﻿angular
-    .module('aspWcfAngular')
-    .factory('dialogService', dialogService);
+﻿class dialogService {
+    constructor($uibModal){
+        this._$uibModal = $uibModal;
+    }
 
-dialogService.$inject = ['$uibModal'];
-
-function dialogService($uibModal) {
-
-    var service = {
-        openCustomDialogDialog: openCustomDialogDialog,
-        openYesNoDialog: openYesNoDialog
-    };
-
-    return service;
-
-    function openCustomDialogDialog (templateUrl, controller, resolveData) {
-        var modalInstance = $uibModal.open({
+    openCustomDialogDialog (templateUrl, controller, resolveData) {
+        var modalInstance = this._$uibModal.open({
             templateUrl: templateUrl,
             controller: controller,
             controllerAs: 'vm',
@@ -25,8 +15,8 @@ function dialogService($uibModal) {
     };
 
 
-    function openYesNoDialog (title, message) {
-        var modalInstance = $uibModal.open({
+    openYesNoDialog (title, message) {
+        var modalInstance = this._$uibModal.open({
             templateUrl: 'yesNoDialog.html',
             controller: 'YesNoDialogCtrl',
             controllerAs: 'vm',
@@ -41,3 +31,7 @@ function dialogService($uibModal) {
         return modalInstance.result;
     };
 };
+
+dialogService.$inject = ['$uibModal'];
+
+export default dialogService;

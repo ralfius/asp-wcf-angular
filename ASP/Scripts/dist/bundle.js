@@ -5,15 +5,244 @@ var _users = require('./users.module/users.module');
 
 var _users2 = _interopRequireDefault(_users);
 
+var _dialogService = require('./common/services/dialogService');
+
+var _dialogService2 = _interopRequireDefault(_dialogService);
+
+var _displayMessageService = require('./common/services/displayMessageService');
+
+var _displayMessageService2 = _interopRequireDefault(_displayMessageService);
+
+var _errorProcessingService = require('./common/services/errorProcessingService');
+
+var _errorProcessingService2 = _interopRequireDefault(_errorProcessingService);
+
+var _httpConnectionService = require('./common/services/httpConnectionService');
+
+var _httpConnectionService2 = _interopRequireDefault(_httpConnectionService);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var root = angular.module('aspWcfAngular', ['ui.bootstrap', _users2.default]).config(AppConfig).run(AppRun);
+var root = angular.module('aspWcfAngular', ['ui.bootstrap', _users2.default]).config(AppConfig).run(AppRun).service('dialogService', _dialogService2.default).service('displayMessageService', _displayMessageService2.default).service('errorProcessingService', _errorProcessingService2.default).service('httpConnectionService', _httpConnectionService2.default);
 
 function AppConfig() {}
 
 function AppRun() {}
 
-},{"./users.module/users.module":5}],2:[function(require,module,exports){
+},{"./common/services/dialogService":2,"./common/services/displayMessageService":3,"./common/services/errorProcessingService":4,"./common/services/httpConnectionService":5,"./users.module/users.module":9}],2:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var dialogService = function () {
+    function dialogService($uibModal) {
+        _classCallCheck(this, dialogService);
+
+        this._$uibModal = $uibModal;
+    }
+
+    _createClass(dialogService, [{
+        key: 'openCustomDialogDialog',
+        value: function openCustomDialogDialog(templateUrl, controller, resolveData) {
+            var modalInstance = this._$uibModal.open({
+                templateUrl: templateUrl,
+                controller: controller,
+                controllerAs: 'vm',
+                resolve: resolveData
+            });
+
+            return modalInstance.result;
+        }
+    }, {
+        key: 'openYesNoDialog',
+        value: function openYesNoDialog(title, message) {
+            var modalInstance = this._$uibModal.open({
+                templateUrl: 'yesNoDialog.html',
+                controller: 'YesNoDialogCtrl',
+                controllerAs: 'vm',
+                resolve: {
+                    content: {
+                        title: title,
+                        message: message
+                    }
+                }
+            });
+
+            return modalInstance.result;
+        }
+    }]);
+
+    return dialogService;
+}();
+
+;
+
+dialogService.$inject = ['$uibModal'];
+
+exports.default = dialogService;
+
+},{}],3:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var displayMessageService = function () {
+    function displayMessageService($rootScope) {
+        _classCallCheck(this, displayMessageService);
+
+        this._$rootScope = $rootScope;
+    }
+
+    _createClass(displayMessageService, [{
+        key: 'showError',
+        value: function showError(message) {
+            this._$rootScope.alerts.push({ type: 'danger', message: message });
+        }
+    }, {
+        key: 'showSuccess',
+        value: function showSuccess(message) {
+            this._$rootScope.alerts.push({ type: 'success', message: message });
+        }
+    }, {
+        key: 'showWarning',
+        value: function showWarning(message) {
+            this._$rootScope.alerts.push({ type: 'warning', message: message });
+        }
+    }]);
+
+    return displayMessageService;
+}();
+
+displayMessageService.$inject = ['$rootScope'];
+
+exports.default = displayMessageService;
+
+},{}],4:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var errorProcessingService = function () {
+    function errorProcessingService($log, displayMessageService) {
+        _classCallCheck(this, errorProcessingService);
+
+        this._$log = $log;
+        this._displayMessageService = displayMessageService;
+    }
+
+    _createClass(errorProcessingService, [{
+        key: 'processHttpError',
+        value: function processHttpError(response) {
+            this._$log.error(response.statusText);
+        }
+    }, {
+        key: 'processErrorResponse',
+        value: function processErrorResponse(response) {
+            this._$log.error('Got server error: status = ' + response.data.Status + ', message = ' + response.data.Message);
+            this._displayMessageService.showError(response.data.Message);
+        }
+    }, {
+        key: 'canProcessServerResponse',
+        value: function canProcessServerResponse(response) {
+            return response.status == 200 && response.data.Status === AWA.enums.status.success;
+        }
+    }]);
+
+    return errorProcessingService;
+}();
+
+;
+
+errorProcessingService.$inject = ['$log', 'displayMessageService'];
+
+exports.default = errorProcessingService;
+
+},{}],5:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var httpConnectionService = function () {
+    function httpConnectionService($http, $q, errorProcessingService) {
+        _classCallCheck(this, httpConnectionService);
+
+        this._$http = $http;
+        this._$q = $q;
+        this._errorProcessingService = errorProcessingService;
+    }
+
+    _createClass(httpConnectionService, [{
+        key: 'get',
+        value: function get(url) {
+            var deferred = this._$q.defer();
+            var _this = this;
+
+            this._$http.get(url).then(function (response) {
+                if (_this._errorProcessingService.canProcessServerResponse(response)) {
+                    return deferred.resolve(response.data);
+                } else {
+                    _this._errorProcessingService.processErrorResponse(response);
+                }
+            }, function (response) {
+                _this._errorProcessingService.processHttpError(response);
+            });
+
+            return deferred.promise;
+        }
+    }, {
+        key: 'post',
+        value: function post(url, data) {
+            var deferred = this._$q.defer();
+            var _this = this;
+
+            this._$http.post(url, data).then(function (response) {
+                if (_this._errorProcessingService.canProcessServerResponse(response)) {
+                    return deferred.resolve(response.data);
+                } else {
+                    _this._errorProcessingService.processErrorResponse(response);
+                }
+            }, function (response) {
+                _this._errorProcessingService.processHttpError(response);
+            });
+
+            return deferred.promise;
+        }
+    }]);
+
+    return httpConnectionService;
+}();
+
+;
+
+httpConnectionService.$inject = ['$http', '$q', 'errorProcessingService'];
+
+exports.default = httpConnectionService;
+
+},{}],6:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -33,7 +262,7 @@ var users = {
 
 exports.default = users;
 
-},{"./users.controller":3}],3:[function(require,module,exports){
+},{"./users.controller":7}],7:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -138,7 +367,7 @@ UsersController.$inject = ['dialogService', 'displayMessageService', 'userServic
 
 exports.default = UsersController;
 
-},{}],4:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -197,7 +426,7 @@ function userService($q, httpConnectionService, dialogService) {
 
 exports.default = userService;
 
-},{}],5:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -232,7 +461,7 @@ AppUsersModule.component('users', _users2.default).factory('userService', _userS
 
 exports.default = AppUsersModule.name;
 
-},{"./components/users/users.component":2,"./services/userService":4}]},{},[1])
+},{"./components/users/users.component":6,"./services/userService":8}]},{},[1])
 
 
 //# sourceMappingURL=bundle.js.map
