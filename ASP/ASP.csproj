@@ -992,9 +992,9 @@
     <Content Include="Scripts\src\common\directives\removeSpaces.directive.js" />
     <Content Include="Scripts\src\common\directives\unobtrusiveValidatorParse.directive.js" />
     <Content Include="Scripts\src\common\directives\validateSubmit.directive.js" />
-    <Content Include="Scripts\src\es6Sandbox.js" />
+    <Content Include="Scripts\src\sandbox\es6Sandbox.js" />
     <Content Include="Scripts\src\helpers.js" />
-    <Content Include="Scripts\src\inheritance.js" />
+    <Content Include="Scripts\src\sandbox\inheritance.js" />
     <Content Include="Scripts\src\common\services\dialogService.js" />
     <Content Include="Scripts\src\common\services\displayMessageService.js" />
     <Content Include="Scripts\src\common\services\errorProcessingService.js" />
