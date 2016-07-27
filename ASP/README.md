@@ -1,6 +1,6 @@
 # gulp instalation
 ```
-npm -g gulp
+npm install -g gulp
 ```
 navigate to gulp folder
 ```
@@ -10,7 +10,7 @@ gulp
 
 # karma run
 ```
-npm karma-cli
+npm install -g karma-cli
 ```
 navigate to karma folder
 ```
