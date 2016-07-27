@@ -2,8 +2,6 @@
     beforeEach(module('aspWcfAngular'));
 
     describe('activate invokes getUsers', function () {
-        debugger;
-
         var usersController;
         var userService;
 
@@ -15,7 +13,7 @@
 
             UserService.foo = 'bar';
 
-            usersController = $componentController('users', { UserService });
+            usersController = $componentController('users', { UserService: UserService });
             usersController.$onInit();
         }));
 
@@ -31,7 +29,6 @@
             expect(UserService.getUsers).toHaveBeenCalledWith('', 1);
         }));
     });
-
 });
 
 

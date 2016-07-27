@@ -671,12 +671,12 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var UserService = function () {
-    function UserService($q, httpConnectionService, DialogService) {
+    function UserService($q, httpConnectionService, dialogService) {
         _classCallCheck(this, UserService);
 
         this._$q = $q;
         this._httpConnectionService = httpConnectionService;
-        this._dialogService = DialogService;
+        this._dialogService = dialogService;
     }
 
     _createClass(UserService, [{
@@ -702,6 +702,8 @@ var UserService = function () {
     }, {
         key: 'getUsers',
         value: function getUsers(search, pageNumber) {
+            console.log('userService.getUsers called');
+
             //TODO: create format filter
             var url = AWA.urls.user.list.replace('{0}', search || '').replace('{1}', pageNumber || 1);
 
