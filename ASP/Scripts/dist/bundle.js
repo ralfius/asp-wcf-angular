@@ -765,7 +765,7 @@ AppConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
 function AppConfig($stateProvider, $urlRouterProvider) {
     $stateProvider.state('users', {
         url: '/users',
-        component: 'users'
+        template: '<users></users>'
     });
     $urlRouterProvider.otherwise('/users');
 }
