@@ -225,6 +225,7 @@
     <Content Include="Scripts\lib\angular\angular-touch.min.js" />
     <Content Include="Scripts\lib\angular\angular.js" />
     <Content Include="Scripts\lib\angular\angular.min.js" />
+    <Content Include="Scripts\lib\angular\angular_1_router.js" />
     <Content Include="Scripts\lib\angular\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\lib\angular\i18n\angular-locale_aa-er.js" />
     <Content Include="Scripts\lib\angular\i18n\angular-locale_aa-et.js" />
@@ -984,7 +985,10 @@
     <Content Include="Scripts\lib\respond.js" />
     <Content Include="Scripts\lib\respond.min.js" />
     <Content Include="Scripts\lib\ui-bootstrap-tpls-1.3.3.js" />
+    <Content Include="Scripts\src\app.component.js" />
     <Content Include="Scripts\src\app.js" />
+    <Content Include="Scripts\src\users.module\components\userDetails\userDetails.controller.js" />
+    <Content Include="Scripts\src\users.module\components\userDetails\userDetails.component.js" />
     <Content Include="Scripts\src\users.module\components\users\users.component.js" />
     <Content Include="Scripts\src\users.module\controllers\editUserDialog.controller.js" />
     <Content Include="Scripts\src\common\controllers\messageArea.controller.js" />

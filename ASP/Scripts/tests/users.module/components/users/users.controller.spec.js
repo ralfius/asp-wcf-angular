@@ -6,6 +6,8 @@
         var userService;
 
         beforeEach(inject(function ($q, $componentController, UserService) {
+            debugger;
+
             var deferred = $q.defer();
 
             // UserService spy and stub

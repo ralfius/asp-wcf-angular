@@ -13,6 +13,8 @@ import HttpConnectionService from './common/services/HttpConnectionService';
 import MessageAreaController from './common/controllers/messageArea.controller';
 import YesNoDialogController from './common/controllers/yesNoDialog.controller';
 
+import AppComponent from './app.component';
+
 
 const root = angular.module('aspWcfAngular', ['ui.bootstrap',
     AppUsersModule])
@@ -27,4 +29,6 @@ const root = angular.module('aspWcfAngular', ['ui.bootstrap',
     .service('HttpConnectionService', HttpConnectionService)
 
     .controller('MessageAreaController', MessageAreaController)
-    .controller('YesNoDialogController', YesNoDialogController);
+    .controller('YesNoDialogController', YesNoDialogController)
+
+    .component('app', AppComponent);
